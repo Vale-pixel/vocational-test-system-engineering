@@ -27,7 +27,7 @@ function preload() {}
 function setup() {
   gridX = width / 2;
   gridY = height / 2;
-  cubes.push(new cubes(0, 0, 0));
+  //cubes.push(new cubes(0, 0, 0));
   
   screen = 0;
   createCanvas(windowWidth, windowHeight);
