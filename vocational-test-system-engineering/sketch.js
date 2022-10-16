@@ -29,13 +29,16 @@ function setup() {
   gridY = height / 2;
   //cubes.push(new cubes(0, 0, 0));
   
+  //definicion pantalla inicial juego
   screen = 0;
+
   createCanvas(windowWidth, windowHeight);
   background(0);
 
   startGameButton = createButton('<i class="material-icons">play_arrow</i>');
   startGameButton.center();
   startGameButton.position(windowWidth / 2, windowHeight / 2);
+  startGameButton.center();
   startGameButton.child('<i class="material-icons">cloud</i>');
   startGameButton.addClass("btn");
   startGameButton.mousePressed(startGameAction);
@@ -52,9 +55,10 @@ function showGrid() {
 function draw() {
   switch (screen) {
     case 0:
-      //animación
+      //animación (de momento es el botón de inicio)
       background(0);
       break;
+
     case 1:
       //incio
       background(255, 20, 255);
@@ -63,10 +67,22 @@ function draw() {
       //instrucciones
       background(2, 20, 255);
       break;
+
     case 3:
-      //nivel 0
+      //nivel 1
       background(255, 20, 255);
       break;
+
+    case 4:
+      //nivel 2
+      background(255, 20, 255);
+      break;
+
+    case 5:
+      //nivel 3
+      background(255, 20, 255);
+      break;
+
     default:
       background(220);
       break;
