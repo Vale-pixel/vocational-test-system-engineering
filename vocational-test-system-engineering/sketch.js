@@ -35,7 +35,7 @@ function setup() {
   //cubes.push(new cubes(0, 0, 0));
   
   //definicion pantalla inicial juego
-  screen = 2;
+  screen = 0;
 
   createCanvas(windowWidth, windowHeight);
   background(0);
