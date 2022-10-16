@@ -1,3 +1,4 @@
+let terreno;
 let screen;
 let startGameButton;
 const maxHeight = 80;
@@ -25,12 +26,16 @@ function startGameAction() {
 function preload() {}
 
 function setup() {
+  //llamada de la clase mapa niveles para la definicion de los espacios de los niveles
+  terreno = new mapa_niveles();
+  terreno.arregloEscaque();
+
   gridX = width / 2;
   gridY = height / 2;
   //cubes.push(new cubes(0, 0, 0));
   
   //definicion pantalla inicial juego
-  screen = 0;
+  screen = 2;
 
   createCanvas(windowWidth, windowHeight);
   background(0);
@@ -53,6 +58,9 @@ function showGrid() {
   }
 }
 function draw() {
+
+  terreno.mostrar();
+
   switch (screen) {
     case 0:
       //animación (de momento es el botón de inicio)
@@ -70,7 +78,10 @@ function draw() {
 
     case 3:
       //nivel 1
-      background(255, 20, 255);
+
+     terreno.terrenoPrimerNivel(0);
+
+      //background(255, 20, 255);
       break;
 
     case 4:
