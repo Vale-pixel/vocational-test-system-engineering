@@ -66,7 +66,7 @@ mostrar(pantalla1) {
                fill(0);
            }
            stroke(0);
-           rect(col * 50, fil * 50, 50);
+           rect((windowWidth/2) - ( 60 * 2) + (col * 60), (windowHeight/2) - (60 * 2) + (fil * 60), 50, 50);
 
        }
    }
