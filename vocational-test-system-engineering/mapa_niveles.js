@@ -90,10 +90,13 @@ mostrar(pantalla1) {
        for (let col = 0; col < 6; col++) {
            if (this.escaque[fil][col] === 0) { //Zona para caminar
                fill(255);
+               
            } else if(this.escaque[fil][col] === 1) { //Paredes
                fill(0);
+               
            } else if(this.escaque[fil][col] === 2) { //Meta
                 fill(255, 255, 0);
+                
         }
            noStroke();
            rect((windowWidth/2) - ( 85 * 2) + (col * 60), (windowHeight/2) - (60 * 2) + (fil * 60), 50, 50);

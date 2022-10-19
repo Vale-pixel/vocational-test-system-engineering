@@ -36,7 +36,7 @@ function startGameAction() {
 function preload() {}
 
 function setup() {
-  
+
   //LlEGADA DE LOS BOTONES PARA EJECUTARSE
   botonesAccion = [];
 
@@ -72,6 +72,17 @@ function setup() {
   startGameButton.addClass("btn");
   startGameButton.mousePressed(startGameAction);
 }
+
+function mousePressed() {
+  
+  botones.forEach( boton => {
+    if (dist(mouseX, mouseY, boton.getX(), boton.getY()) < 30) {
+      console.log("se presiono el boton :O");
+    }
+  })
+  
+}
+
 function showGrid() {
   xStart = width / 2 - TILE_WIDTH / 2;
   yStart = 50;
