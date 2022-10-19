@@ -1,6 +1,16 @@
+let jugador;
+let botones;
+let botonesAccion;
+
 let terreno;
 let screen;
 let startGameButton;
+
+let xPos;
+let yPos;
+let pCol;
+let pFil;
+
 const maxHeight = 80;
 const gridSize = 10;
 let gridX;
@@ -26,6 +36,20 @@ function startGameAction() {
 function preload() {}
 
 function setup() {
+  
+  //LlEGADA DE LOS BOTONES PARA EJECUTARSE
+  botonesAccion = [];
+
+
+  //llamada de los botones
+  botones = [];
+  for (let index = 0; index < 4; index++) {
+    botones.push (new Botones())
+  }
+
+  //llamada del jugador
+  jugador = new Jugador(0 , 0);
+
   //llamada de la clase mapa niveles para la definicion de los espacios de los niveles
   terreno = new mapa_niveles();
   terreno.arregloEscaque();
@@ -59,6 +83,10 @@ function showGrid() {
 }
 function draw() {
 
+  botones.forEach((boton, index)=> {
+    boton.pintarBotones(index)
+  });
+
   terreno.mostrar();
 
   switch (screen) {
@@ -79,6 +107,7 @@ function draw() {
     case 3:
       //nivel 1
 
+     jugador.mostrarProtagonista(1,1);
      terreno.terrenoPrimerNivel(0);
 
       //background(255, 20, 255);
