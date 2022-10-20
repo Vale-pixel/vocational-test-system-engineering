@@ -118,7 +118,7 @@ function draw() {
     case 3:
       //nivel 1
 
-     jugador.mostrarProtagonista(1,1);
+     jugador.mostrarProtagonista();
      terreno.terrenoPrimerNivel(0);
 
       //background(255, 20, 255);

@@ -1,8 +1,8 @@
 class Jugador {
     constructor(pFil, pCol){
 
-        this.xPos = 20;
-        this.yPos = 20;
+        this.xPos = (windowWidth/2) - ( 85 * 2) + 80;
+        this.yPos = 5;
         this.pCol = 0;
         this.pFil = 0;
         this.vidas = 3; //esto se añade
