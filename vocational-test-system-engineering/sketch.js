@@ -48,7 +48,7 @@ function setup() {
   }
 
   //llamada del jugador
-  jugador = new Jugador(0 , 0);
+  jugador = new Jugador(0,0);
 
   //llamada de la clase mapa niveles para la definicion de los espacios de los niveles
   terreno = new mapa_niveles();
@@ -118,7 +118,7 @@ function draw() {
     case 3:
       //nivel 1
 
-     jugador.mostrarProtagonista();
+     jugador.show(2,4);
      terreno.terrenoPrimerNivel(0);
 
       //background(255, 20, 255);

@@ -1,4 +1,69 @@
 class Jugador {
+    constructor(playerFil, playerCol, playerDir){
+        this.playerPosX = (playerCol * 40) + 20;
+        this.playerPosY = (playerFil * 40) + 20;
+        this.playerCol =  playerCol; 
+        this.playerFil = playerFil;
+        this.playerDir = playerDir;
+        }
+
+    init(){
+        this.playerCol = 16;
+        this.playerFil = 6;
+        this.playerPosX = (this.playerCol * 40) + 20;
+        this.playerPosY = (this.playerFil * 40) + 20;
+        this.playerDir = 0;
+    }
+
+    show(){
+        fill(255, 255, 0);
+        ellipse(this.playerPosX, this.playerPosY, 30, 30);
+    }
+
+    updateLocation(){
+        this.playerPosX = (this.playerCol * 40) + 20;
+        this.playerPosY = (this.playerFil * 40) + 20;
+    }
+
+    getX () {
+        return this.playerPosX;
+    }
+    getY () {
+        return this.playerPosY;
+    }
+     /*    this.playerPosX = (playerCol - ( 85 * 2)) + (0 * 60);
+        this.playerPosY = (playerFil - (60 * 2)) + (0 * 60);
+        this.playerCol =  playerCol; 
+        this.playerFil = playerFil;
+        this.playerDir = playerDir;
+        }
+
+    init(){
+        this.playerCol = (windowWidth/2);
+        this.playerFil = (windowHeight/2);
+        this.playerPosX = (this.playerCol - ( 85 * 2)) + (0 * 60);
+        this.playerPosY = (this.playerFil - (60 * 2)) + (0 * 60);
+    }
+
+    show(){
+        fill(255, 255, 0);
+        ellipse(this.playerPosX, this.playerPosY, 30, 30);
+    }
+
+    updateLocation(){
+        this.playerPosX = (this.playerCol - ( 85 * 2)) + (0 * 60);
+        this.playerPosY = (this.playerFil - (60 * 2)) + (0 * 60);
+    }
+
+    getX () {
+        return this.playerPosX;
+    }
+    getY () {
+        return this.playerPosY;
+    } */
+}
+
+/* class Jugador {
     constructor(pFil, pCol){
 
         this.xPos = (windowWidth/2) - ( 85 * 2) + 80;
@@ -64,4 +129,4 @@ setPcol(nuevoPcol) {
 setPfil(nuevoPfil) {
     this.pFil = nuevoPfil;
 }
-}
+} */
