@@ -76,8 +76,9 @@ function setup() {
 function mousePressed() {
   
   botones.forEach( boton => {
-    if (dist(mouseX, mouseY, boton.getX(), boton.getY()) < 30) {
-      console.log("se presiono el boton :O");
+    if (dist(mouseX, mouseY, boton.getX()+25, boton.getY()+25) < 20) {
+      botonesAccion.push(new Botones())
+    
     }
   })
   
@@ -117,11 +118,14 @@ function draw() {
 
     case 3:
       //nivel 1
-    jugador.setCol(2);
-    jugador.setFil(4);
+    jugador.setCol(1);
+    jugador.setFil(1);
      jugador.show();
      terreno.terrenoPrimerNivel(0);
 
+botonesAccion.forEach((boton, index)=> {
+    boton.pintarBotonesAccion(index)
+  });
       //background(255, 20, 255);
       break;
 
