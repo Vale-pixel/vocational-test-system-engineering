@@ -1,6 +1,7 @@
 let jugador;
 let botones;
 let botonesAccion;
+let botonInicio
 
 let terreno;
 let screen;
@@ -36,6 +37,8 @@ function startGameAction() {
 function preload() {}
 
 function setup() {
+
+  botonInicio = new Botones();
 
   //LlEGADA DE LOS BOTONES PARA EJECUTARSE
   botonesAccion = [];
@@ -74,9 +77,13 @@ function setup() {
 }
 
 function mousePressed() {
+
+  if(dist(mouseX, mouseY, windowWidth/2, windowHeight/2 + 200)< 30){
+    console.log("se le dio click");
+  }
   
   botones.forEach( boton => {
-    if (dist(mouseX, mouseY, boton.getX()+25, boton.getY()+25) < 20) {
+    if (dist(mouseX, mouseY, boton.getX(), boton.getY()) < 30) {
       botonesAccion.push(new Botones())
     
     }
@@ -94,6 +101,13 @@ function showGrid() {
   }
 }
 function draw() {
+
+  botonInicio.botonInicioJuego();
+
+
+ /*  fill(5, 255, 124);
+  ellipse(windowWidth/2, windowHeight/2 + 200, 30, 30); */
+  
 
   botones.forEach((boton, index)=> {
     boton.pintarBotones(index)
