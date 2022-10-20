@@ -3,6 +3,8 @@ let botones;
 let botonesAccion;
 let botonInicio
 
+let posicionJugadorNivel1;
+
 let terreno;
 let screen;
 let startGameButton;
@@ -37,6 +39,8 @@ function startGameAction() {
 function preload() {}
 
 function setup() {
+
+  posicionJugadorNivel1 = false
 
   botonInicio = new Botones();
 
@@ -80,6 +84,7 @@ function mousePressed() {
 
   if(dist(mouseX, mouseY, windowWidth/2, windowHeight/2 + 200)< 30){
     console.log("se le dio click");
+    recorridoArreglo();
   }
   
   botones.forEach( boton => {
@@ -88,6 +93,20 @@ function mousePressed() {
     
     }
   })
+  
+}
+
+function recorridoArreglo() {
+
+  botonesAccion.forEach((boton) => {
+    if(boton.name === "derecha"){
+      jugador.setCol (jugador.getCol() + 1);
+    }
+
+    console.log(jugador.getCol);
+
+  })
+  
   
 }
 
@@ -132,8 +151,14 @@ function draw() {
 
     case 3:
       //nivel 1
-    jugador.setCol(1);
-    jugador.setFil(1);
+
+      if(posicionJugadorNivel1 == false) {
+        jugador.setCol(1);
+        jugador.setFil(1);
+
+        posicionJugadorNivel1 = true;
+      }
+
      jugador.show();
      terreno.terrenoPrimerNivel(0);
 

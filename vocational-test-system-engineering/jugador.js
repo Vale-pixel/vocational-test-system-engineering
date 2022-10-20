@@ -26,10 +26,18 @@ class Jugador {
     }
 
     setCol (col) {
-        return this.playerCol = col;
+        this.playerCol = col;
     }
     setFil (fil) {
-        return this.playerFil = fil;
+        this.playerFil = fil;
+    }
+
+    getCol (){
+        return this.playerCol;
+    }
+
+    getFil (){
+        return this.playerFil;
     }
      /*    this.playerPosX = (playerCol - ( 85 * 2)) + (0 * 60);
         this.playerPosY = (playerFil - (60 * 2)) + (0 * 60);
