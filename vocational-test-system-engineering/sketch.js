@@ -48,7 +48,7 @@ function setup() {
   }
 
   //llamada del jugador
-  jugador = new Jugador(0,0);
+  jugador = new Jugador(1,1);
 
   //llamada de la clase mapa niveles para la definicion de los espacios de los niveles
   terreno = new mapa_niveles();
