@@ -313,6 +313,7 @@ function draw() {
       terreno.reiniciar();
       terreno.terrenoPrimerNivel(4);
 
+      //Aqui es donde se debería colocar el reinicio de los arreglos
       botonesAccion.forEach((boton, index) => {
         boton.pintarBotonesAccion(index);
       });

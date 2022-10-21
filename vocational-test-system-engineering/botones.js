@@ -17,6 +17,7 @@ class Botones {
         fill(123, 0, 255);
     }
 
+    //funcion que pinta los botones del segundo arreglo
     pintarBotonesAccion(index) {
         if (index < 4) {
             image(this.imagen,this.x * index + 1350, this.y - 500, 60, 60);
