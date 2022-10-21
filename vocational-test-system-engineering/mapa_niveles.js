@@ -1,7 +1,6 @@
 class mapa_niveles {
     constructor(){
         this.escaque = [];
-        this.escaque2 = [];
 
         this.posX = 20;
         this.posY = 20;

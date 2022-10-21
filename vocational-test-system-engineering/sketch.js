@@ -97,12 +97,17 @@ function mousePressed() {
 
 function recorridoArreglo() {
   botonesAccion.forEach((boton) => {
-    if (boton.name === "derecha") {
-      jugador.setCol(jugador.getCol() + 1);
+    if (boton.name === "derecha" && terreno.getLocacion(jugador.getPfil(), jugador.getPcol() - 1) === 1) {
+    jugador.setCol(jugador.getCol() + 1);
+     //screen +=1
     }
 
     console.log(jugador.getCol);
   });
+}
+
+function perdio(){
+
 }
 
 function showGrid() {
@@ -114,6 +119,7 @@ function showGrid() {
     }
   }
 }
+
 function draw() {
   botonInicio.botonInicioJuego();
 
@@ -158,6 +164,7 @@ function draw() {
       botonesAccion.forEach((boton, index) => {
         boton.pintarBotonesAccion(index);
       });
+
 
       //background(255, 20, 255);
       break;
@@ -255,3 +262,9 @@ function draw() {
       break;
   }
 }
+
+/*
+function die(){
+
+  
+}*/
