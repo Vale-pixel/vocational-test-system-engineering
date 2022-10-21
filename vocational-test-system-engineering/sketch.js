@@ -177,7 +177,10 @@ function draw() {
   if(terreno.getLocacion(jugador.getFil(),jugador.getCol())===1){
     screen += 1;
     botonesAccion = [];
-  } 
+  } else if (terreno.getLocacion(jugador.getFil(),jugador.getCol()) === 2){
+    screen += 2;
+    botonesAccion = [];
+  }
 
 
   switch (screen) {
