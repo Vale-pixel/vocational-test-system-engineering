@@ -69,6 +69,7 @@ terrenoPrimerNivel(nivel1){
                     this.escaque[4][3] = 1;
                     this.escaque[4][4] = 1;
                     this.escaque[4][5] = 1;
+                    
                     this.escaque[2][2] = 2;
                     
 
@@ -92,7 +93,7 @@ mostrar(pantalla1) {
                fill(255);
                
            } else if(this.escaque[fil][col] === 1) { //Paredes
-               fill(0);
+               fill(0 , 0 , 255);
                
            } else if(this.escaque[fil][col] === 2) { //Meta
                 fill(255, 255, 0);
