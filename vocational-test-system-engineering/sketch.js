@@ -54,7 +54,7 @@ function setup() {
   botones = [];
   for (let index = 0; index < 4; index++) {
     botones.push (new Botones())
-    botones.push(new Boton_Arriba())
+    //botones.push(new Boton_Arriba())
   }
 
   //llamada del jugador
@@ -133,7 +133,7 @@ function draw() {
 
   botones.forEach((boton, index)=> {
     boton.pintarBotones(index)
-    boton.mostrarBotonDer(index)
+    //boton.mostrarBotonDer(index)
   });
 
   terreno.mostrar();
