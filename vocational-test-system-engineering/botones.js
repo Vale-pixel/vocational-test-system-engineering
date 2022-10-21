@@ -20,11 +20,11 @@ class Botones {
     //funcion que pinta los botones del segundo arreglo
     pintarBotonesAccion(index) {
         if (index < 4) {
-            image(this.imagen,this.x * index + 1350, this.y - 500, 60, 60);
+            image(this.imagen,this.x * index + 1050, this.y - 500, 60, 60);
         } else if (index >= 4 && index < 8) {
-            image(this.imagen,this.x * index + 1030, this.y - 430, 60, 60);
+            image(this.imagen,this.x * index + 730, this.y - 430, 60, 60);
         } else if (index >= 4 && index < 12) {
-            image(this.imagen,this.x * index + 710, this.y - 360, 60, 60);
+            image(this.imagen,this.x * index + 410, this.y - 360, 60, 60);
         }
     }
 

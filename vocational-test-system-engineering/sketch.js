@@ -5,6 +5,7 @@ let botonesAccion;
 let botonInicio;
 
 let posicionJugadorNivel1;
+let posicionJugadorNivel2;
 
 let terreno;
 let screen;
@@ -37,10 +38,11 @@ function startGameAction() {
   startGameButton.hide();
   console.log("se cambio");
 }
-function preload() { }
+function preload() {}
 
 function setup() {
   posicionJugadorNivel1 = false;
+  posicionJugadorNivel2 = false;
 
   botonInicio = new Botones();
 
@@ -106,49 +108,52 @@ function mousePressed() {
 }
 
 function agregarAcciones(array) {
-  array.forEach(boton => {
+  array.forEach((boton) => {
     if (dist(mouseX, mouseY, boton.getX() + 30, boton.getY() + 30) < 30) {
       if (boton.name === "derecha") {
-        botonesAccion.push(new Boton_Der())
+        botonesAccion.push(new Boton_Der());
       } else if (boton.name === "arriba") {
-        botonesAccion.push(new Boton_Arriba())
+        botonesAccion.push(new Boton_Arriba());
       } else if (boton.name === "abajo") {
-        botonesAccion.push(new Boton_Abajo())
+        botonesAccion.push(new Boton_Abajo());
       } else if (boton.name === "izquierda") {
-        botonesAccion.push(new Boton_Izquierda())
+        botonesAccion.push(new Boton_Izquierda());
       } else if (boton.name === "llegada") {
-        botonesAccion.push(new Boton_Llegada())
+        botonesAccion.push(new Boton_Llegada());
       } else {
-        botonesAccion.push(new Boton_Loop())
+        botonesAccion.push(new Boton_Loop());
       }
     }
-  })
+  });
 }
 
 function recorridoArreglo() {
   botonesAccion.forEach((boton) => {
-  
-    if ( terreno.getLocacion(jugador.getFil(), jugador.getCol() - 1) ===1 ) {
-     screen +=1
-     console.log(screen);
-    } else if (boton.name === "derecha") {
+    if (
+      boton.name === "derecha"
+    ) {
+      //screen += 1;
       jugador.setCol(jugador.getCol() + 1);
-    } else if (boton.name === "izquierda") {
-        jugador.setCol(jugador.getCol() - 1);
-      }else if (boton.name === "arriba") {
-        jugador.setFil(jugador.getFil() - 1);
-      }
-      else if (boton.name === "abajo") {
-        jugador.setFil(jugador.getFil() + 1);
-      }else if (terreno.getLocacion(jugador.getFil(), jugador.getCol() - 1) ===2) {
-        screen +-1
-      }
-
+      console.log(screen);
+      //jugador.setCol(jugador.getCol() + 1);
+    } else if (
+      boton.name === "izquierda"
+    ) {
+      console.log(screen);
+      jugador.setCol(jugador.getCol() - 1);
+    } else if (
+      boton.name === "arriba"
+    ) {
+      console.log(screen);
+      jugador.setFil(jugador.getFil() - 1);
+    } else if (
+      boton.name === "abajo"
+    ) {
+      console.log(screen);
+      jugador.setFil(jugador.getFil() + 1);
+    } 
   });
-}
-
-function perdio() {
-
+  console.log(terreno.getLocacion(jugador.getFil(), jugador.getCol()) );
 }
 
 function showGrid() {
@@ -161,13 +166,6 @@ function showGrid() {
   }
 }
 
-function reiniciarBotonesAccion(){
-  if(screen>3){
-      this.botonesAccion = [];
-      this.pintarBotonesAccion();
-  }
-      }
-
 function draw() {
   botonInicio.botonInicioJuego();
 
@@ -175,6 +173,12 @@ function draw() {
   ellipse(windowWidth/2, windowHeight/2 + 200, 30, 30); */
 
   terreno.mostrar();
+
+  if(terreno.getLocacion(jugador.getFil(),jugador.getCol())===1){
+    screen += 1;
+    botonesAccion = [];
+  } 
+
 
   switch (screen) {
     case 0:
@@ -214,7 +218,6 @@ function draw() {
         boton.pintarBotonesAccion(index);
       });
 
-
       //background(255, 20, 255);
       break;
 
@@ -226,22 +229,18 @@ function draw() {
         //boton.mostrarBotonDer(index)
       });
 
-     
-
       jugador.show();
       terreno.reiniciar();
       terreno.terrenoPrimerNivel(1);
 
-      if (posicionJugadorNivel1 == false) {
+      if (posicionJugadorNivel2 == false) {
         jugador.setCol(4);
         jugador.setFil(1);
-
-        posicionJugadorNivel1 = true;
+        posicionJugadorNivel2 = true;
       }
 
       botonesAccion.forEach((boton, index) => {
         boton.pintarBotonesAccion(index);
-        boton.reiniciarBotonesAccion();
       });
       break;
 
@@ -253,12 +252,15 @@ function draw() {
         //boton.mostrarBotonDer(index)
       });
 
+      /*
       if (posicionJugadorNivel1 == false) {
-        jugador.setCol(4);
-        jugador.setFil(3);
+        
 
         posicionJugadorNivel1 = true;
-      }
+      }*/
+
+      jugador.setCol(4);
+      jugador.setFil(3);
 
       jugador.show();
       terreno.reiniciar();
