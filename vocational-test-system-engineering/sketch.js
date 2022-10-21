@@ -48,7 +48,7 @@ function setup() {
   botonesAccion = [];
 
 
-  //llamada de los botones
+  //Array llamada de los botones
   botones = [];
   for (let index = 0; index < 4; index++) {
     botones.push (new Botones())
