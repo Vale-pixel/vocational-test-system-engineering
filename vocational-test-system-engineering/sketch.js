@@ -1,7 +1,9 @@
 let jugador;
 let botones;
 let botonesAccion;
-let botonInicio
+let botonInicio;
+let botonDer;
+
 
 let posicionJugadorNivel1;
 
@@ -52,6 +54,7 @@ function setup() {
   botones = [];
   for (let index = 0; index < 4; index++) {
     botones.push (new Botones())
+    botones.push(new Boton_Arriba())
   }
 
   //llamada del jugador
@@ -130,6 +133,7 @@ function draw() {
 
   botones.forEach((boton, index)=> {
     boton.pintarBotones(index)
+    boton.mostrarBotonDer(index)
   });
 
   terreno.mostrar();
@@ -165,6 +169,8 @@ function draw() {
 botonesAccion.forEach((boton, index)=> {
     boton.pintarBotonesAccion(index)
   });
+
+
       //background(255, 20, 255);
       break;
 

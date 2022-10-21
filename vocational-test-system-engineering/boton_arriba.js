@@ -1,6 +1,6 @@
 class Boton_Arriba extends Botones {
-    constructor() {
-        this.nombre = "Arriba"
+    constructor(name) {
+        this.name = "Arriba"
         
     }
 }
