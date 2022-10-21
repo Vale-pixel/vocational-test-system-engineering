@@ -127,14 +127,23 @@ function agregarAcciones(array) {
 
 function recorridoArreglo() {
   botonesAccion.forEach((boton) => {
-    if (boton.name === "derecha" && terreno.getLocacion(jugador.getFil(), jugador.getCol() - 1) === 1) {
-      jugador.setCol(jugador.getCol() + 1);
-      screen +=1
+  
+    if ( terreno.getLocacion(jugador.getFil(), jugador.getCol() - 1) ===1 ) {
+     screen +=1
+     console.log(screen);
     } else if (boton.name === "derecha") {
       jugador.setCol(jugador.getCol() + 1);
-    }
+    } else if (boton.name === "izquierda") {
+        jugador.setCol(jugador.getCol() - 1);
+      }else if (boton.name === "arriba") {
+        jugador.setFil(jugador.getFil() - 1);
+      }
+      else if (boton.name === "abajo") {
+        jugador.setFil(jugador.getFil() + 1);
+      }else if (terreno.getLocacion(jugador.getFil(), jugador.getCol() - 1) ===2) {
+        screen +-1
+      }
 
-    console.log(jugador.getCol);
   });
 }
 
@@ -151,6 +160,13 @@ function showGrid() {
     }
   }
 }
+
+function reiniciarBotonesAccion(){
+  if(screen>3){
+      this.botonesAccion = [];
+      this.pintarBotonesAccion();
+  }
+      }
 
 function draw() {
   botonInicio.botonInicioJuego();
@@ -191,6 +207,7 @@ function draw() {
       }
 
       jugador.show();
+      terreno.reiniciar();
       terreno.terrenoPrimerNivel(0);
 
       botonesAccion.forEach((boton, index) => {
@@ -209,6 +226,12 @@ function draw() {
         //boton.mostrarBotonDer(index)
       });
 
+     
+
+      jugador.show();
+      terreno.reiniciar();
+      terreno.terrenoPrimerNivel(1);
+
       if (posicionJugadorNivel1 == false) {
         jugador.setCol(4);
         jugador.setFil(1);
@@ -216,12 +239,9 @@ function draw() {
         posicionJugadorNivel1 = true;
       }
 
-      jugador.show();
-      terreno.reiniciar()
-      terreno.terrenoPrimerNivel(1);
-
       botonesAccion.forEach((boton, index) => {
         boton.pintarBotonesAccion(index);
+        boton.reiniciarBotonesAccion();
       });
       break;
 
@@ -241,6 +261,7 @@ function draw() {
       }
 
       jugador.show();
+      terreno.reiniciar();
       terreno.terrenoPrimerNivel(2);
 
       botonesAccion.forEach((boton, index) => {
@@ -264,6 +285,7 @@ function draw() {
       }
 
       jugador.show();
+      terreno.reiniciar();
       terreno.terrenoPrimerNivel(3);
 
       botonesAccion.forEach((boton, index) => {
@@ -288,6 +310,7 @@ function draw() {
       }
 
       jugador.show();
+      terreno.reiniciar();
       terreno.terrenoPrimerNivel(4);
 
       botonesAccion.forEach((boton, index) => {
@@ -312,6 +335,7 @@ function draw() {
       }
 
       jugador.show();
+      terreno.reiniciar();
       terreno.terrenoPrimerNivel(5);
 
       botonesAccion.forEach((boton, index) => {

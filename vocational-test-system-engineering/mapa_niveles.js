@@ -18,6 +18,8 @@ class mapa_niveles {
         }
     }
 
+    /*
+
     arregloEscaque2(){
         for (let index = 0; index < 4; index++) {
             this.escaque2.push(new Array(4));
@@ -28,7 +30,7 @@ class mapa_niveles {
                 this.escaque2[fil][col] = 0;
             }
         }
-    }
+    }*/
 
 
 //En este punto se configuran los espacios por donde pasará el personaje
@@ -262,7 +264,7 @@ mostrar(pantalla1) {
 reiniciar(){
     this.escaque = [];
     this.arregloEscaque();
-    this.arregloEscaque2();
+  //  this.arregloEscaque2();
 }
 
 getLocacion(newFil, newCol){
