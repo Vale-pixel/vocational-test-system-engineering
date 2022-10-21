@@ -74,9 +74,162 @@ terrenoPrimerNivel(nivel1){
                     
 
                     break;
-            
-                default:
+
+                    case 1:
+                    this.escaque[0][0] = 1;
+                    this.escaque[0][1] = 1;
+                    this.escaque[0][2] = 1;
+                    this.escaque[0][3] = 1;
+                    this.escaque[0][4] = 1;
+                    this.escaque[0][5] = 1;
+                    this.escaque[0][6] = 1;
+                    this.escaque[1][0] = 1;
+                    this.escaque[2][0] = 1;
+                    this.escaque[3][0] = 1;
+                    this.escaque[4][0] = 1;
+                    this.escaque[4][1] = 1;
+                    this.escaque[4][2] = 1;
+                    this.escaque[4][3] = 1;
+                    this.escaque[4][4] = 1;
+                    this.escaque[4][5] = 1;
+                    this.escaque[1][5] = 1;
+                    this.escaque[2][5] = 1;
+                    this.escaque[3][5] = 1;
+
+                    this.escaque[2][2] = 1;
+                    this.escaque[2][3] = 1;
+                    this.escaque[2][4] = 1;
+
+                    this.escaque[3][4] = 2;
+                    
+                    
+                    
                     break;
+            
+                case 2:
+                    this.escaque[0][0] = 1;
+                    this.escaque[0][1] = 1;
+                    this.escaque[0][2] = 1;
+                    this.escaque[0][3] = 1;
+                    this.escaque[0][4] = 1;
+                    this.escaque[0][5] = 1;
+                    this.escaque[0][6] = 1;
+                    this.escaque[1][0] = 1;
+                    this.escaque[1][2] = 1;
+                    this.escaque[1][3] = 1;
+                    this.escaque[1][4] = 1;
+                    this.escaque[1][5] = 1;
+                    this.escaque[2][0] = 1;
+                    
+                    this.escaque[2][5] = 1;
+                    this.escaque[3][0] = 1;
+                    this.escaque[3][1] = 1;
+                    this.escaque[3][2] = 1;
+                    this.escaque[3][3] = 1;
+                    this.escaque[3][4] = 1;
+                    this.escaque[3][4] = 0;
+                    this.escaque[3][5] = 1;
+                    this.escaque[4][0] = 1;
+                    this.escaque[4][1] = 1;
+                    this.escaque[4][2] = 1;
+                    this.escaque[4][3] = 1;
+                    this.escaque[4][4] = 1;
+                    this.escaque[4][5] = 1;
+
+                    this.escaque[1][1] = 2;
+                    
+                    break;
+
+                    case 3:
+                    this.escaque[0][0] = 1;
+                    this.escaque[0][1] = 1;
+                    this.escaque[0][2] = 1;
+                    this.escaque[0][3] = 1;
+                    this.escaque[0][4] = 1;
+                    this.escaque[0][5] = 1;
+                    this.escaque[0][6] = 1;
+                    this.escaque[1][0] = 1;
+                    this.escaque[1][1] = 1;
+                    this.escaque[1][3] = 1;
+                    this.escaque[1][5] = 1;
+                    this.escaque[2][0] = 1;
+                    this.escaque[2][1] = 1;
+                    this.escaque[2][3] = 1;
+                    this.escaque[2][5] = 1;
+                    this.escaque[3][0] = 1;
+                    this.escaque[3][1] = 1;
+                    this.escaque[3][4] = 1;
+                    this.escaque[3][4] = 0;
+                    this.escaque[3][5] = 1;
+                    this.escaque[4][0] = 1;
+                    this.escaque[4][1] = 1;
+                    this.escaque[4][2] = 1;
+                    this.escaque[4][3] = 1;
+                    this.escaque[4][4] = 1;
+                    this.escaque[4][5] = 1;
+
+                    this.escaque[1][1] = 2;
+                    
+                    break;
+
+                    case 4:
+                    this.escaque[0][0] = 1;
+                    this.escaque[0][1] = 1;
+                    this.escaque[0][2] = 1;
+                    this.escaque[0][3] = 1;
+                    this.escaque[0][4] = 1;
+                    this.escaque[0][5] = 1;
+                    this.escaque[0][6] = 1;
+                    this.escaque[1][0] = 1;
+                    this.escaque[1][5] = 1;
+                    this.escaque[2][0] = 1;
+                    this.escaque[2][2] = 1;
+                    this.escaque[2][3] = 1;
+                    this.escaque[2][5] = 1;
+                    this.escaque[3][0] = 1;
+                    this.escaque[3][3] = 1;
+                    this.escaque[3][4] = 0;
+                    this.escaque[3][5] = 1;
+                    this.escaque[4][0] = 1;
+                    this.escaque[4][1] = 1;
+                    this.escaque[4][2] = 1;
+                    this.escaque[4][3] = 1;
+                    this.escaque[4][4] = 1;
+                    this.escaque[4][5] = 1;
+
+                    this.escaque[3][2] = 2;
+                    
+                    break;
+
+                    case 5:
+                        this.escaque[0][0] = 1;
+                        this.escaque[0][1] = 1;
+                        this.escaque[0][2] = 1;
+                        this.escaque[0][3] = 1;
+                        this.escaque[0][4] = 1;
+                        this.escaque[0][5] = 1;
+                        this.escaque[0][6] = 1;
+                        this.escaque[1][0] = 1;
+                        this.escaque[1][1] = 1;
+                        this.escaque[1][2] = 1;
+                        this.escaque[1][3] = 1;
+                        this.escaque[1][5] = 1;
+                        this.escaque[2][0] = 1;
+                        this.escaque[2][2] = 1;
+                        this.escaque[2][5] = 1;
+                        this.escaque[3][0] = 1;
+                        this.escaque[3][4] = 1;
+                        this.escaque[3][5] = 1;
+                        this.escaque[4][0] = 1;
+                        this.escaque[4][1] = 1;
+                        this.escaque[4][2] = 1;
+                        this.escaque[4][3] = 1;
+                        this.escaque[4][4] = 1;
+                        this.escaque[4][5] = 1;
+    
+                        this.escaque[1][1] = 2;
+                        
+                        break;
             }
         }
     }

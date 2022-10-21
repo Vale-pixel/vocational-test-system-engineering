@@ -4,7 +4,6 @@ let botonesAccion;
 let botonInicio;
 let botonDer;
 
-
 let posicionJugadorNivel1;
 
 let terreno;
@@ -41,24 +40,24 @@ function startGameAction() {
 function preload() {}
 
 function setup() {
-
-  posicionJugadorNivel1 = false
+  posicionJugadorNivel1 = false;
 
   botonInicio = new Botones();
 
   //LlEGADA DE LOS BOTONES PARA EJECUTARSE
   botonesAccion = [];
 
-
   //Array llamada de los botones
   botones = [];
-  for (let index = 0; index < 4; index++) {
-    botones.push (new Botones())
+
+  for (let index = 0; index < 5; index++) {
+    botones.push(new Botones());
     //botones.push(new Boton_Arriba())
-  }
+}
+
 
   //llamada del jugador
-  jugador = new Jugador(1,1);
+  jugador = new Jugador(1, 1);
 
   //llamada de la clase mapa niveles para la definicion de los espacios de los niveles
   terreno = new mapa_niveles();
@@ -67,7 +66,7 @@ function setup() {
   gridX = width / 2;
   gridY = height / 2;
   //cubes.push(new cubes(0, 0, 0));
-  
+
   //definicion pantalla inicial juego
   screen = 2;
 
@@ -84,33 +83,26 @@ function setup() {
 }
 
 function mousePressed() {
-
-  if(dist(mouseX, mouseY, windowWidth/2, windowHeight/2 + 200)< 30){
+  if (dist(mouseX, mouseY, windowWidth / 2, windowHeight / 2 + 200) < 30) {
     console.log("se le dio click");
     recorridoArreglo();
   }
-  
-  botones.forEach( boton => {
+
+  botones.forEach((boton) => {
     if (dist(mouseX, mouseY, boton.getX(), boton.getY()) < 30) {
-      botonesAccion.push(new Botones())
-    
+      botonesAccion.push(new Botones());
     }
-  })
-  
+  });
 }
 
 function recorridoArreglo() {
-
   botonesAccion.forEach((boton) => {
-    if(boton.name === "derecha"){
-      jugador.setCol (jugador.getCol() + 1);
+    if (boton.name === "derecha") {
+      jugador.setCol(jugador.getCol() + 1);
     }
 
     console.log(jugador.getCol);
-
-  })
-  
-  
+  });
 }
 
 function showGrid() {
@@ -123,16 +115,13 @@ function showGrid() {
   }
 }
 function draw() {
-
   botonInicio.botonInicioJuego();
 
-
- /*  fill(5, 255, 124);
+  /*  fill(5, 255, 124);
   ellipse(windowWidth/2, windowHeight/2 + 200, 30, 30); */
-  
 
-  botones.forEach((boton, index)=> {
-    boton.pintarBotones(index)
+  botones.forEach((boton, index) => {
+    boton.pintarBotones(index);
     //boton.mostrarBotonDer(index)
   });
 
@@ -156,36 +145,113 @@ function draw() {
     case 3:
       //nivel 1
 
-      if(posicionJugadorNivel1 == false) {
+      if (posicionJugadorNivel1 == false) {
         jugador.setCol(1);
         jugador.setFil(1);
 
         posicionJugadorNivel1 = true;
       }
 
-     jugador.show();
-     terreno.terrenoPrimerNivel(0);
+      jugador.show();
+      terreno.terrenoPrimerNivel(0);
 
-botonesAccion.forEach((boton, index)=> {
-    boton.pintarBotonesAccion(index)
-  });
-
+      botonesAccion.forEach((boton, index) => {
+        boton.pintarBotonesAccion(index);
+      });
 
       //background(255, 20, 255);
       break;
 
     case 4:
       //nivel 2
-      background(255, 20, 255);
+      if (posicionJugadorNivel1 == false) {
+        jugador.setCol(4);
+        jugador.setFil(1);
+
+        posicionJugadorNivel1 = true;
+      }
+
+      jugador.show();
+      terreno.terrenoPrimerNivel(1);
+
+      botonesAccion.forEach((boton, index) => {
+        boton.pintarBotonesAccion(index);
+      });
       break;
 
     case 5:
       //nivel 3
-      background(255, 20, 255);
+
+      if (posicionJugadorNivel1 == false) {
+        jugador.setCol(4);
+        jugador.setFil(3);
+
+        posicionJugadorNivel1 = true;
+      }
+
+      jugador.show();
+      terreno.terrenoPrimerNivel(2);
+
+      botonesAccion.forEach((boton, index) => {
+        boton.pintarBotonesAccion(index);
+      });
+
+      break;
+    case 6:
+      //nivel 4
+
+      if (posicionJugadorNivel1 == false) {
+        jugador.setCol(4);
+        jugador.setFil(1);
+
+        posicionJugadorNivel1 = true;
+      }
+
+      jugador.show();
+      terreno.terrenoPrimerNivel(3);
+
+      botonesAccion.forEach((boton, index) => {
+        boton.pintarBotonesAccion(index);
+      });
+
       break;
 
-    default:
-      background(220);
+    case 7:
+      //nivel 5
+
+      if (posicionJugadorNivel1 == false) {
+        jugador.setCol(4);
+        jugador.setFil(3);
+
+        posicionJugadorNivel1 = true;
+      }
+
+      jugador.show();
+      terreno.terrenoPrimerNivel(4);
+
+      botonesAccion.forEach((boton, index) => {
+        boton.pintarBotonesAccion(index);
+      });
+
+      break;
+
+    case 8:
+      //nivel 6
+
+      if (posicionJugadorNivel1 == false) {
+        jugador.setCol(4);
+        jugador.setFil(1);
+
+        posicionJugadorNivel1 = true;
+      }
+
+      jugador.show();
+      terreno.terrenoPrimerNivel(5);
+
+      botonesAccion.forEach((boton, index) => {
+        boton.pintarBotonesAccion(index);
+      });
+
       break;
   }
 }
