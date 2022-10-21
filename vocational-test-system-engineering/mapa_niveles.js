@@ -38,7 +38,7 @@ terrenoPrimerNivel(nivel1){
 
             switch (nivel1) {
                 case 0:
-                    
+                    this.escaque
                     this.escaque[0][0] = 1;
                     this.escaque[0][1] = 1;
                     this.escaque[0][2] = 1;
@@ -257,6 +257,12 @@ mostrar(pantalla1) {
        }
    }
 
+}
+
+reiniciar(){
+    this.escaque = [];
+    this.arregloEscaque();
+    this.arregloEscaque2();
 }
 
 getLocacion(newFil, newCol){

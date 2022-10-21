@@ -1,16 +1,15 @@
-let imagen_botonDer;
 
 class Boton_Der extends Botones {
     constructor() {
         super();
+        this.name = "derecha"
+        this.imagen = new loadImage('src/Flecha_derecha.png')
     }
 
-
-    preload() {
-        imagen_botonDer = new loadImage('src/Flecha_derecha.png')
-    }
-
-    mostrarBotonDer(){
-        image(imagen_botonDer)
+    mostrarBoton(index){
+        
+            image(this.imagen,this.x * index + 100, this.y, 60, 60);
+            this.index = index;
+        
     }
 }
