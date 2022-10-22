@@ -7,7 +7,7 @@ class Boton_Der extends Botones {
     }
 
     mostrarBoton(index){
-            image(this.iamgen,this.x * index + 100, this.y, 60, 60);
+            image(this.iamgen,this.x * index + 100, this.y+12, 60, 60);
             this.index = index;
         
     }

@@ -7,7 +7,7 @@ class Boton_Izquierda extends Botones {
 
     mostrarBoton(index){
         
-            image(this.imagen,this.x * index + 100, this.y, 60, 60);
+            image(this.imagen,this.x * index + 100, this.y+12, 60, 60);
             this.index = index;
         
     }

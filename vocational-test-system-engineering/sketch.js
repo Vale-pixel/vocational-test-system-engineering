@@ -4,7 +4,10 @@ let botonesNivel3_4_5_6;
 let botonesAccion;
 let botonInicio;
 
-let fondo;
+let fondoN1;
+let fondoN2;
+let fondoN3;
+let fondoInicio;
 
 let posicionJugadorNivel1;
 let posicionJugadorNivel2;
@@ -40,7 +43,6 @@ let btnImgP1;
 let btnImgP2;
 let btnImgPlay;
 
-
 /*
 let grid = [
   [15, 15, 15],
@@ -54,19 +56,22 @@ let yStart = 0;
 
 function preload() {
   // img = loadImage('sample-image.png');
-  btnImgIzq = loadImage('src/LEFT.png')
-  fondo = loadImage("src/FONDO_N1.png");
-  btnImgDer = loadImage('src/RIGHT.png');
-  btnImgArr = loadImage('src/UP.png');
-  btnImgAb = loadImage('src/DOWN.png');
-  btnImgLl = loadImage('src/ACT.png');
-  btnImgP1= loadImage('src/P1.png'); 
-  btnImgP2= loadImage('src/P2.png'); 
-  btnImgPlay = loadImage('src/PLAY.png'); 
+  btnImgIzq = loadImage("src/LEFT.png");
+  fondoN1 = loadImage("src/FONDO_N1.png");
+  fondoN2 = loadImage("src/fondoN2.png");
+  fondoN3 = loadImage("src/fondoN3.png");
+  fondoInicio = loadImage("src/INICIO.png");
+  btnImgDer = loadImage("src/RIGHT.png");
+  btnImgArr = loadImage("src/UP.png");
+  btnImgAb = loadImage("src/DOWN.png");
+  btnImgLl = loadImage("src/ACT.png");
+  btnImgP1 = loadImage("src/P1.png");
+  btnImgP2 = loadImage("src/P2.png");
+  btnImgPlay = loadImage("src/PLAY.png");
 }
 
 function startGameAction() {
-  screen +=1;
+  screen += 1;
   startGameButton.hide();
   console.log("se cambio");
 }
@@ -77,8 +82,8 @@ function setup() {
   posicionJugadorNivel3 = false;
   posicionJugadorNivel4 = false;
   posicionJugadorNivel5 = false;
-  posicionJugadorNivel6= false;
-  posicionJugadorNivel7= false;
+  posicionJugadorNivel6 = false;
+  posicionJugadorNivel7 = false;
 
   botonInicio = new Botones(btnImgPlay);
 
@@ -114,7 +119,7 @@ function setup() {
   botonesNivel5_6.push(new Boton_P2(btnImgP2));
 
   //llamada del jugador
-  jugador = new Jugador(1, 1);
+  jugador = new Jugador(0, 0);
 
   //llamada de la clase mapa niveles para la definicion de los espacios de los niveles
   terreno = new mapa_niveles();
@@ -149,7 +154,7 @@ function mousePressed() {
     agregarAcciones(botonesNivel1_2);
   } else if (screen === 5 || screen === 6) {
     agregarAcciones(botonesNivel3_4);
-  }else if (screen >6) {
+  } else if (screen > 6) {
     agregarAcciones(botonesNivel5_6);
   }
 }
@@ -178,18 +183,29 @@ function recorridoArreglo() {
   botonesAccion.forEach((boton) => {
     if (boton.name === "derecha") {
       //screen += 1;
-      jugador.setCol(jugador.getCol() + 1);
+      jugador.setCol(jugador.getCol() + 1)
+      
+      timeOut(() => {
+        jugador.setCol(jugador.getCol() + 1);
+      });
+
       console.log(screen);
       //jugador.setCol(jugador.getCol() + 1);
     } else if (boton.name === "izquierda") {
       console.log(screen);
-      jugador.setCol(jugador.getCol() - 1);
+      timeOut(() => {
+        jugador.setCol(jugador.getCol() - 1);
+      });
     } else if (boton.name === "arriba") {
       console.log(screen);
-      jugador.setFil(jugador.getFil() - 1);
+      timeOut(() => {
+        jugador.setFil(jugador.getFil() - 1);
+      });
     } else if (boton.name === "abajo") {
       console.log(screen);
-      jugador.setFil(jugador.getFil() + 1);
+      timeOut(() => {
+        jugador.setFil(jugador.getFil() + 1);
+      });
     }
   });
   console.log(terreno.getLocacion(jugador.getFil(), jugador.getCol()));
@@ -207,24 +223,23 @@ function showGrid() {
 
 function draw() {
   background(0);
-  
 
   /*  fill(5, 255, 124);
   ellipse(windowWidth/2, windowHeight/2 + 200, 30, 30); */
 
- 
+  //console.log(terreno.getLocacion(jugador.getFil(), jugador.getCol()));
 
   if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 1) {
     screen += 1;
     botonesAccion = [];
 
     fill(100);
-    console.log('PERDIO');
+    console.log("PERDIO");
   } else if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2) {
     screen += 1;
     botonesAccion = [];
     fill(100);
-    console.log('GANO');
+    console.log("GANO");
   } else if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 3) {
     screen += 1;
     botonesAccion = [];
@@ -242,12 +257,12 @@ function draw() {
       break;
     case 2:
       //instrucciones
-      background(0);
+      image(fondoInicio, 0, 0, windowWidth, windowHeight);
       break;
     case 3:
       //nivel 1
-      
-      image(fondo,0,0,windowWidth,windowHeight)
+
+      image(fondoN1, 0, 0, windowWidth, windowHeight);
       terreno.mostrar();
       botonInicio.botonInicioJuego();
 
@@ -262,22 +277,25 @@ function draw() {
 
         posicionJugadorNivel1 = true;
       }
-      
-      
+
       jugador.show();
       terreno.reiniciar();
       nivel = 0;
       terreno.terrenoPrimerNivel(nivel);
-      
+
       botonesAccion.forEach((boton, index) => {
         boton.pintarBotonesAccion(index);
       });
-      
+
       //background(255, 20, 255);
       break;
 
     case 4:
       //nivel 2
+
+      image(fondoN1, 0, 0, windowWidth, windowHeight);
+      terreno.mostrar();
+      botonInicio.botonInicioJuego();
 
       botonesNivel1_2.forEach((boton, index) => {
         boton.mostrarBoton(index);
@@ -288,10 +306,12 @@ function draw() {
       terreno.reiniciar();
       nivel = 1;
       terreno.terrenoPrimerNivel(nivel);
+      botonInicio.botonInicioJuego();
 
       if (posicionJugadorNivel2 == false) {
         jugador.setCol(4);
         jugador.setFil(1);
+
         posicionJugadorNivel2 = true;
       }
 
@@ -302,18 +322,23 @@ function draw() {
 
     case 5:
       //nivel 3
+
+      image(fondoN2, 0, 0, windowWidth, windowHeight);
+      terreno.mostrar();
+      botonInicio.botonInicioJuego();
+
       botonesNivel3_4.forEach((boton, index) => {
         boton.mostrarBoton(index);
       });
-      
+
       jugador.show();
       terreno.reiniciar();
       nivel = 2;
       terreno.terrenoPrimerNivel(nivel);
 
       if (posicionJugadorNivel3 == false) {
-       jugador.setCol(4);
-      jugador.setFil(3);
+        jugador.setCol(4);
+        jugador.setFil(3);
         posicionJugadorNivel3 = true;
       }
 
@@ -324,6 +349,10 @@ function draw() {
       break;
     case 6:
       //nivel 4
+
+      image(fondoN2, 0, 0, windowWidth, windowHeight);
+      terreno.mostrar();
+      botonInicio.botonInicioJuego();
 
       botonesNivel3_4.forEach((boton, index) => {
         boton.mostrarBoton(index);
@@ -350,6 +379,10 @@ function draw() {
 
     case 7:
       //nivel 5
+
+      image(fondoN3, 0, 0, windowWidth, windowHeight);
+      terreno.mostrar();
+      botonInicio.botonInicioJuego();
 
       botonesNivel5_6.forEach((boton, index) => {
         boton.mostrarBoton(index);
@@ -378,6 +411,10 @@ function draw() {
     case 8:
       //nivel 6
 
+      image(fondoN3, 0, 0, windowWidth, windowHeight);
+      terreno.mostrar();
+      botonInicio.botonInicioJuego();
+
       botonesNivel5_6.forEach((boton, index) => {
         boton.mostrarBoton(index);
         //boton.mostrarBotonDer(index)
@@ -388,7 +425,7 @@ function draw() {
       nivel = 5;
       terreno.terrenoPrimerNivel(nivel);
 
-      if (posicionJugadorNivel6== false) {
+      if (posicionJugadorNivel6 == false) {
         jugador.setCol(4);
         jugador.setFil(1);
 
@@ -401,43 +438,22 @@ function draw() {
 
       break;
 
-      case 9:
+    case 9:
+      //pantalla final
 
-         //nivel 6
+      background(255, 20, 20);
+      fill(255);
+      text(`fin`, 100, 100);
 
-      botonesNivel5_6.forEach((boton, index) => {
-        boton.mostrarBoton(index);
-        //boton.mostrarBotonDer(index)
-      });
-
-      jugador.show();
-      terreno.reiniciar();
-      nivel = 6;
-      terreno.terrenoPrimerNivel(nivel);
-
-      if (posicionJugadorNivel7== false) {
-        jugador.setCol(4);
-        jugador.setFil(1);
-
-        posicionJugadorNivel7 = true;
-      }
-
-      botonesAccion.forEach((boton, index) => {
-        boton.pintarBotonesAccion(index);
-      });
-      
-        break;
-
-        case 10:
-          
-          background(255, 20, 20);
-          fill(255);
-          text(`fin`, 100, 100);
-        break
+      break;
   }
 
   fill(255);
   text(`nivel -> ${nivel}`, 100, 100);
+}
+
+function timeOut(metodo) {
+  setTimeout(metodo, 1000);
 }
 
 /*

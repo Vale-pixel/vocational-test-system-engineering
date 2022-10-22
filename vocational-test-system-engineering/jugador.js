@@ -21,7 +21,7 @@ class Jugador {
        // image(this.image,(windowWidth/2) - ( 73 * 2) + (this.playerCol * 60), (windowHeight/2) - (47 * 2) + (this.playerFil * 60), 30, 60);
 
        fill(255, 255, 0);
-    ellipse((windowWidth/2) - ( 73 * 2) + (this.playerCol * 60), (windowHeight/2) - (47 * 2) + (this.playerFil * 60), 30, 30);
+    ellipse((windowWidth/4) - ( 68 * 2) + (this.playerCol * 60), (windowHeight/3) - (42 * 2) + (this.playerFil * 60), 30, 30);
     }
 
     updateLocation(){

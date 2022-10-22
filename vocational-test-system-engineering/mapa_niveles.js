@@ -5,7 +5,7 @@ class mapa_niveles {
         this.posX = 20;
         this.posY = 20;
         this.squareColor = color(0 , 0 , 255);
-        this.squareColor.setAlpha(0)
+        this.squareColor.setAlpha(10)
     }
 
     arregloEscaque(){
@@ -18,7 +18,7 @@ class mapa_niveles {
                 this.escaque[fil][col] = 0;
             }
         }
-        console.log(this.escaque);
+        //console.log(this.escaque);
     }
 
     /*
@@ -51,30 +51,22 @@ terrenoPrimerNivel(nivel1){
                     this.escaque[0][5] = 1;
                     this.escaque[0][6] = 1;
                     this.escaque[1][0] = 1;
-                    this.escaque[1][2] = 1;
-                    this.escaque[1][3] = 1;
-                    this.escaque[1][4] = 1;
-                    this.escaque[1][5] = 1;
                     this.escaque[2][0] = 1;
-                    this.escaque[2][3] = 1;
-                    this.escaque[2][4] = 1;
-                    this.escaque[2][5] = 1;
                     this.escaque[3][0] = 1;
-                    this.escaque[3][1] = 1;
-                    this.escaque[3][2] = 1;
-                    this.escaque[3][3] = 1;
-                    this.escaque[3][4] = 1;
-                    this.escaque[3][4] = 1;
-                    this.escaque[3][5] = 1;
                     this.escaque[4][0] = 1;
                     this.escaque[4][1] = 1;
                     this.escaque[4][2] = 1;
                     this.escaque[4][3] = 1;
                     this.escaque[4][4] = 1;
                     this.escaque[4][5] = 1;
-                    this.escaque[4][6] = 1;
+                    this.escaque[1][5] = 1;
+                    this.escaque[2][5] = 1;
+                    this.escaque[3][5] = 1;
 
-                    this.escaque[2][2] = 2;
+                    this.escaque[2][3] = 1;
+                    this.escaque[2][4] = 1;
+
+                    this.escaque[3][4] = 2;
                     
 
                     break;
@@ -109,6 +101,8 @@ terrenoPrimerNivel(nivel1){
                     
                     
                     break;
+
+                //segundo nivel    
             
                 case 2:
                     this.escaque[0][0] = 1;
@@ -144,6 +138,8 @@ terrenoPrimerNivel(nivel1){
                     
                     break;
 
+                //tercer nivel
+
                     case 3:
                     this.escaque[0][0] = 1;
                     this.escaque[0][1] = 1;
@@ -176,6 +172,8 @@ terrenoPrimerNivel(nivel1){
                     
                     break;
 
+                //cuarto nivel
+
                     case 4:
                     this.escaque[0][0] = 1;
                     this.escaque[0][1] = 1;
@@ -204,6 +202,8 @@ terrenoPrimerNivel(nivel1){
                     this.escaque[3][2] = 2;
                     
                     break;
+
+                //quinto nivel
 
                     case 5:
                         this.escaque[0][0] = 1;
@@ -234,35 +234,38 @@ terrenoPrimerNivel(nivel1){
                         this.escaque[1][1] = 2;
                         
                         break;
-                        case 6:
-                            this.escaque[0][0] = 1;
-                            this.escaque[0][1] = 1;
-                            this.escaque[0][2] = 1;
-                            this.escaque[0][3] = 1;
-                            this.escaque[0][4] = 1;
-                            this.escaque[0][5] = 1;
-                            this.escaque[0][6] = 1;
-                            this.escaque[1][0] = 1;
-                            this.escaque[1][1] = 1 
-                            this.escaque[1][3] = 1;
-                            this.escaque[1][5] = 1;
-                            this.escaque[2][0] = 1;
-                            this.escaque[2][1] = 1;
-                            this.escaque[2][3] = 1;
-                            this.escaque[2][5] = 1;
-                            this.escaque[3][0] = 1;
-                            this.escaque[3][1] = 1;
-                            this.escaque[3][5] = 1;
-                            this.escaque[4][0] = 1;
-                            this.escaque[4][1] = 1;
-                            this.escaque[4][2] = 1;
-                            this.escaque[4][3] = 1;
-                            this.escaque[4][4] = 1;
-                            this.escaque[4][5] = 1;
-        
-                            this.escaque[1][1] = 2;
-                            
-                            break;
+
+                //nivel seis
+
+                    case 6:
+                        this.escaque[0][0] = 1;
+                        this.escaque[0][1] = 1;
+                        this.escaque[0][2] = 1;
+                        this.escaque[0][3] = 1;
+                        this.escaque[0][4] = 1;
+                        this.escaque[0][5] = 1;
+                        this.escaque[0][6] = 1;
+                        this.escaque[1][0] = 1;
+                        this.escaque[1][1] = 1 
+                        this.escaque[1][3] = 1;
+                        this.escaque[1][5] = 1;
+                        this.escaque[2][0] = 1;
+                        this.escaque[2][1] = 1;
+                        this.escaque[2][3] = 1;
+                        this.escaque[2][5] = 1;
+                        this.escaque[3][0] = 1;
+                        this.escaque[3][1] = 1;
+                        this.escaque[3][5] = 1;
+                        this.escaque[4][0] = 1;
+                        this.escaque[4][1] = 1;
+                        this.escaque[4][2] = 1;
+                        this.escaque[4][3] = 1;
+                        this.escaque[4][4] = 1;
+                        this.escaque[4][5] = 1;
+    
+                        this.escaque[1][1] = 2;
+                        
+                        break;
             }
         }
     }
