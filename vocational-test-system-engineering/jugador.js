@@ -5,6 +5,7 @@ class Jugador {
         this.playerCol =  playerCol; 
         this.playerFil = playerFil;
         this.playerDir = playerDir;
+        this.image = new loadImage('src/ALIEN.png');
         }
 
     init(){
@@ -16,8 +17,11 @@ class Jugador {
     }
 
     show(){
-        fill(255, 255, 0);
-        ellipse((windowWidth/2) - ( 73 * 2) + (this.playerCol * 60), (windowHeight/2) - (47 * 2) + (this.playerFil * 60), 30, 30);
+
+       // image(this.image,(windowWidth/2) - ( 73 * 2) + (this.playerCol * 60), (windowHeight/2) - (47 * 2) + (this.playerFil * 60), 30, 60);
+
+       fill(255, 255, 0);
+    ellipse((windowWidth/2) - ( 73 * 2) + (this.playerCol * 60), (windowHeight/2) - (47 * 2) + (this.playerFil * 60), 30, 30);
     }
 
     updateLocation(){

@@ -2,7 +2,7 @@ class Boton_Arriba extends Botones {
     constructor() {
         super();
         this.name = "arriba"
-        this.imagen = new loadImage('src/Arriba.png')
+        this.imagen = new loadImage('src/UP.png')
     }
 
     mostrarBoton(index){

@@ -4,6 +4,8 @@ let botonesNivel3_4_5_6;
 let botonesAccion;
 let botonInicio;
 
+let fondo;
+
 let posicionJugadorNivel1;
 let posicionJugadorNivel2;
 
@@ -45,6 +47,8 @@ function setup() {
   posicionJugadorNivel2 = false;
 
   botonInicio = new Botones();
+
+  fondo = loadImage("src/FONDO_N1.png");
 
   //LlEGADA DE LOS BOTONES PARA EJECUTARSE
   botonesAccion = [];
@@ -96,8 +100,9 @@ function setup() {
 }
 
 function mousePressed() {
-  if (dist(mouseX, mouseY, windowWidth / 2, windowHeight / 2 + 200) < 30) {
+  if (dist(mouseX, mouseY, windowWidth / 2+20 , windowHeight / 2 + 220) < 30) {
     recorridoArreglo();
+    console.log("aiuda")
   }
 
   if (screen === 3 || screen === 4) {
@@ -174,13 +179,16 @@ function draw() {
 
   terreno.mostrar();
 
-  if(terreno.getLocacion(jugador.getFil(),jugador.getCol())===1){
+if(terreno.getLocacion(jugador.getFil(),jugador.getCol())===1){
     screen += 1;
     botonesAccion = [];
   } else if (terreno.getLocacion(jugador.getFil(),jugador.getCol()) === 2){
     screen += 2;
     botonesAccion = [];
-  }
+  } else if (terreno.getLocacion(jugador.getFil(),jugador.getCol()) === 3){
+    screen += 1;
+    botonesAccion = [];
+  } 
 
 
   switch (screen) {
@@ -195,11 +203,13 @@ function draw() {
       break;
     case 2:
       //instrucciones
-      background(2, 20, 255);
+      background(0);
       break;
 
     case 3:
       //nivel 1
+
+      //image(fondo,0,0,windowWidth,windowHeight)
 
       botonesNivel1_2.forEach((boton, index) => {
         boton.mostrarBoton(index);

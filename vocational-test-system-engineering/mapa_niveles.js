@@ -268,7 +268,11 @@ reiniciar(){
 }
 
 getLocacion(newFil, newCol){
-
+    
+if (newFil<0 || newFil > 5 || newCol < 0 || newCol >5){
+newFil=0;
+newCol=0;
+}
    return this.escaque[newFil][newCol];
 
 }

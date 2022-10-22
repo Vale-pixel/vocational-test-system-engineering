@@ -2,7 +2,7 @@ class Boton_Abajo extends Botones {
     constructor(){
      super()
      this.name = "abajo"
-     this.imagen = new loadImage('src/Abajo.png')
+     this.imagen = new loadImage('src/DOWN.png')
     }
 
     mostrarBoton(index){

@@ -3,7 +3,7 @@ class Boton_Der extends Botones {
     constructor() {
         super();
         this.name = "derecha"
-        this.imagen = new loadImage('src/Flecha_derecha.png')
+        this.imagen = new loadImage('src/RIGHT.png')
     }
 
     mostrarBoton(index){

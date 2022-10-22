@@ -2,7 +2,7 @@ class Boton_Izquierda extends Botones {
     constructor() {
         super();
         this.name = "izquierda"
-        this.imagen = new loadImage('src/Izquierda.png')
+        this.imagen = new loadImage('src/LEFT.png')
     }
 
     mostrarBoton(index){

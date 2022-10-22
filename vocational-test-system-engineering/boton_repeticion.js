@@ -2,7 +2,7 @@ class Boton_Loop extends Botones {
     constructor(){
         super()
         this.name = "repeticion"
-        this.imagen = new loadImage('src/loop.png')
+        this.imagen = new loadImage('src/P1.png')
     }
 
     mostrarBoton(index){
