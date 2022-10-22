@@ -1,5 +1,6 @@
 class Botones {
     constructor(img) {
+        //añañaiiii
         this.botonesAccion = [];
         this.index = 0;
         this.x = 80;
