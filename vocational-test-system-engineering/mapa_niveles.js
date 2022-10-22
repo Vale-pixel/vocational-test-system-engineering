@@ -7,12 +7,12 @@ class mapa_niveles {
     }
 
     arregloEscaque(){
-        for (let index = 0; index < 5; index++) {
-            this.escaque.push(new Array(5));
+        for (let index = 0; index < 10; index++) {
+            this.escaque.push(new Array(10));
         }
 
-        for (let fil = 0; fil < 5; fil++) {
-            for(let col = 0; col < 6; col++){
+        for (let fil = 0; fil < 10; fil++) {
+            for(let col = 0; col < 10; col++){
                 this.escaque[fil][col] = 0;
             }
         }
@@ -35,8 +35,8 @@ class mapa_niveles {
 
 //En este punto se configuran los espacios por donde pasará el personaje
 terrenoPrimerNivel(nivel1){
-    for (let fil = 0; fil < 5; fil++){
-        for(let col = 0; col < 6; col++){
+    for (let fil = 0; fil < 10; fil++){
+        for(let col = 0; col < 10; col++){
 
             switch (nivel1) {
                 case 0:
@@ -231,6 +231,35 @@ terrenoPrimerNivel(nivel1){
                         this.escaque[1][1] = 2;
                         
                         break;
+                        case 6:
+                            this.escaque[0][0] = 1;
+                            this.escaque[0][1] = 1;
+                            this.escaque[0][2] = 1;
+                            this.escaque[0][3] = 1;
+                            this.escaque[0][4] = 1;
+                            this.escaque[0][5] = 1;
+                            this.escaque[0][6] = 1;
+                            this.escaque[1][0] = 1;
+                            this.escaque[1][1] = 1 
+                            this.escaque[1][3] = 1;
+                            this.escaque[1][5] = 1;
+                            this.escaque[2][0] = 1;
+                            this.escaque[2][1] = 1;
+                            this.escaque[2][3] = 1;
+                            this.escaque[2][5] = 1;
+                            this.escaque[3][0] = 1;
+                            this.escaque[3][1] = 1;
+                            this.escaque[3][5] = 1;
+                            this.escaque[4][0] = 1;
+                            this.escaque[4][1] = 1;
+                            this.escaque[4][2] = 1;
+                            this.escaque[4][3] = 1;
+                            this.escaque[4][4] = 1;
+                            this.escaque[4][5] = 1;
+        
+                            this.escaque[1][1] = 2;
+                            
+                            break;
             }
         }
     }

@@ -12,6 +12,7 @@ let posicionJugadorNivel3;
 let posicionJugadorNivel4;
 let posicionJugadorNivel5;
 let posicionJugadorNivel6;
+let posicionJugadorNivel7;
 
 let terreno;
 let screen;
@@ -35,7 +36,8 @@ let btnImgDer;
 let btnImgArr;
 let btnImgAb;
 let btnImgLl;
-let btnImgLoop;
+let btnImgP1;
+let btnImgP2;
 let btnImgPlay;
 
 
@@ -58,12 +60,13 @@ function preload() {
   btnImgArr = loadImage('src/UP.png');
   btnImgAb = loadImage('src/DOWN.png');
   btnImgLl = loadImage('src/ACT.png');
-  btnImgLoop = loadImage('src/P1.png'); 
+  btnImgP1= loadImage('src/P1.png'); 
+  btnImgP2= loadImage('src/P2.png'); 
   btnImgPlay = loadImage('src/PLAY.png'); 
 }
 
 function startGameAction() {
-  screen = 8;
+  screen +=1;
   startGameButton.hide();
   console.log("se cambio");
 }
@@ -75,6 +78,7 @@ function setup() {
   posicionJugadorNivel4 = false;
   posicionJugadorNivel5 = false;
   posicionJugadorNivel6= false;
+  posicionJugadorNivel7= false;
 
   botonInicio = new Botones(btnImgPlay);
 
@@ -89,17 +93,25 @@ function setup() {
   botonesNivel1_2.push(new Boton_Abajo(btnImgAb));
   botonesNivel1_2.push(new Boton_Llegada(btnImgLl));
 
-  botonesNivel3_4_5_6 = [];
+  botonesNivel3_4 = [];
 
-  botonesNivel3_4_5_6.push(new Boton_Der(btnImgDer));
-  botonesNivel3_4_5_6.push(new Boton_Izquierda(btnImgIzq));
+  botonesNivel3_4.push(new Boton_Der(btnImgDer));
+  botonesNivel3_4.push(new Boton_Izquierda(btnImgIzq));
 
-  botonesNivel3_4_5_6.push(new Boton_Arriba(btnImgArr));
-  botonesNivel3_4_5_6.push(new Boton_Abajo(btnImgAb));
-  botonesNivel3_4_5_6.push(new Boton_Llegada(btnImgLl));
-  botonesNivel3_4_5_6.push(new Boton_Loop(btnImgLoop));
+  botonesNivel3_4.push(new Boton_Arriba(btnImgArr));
+  botonesNivel3_4.push(new Boton_Abajo(btnImgAb));
+  botonesNivel3_4.push(new Boton_Llegada(btnImgLl));
+  botonesNivel3_4.push(new Boton_P1(btnImgP1));
 
-  
+  botonesNivel5_6 = [];
+  botonesNivel5_6.push(new Boton_Der(btnImgDer));
+  botonesNivel5_6.push(new Boton_Izquierda(btnImgIzq));
+
+  botonesNivel5_6.push(new Boton_Arriba(btnImgArr));
+  botonesNivel5_6.push(new Boton_Abajo(btnImgAb));
+  botonesNivel5_6.push(new Boton_Llegada(btnImgLl));
+  botonesNivel5_6.push(new Boton_P1(btnImgP1));
+  botonesNivel5_6.push(new Boton_P2(btnImgP2));
 
   //llamada del jugador
   jugador = new Jugador(1, 1);
@@ -135,8 +147,10 @@ function mousePressed() {
 
   if (screen === 3 || screen === 4) {
     agregarAcciones(botonesNivel1_2);
-  } else if (screen > 4) {
-    agregarAcciones(botonesNivel3_4_5_6);
+  } else if (screen === 5 || screen === 6) {
+    agregarAcciones(botonesNivel3_4);
+  }else if (screen >6) {
+    agregarAcciones(botonesNivel5_6);
   }
 }
 
@@ -285,7 +299,7 @@ function draw() {
 
     case 5:
       //nivel 3
-      botonesNivel3_4_5_6.forEach((boton, index) => {
+      botonesNivel3_4.forEach((boton, index) => {
         boton.mostrarBoton(index);
       });
       
@@ -308,7 +322,7 @@ function draw() {
     case 6:
       //nivel 4
 
-      botonesNivel3_4_5_6.forEach((boton, index) => {
+      botonesNivel3_4.forEach((boton, index) => {
         boton.mostrarBoton(index);
         //boton.mostrarBotonDer(index)
       });
@@ -334,7 +348,7 @@ function draw() {
     case 7:
       //nivel 5
 
-      botonesNivel3_4_5_6.forEach((boton, index) => {
+      botonesNivel5_6.forEach((boton, index) => {
         boton.mostrarBoton(index);
         //boton.mostrarBotonDer(index)
       });
@@ -361,7 +375,7 @@ function draw() {
     case 8:
       //nivel 6
 
-      botonesNivel3_4_5_6.forEach((boton, index) => {
+      botonesNivel5_6.forEach((boton, index) => {
         boton.mostrarBoton(index);
         //boton.mostrarBotonDer(index)
       });
@@ -383,7 +397,40 @@ function draw() {
       });
 
       break;
+
+      case 9:
+
+         //nivel 6
+
+      botonesNivel5_6.forEach((boton, index) => {
+        boton.mostrarBoton(index);
+        //boton.mostrarBotonDer(index)
+      });
+
+      jugador.show();
+      terreno.reiniciar();
+      nivel = 6;
+      terreno.terrenoPrimerNivel(nivel);
+
+      if (posicionJugadorNivel7== false) {
+        jugador.setCol(4);
+        jugador.setFil(1);
+
+        posicionJugadorNivel7 = true;
+      }
+
+      botonesAccion.forEach((boton, index) => {
+        boton.pintarBotonesAccion(index);
+      });
+      
+        break;
+
+        case 10:
+          fill(255);
+          text(`fin`, 100, 100);
+        break
   }
+
   fill(255);
   text(`nivel -> ${nivel}`, 100, 100);
 }

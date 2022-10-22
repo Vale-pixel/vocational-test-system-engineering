@@ -1,7 +1,7 @@
-class Boton_Loop extends Botones {
+class Boton_P2 extends Botones {
     constructor(img){
         super(img)
-        this.name = "repeticion"
+        this.name = "rep_p2"
         this.imagen = img;
         // this.imagen = new loadImage('src/P1.png')
     }
