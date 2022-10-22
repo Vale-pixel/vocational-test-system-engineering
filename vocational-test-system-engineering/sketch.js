@@ -8,6 +8,10 @@ let fondo;
 
 let posicionJugadorNivel1;
 let posicionJugadorNivel2;
+let posicionJugadorNivel3;
+let posicionJugadorNivel4;
+let posicionJugadorNivel5;
+let posicionJugadorNivel6;
 
 let terreno;
 let screen;
@@ -59,7 +63,7 @@ function preload() {
 }
 
 function startGameAction() {
-  screen += 1;
+  screen = 8;
   startGameButton.hide();
   console.log("se cambio");
 }
@@ -67,6 +71,10 @@ function startGameAction() {
 function setup() {
   posicionJugadorNivel1 = false;
   posicionJugadorNivel2 = false;
+  posicionJugadorNivel3 = false;
+  posicionJugadorNivel4 = false;
+  posicionJugadorNivel5 = false;
+  posicionJugadorNivel6= false;
 
   botonInicio = new Botones(btnImgPlay);
 
@@ -280,21 +288,17 @@ function draw() {
       botonesNivel3_4_5_6.forEach((boton, index) => {
         boton.mostrarBoton(index);
       });
-
-      /*
-      if (posicionJugadorNivel1 == false) {
-        
-
-        posicionJugadorNivel1 = true;
-      }*/
-
-      jugador.setCol(4);
-      jugador.setFil(3);
-
+      
       jugador.show();
       terreno.reiniciar();
       nivel = 2;
       terreno.terrenoPrimerNivel(nivel);
+
+      if (posicionJugadorNivel3 == false) {
+       jugador.setCol(4);
+      jugador.setFil(3);
+        posicionJugadorNivel3 = true;
+      }
 
       botonesAccion.forEach((boton, index) => {
         boton.pintarBotonesAccion(index);
@@ -309,17 +313,17 @@ function draw() {
         //boton.mostrarBotonDer(index)
       });
 
-      if (posicionJugadorNivel1 == false) {
-        jugador.setCol(4);
-        jugador.setFil(1);
-
-        posicionJugadorNivel1 = true;
-      }
-
       jugador.show();
       terreno.reiniciar();
       nivel = 3;
       terreno.terrenoPrimerNivel(nivel);
+
+      if (posicionJugadorNivel4 == false) {
+        jugador.setCol(4);
+        jugador.setFil(1);
+
+        posicionJugadorNivel4 = true;
+      }
 
       botonesAccion.forEach((boton, index) => {
         boton.pintarBotonesAccion(index);
@@ -335,17 +339,17 @@ function draw() {
         //boton.mostrarBotonDer(index)
       });
 
-      if (posicionJugadorNivel1 == false) {
-        jugador.setCol(4);
-        jugador.setFil(3);
-
-        posicionJugadorNivel1 = true;
-      }
-
       jugador.show();
       terreno.reiniciar();
       nivel = 4;
       terreno.terrenoPrimerNivel(nivel);
+
+      if (posicionJugadorNivel5 == false) {
+        jugador.setCol(4);
+        jugador.setFil(3);
+
+        posicionJugadorNivel5 = true;
+      }
 
       //Aqui es donde se debería colocar el reinicio de los arreglos
       botonesAccion.forEach((boton, index) => {
@@ -362,16 +366,17 @@ function draw() {
         //boton.mostrarBotonDer(index)
       });
 
-      if (posicionJugadorNivel1 == false) {
+      jugador.show();
+      terreno.reiniciar();
+      nivel = 5;
+      terreno.terrenoPrimerNivel(nivel);
+
+      if (posicionJugadorNivel6== false) {
         jugador.setCol(4);
         jugador.setFil(1);
 
-        posicionJugadorNivel1 = true;
+        posicionJugadorNivel6 = true;
       }
-
-      jugador.show();
-      terreno.reiniciar();
-      terreno.terrenoPrimerNivel(5);
 
       botonesAccion.forEach((boton, index) => {
         boton.pintarBotonesAccion(index);
