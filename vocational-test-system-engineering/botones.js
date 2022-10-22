@@ -26,6 +26,14 @@ class Botones {
             image(this.imagen,this.x * index + 770, this.y - 470, 60, 60);
         } else if (index >= 4 && index < 12) {
             image(this.imagen,this.x * index + 450, this.y - 400, 60, 60);
+        }else if (index >= 12 && index < 16) {
+            image(this.imagen,this.x * index + 130, this.y - 330, 60, 60);
+        }
+        else if (index >= 16 && index < 20) {
+            image(this.imagen,this.x * index -190, this.y - 260, 60, 60);
+        }
+        else if (index >= 20 && index < 24) {
+            image(this.imagen,this.x * index -510, this.y - 190, 60, 60);
         }
     }
 

@@ -183,8 +183,7 @@ function recorridoArreglo() {
   botonesAccion.forEach((boton) => {
     if (boton.name === "derecha") {
       //screen += 1;
-      jugador.setCol(jugador.getCol() + 1)
-      
+      jugador.setCol(jugador.getCol() + 1);
       timeOut(() => {
         jugador.setCol(jugador.getCol() + 1);
       });
@@ -365,8 +364,8 @@ function draw() {
       terreno.terrenoPrimerNivel(nivel);
 
       if (posicionJugadorNivel4 == false) {
-        jugador.setCol(4);
-        jugador.setFil(1);
+        jugador.setCol(1);
+        jugador.setFil(4);
 
         posicionJugadorNivel4 = true;
       }
@@ -395,8 +394,8 @@ function draw() {
       terreno.terrenoPrimerNivel(nivel);
 
       if (posicionJugadorNivel5 == false) {
-        jugador.setCol(4);
-        jugador.setFil(3);
+        jugador.setCol(3);
+        jugador.setFil(1);
 
         posicionJugadorNivel5 = true;
       }
@@ -426,7 +425,7 @@ function draw() {
       terreno.terrenoPrimerNivel(nivel);
 
       if (posicionJugadorNivel6 == false) {
-        jugador.setCol(4);
+        jugador.setCol(1);
         jugador.setFil(1);
 
         posicionJugadorNivel6 = true;
