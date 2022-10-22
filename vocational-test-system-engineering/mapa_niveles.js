@@ -4,18 +4,21 @@ class mapa_niveles {
 
         this.posX = 20;
         this.posY = 20;
+        this.squareColor = color(0 , 0 , 255);
+        this.squareColor.setAlpha(0)
     }
 
     arregloEscaque(){
-        for (let index = 0; index < 10; index++) {
-            this.escaque.push(new Array(10));
+        for (let index = 0; index < 12; index++) {
+            this.escaque.push(new Array(12));
         }
 
-        for (let fil = 0; fil < 10; fil++) {
-            for(let col = 0; col < 10; col++){
+        for (let fil = 0; fil < 7; fil++) {
+            for(let col = 0; col < 12; col++){
                 this.escaque[fil][col] = 0;
             }
         }
+        console.log(this.escaque);
     }
 
     /*
@@ -35,12 +38,11 @@ class mapa_niveles {
 
 //En este punto se configuran los espacios por donde pasará el personaje
 terrenoPrimerNivel(nivel1){
-    for (let fil = 0; fil < 10; fil++){
-        for(let col = 0; col < 10; col++){
+    for (let fil = 0; fil < 7; fil++){
+        for(let col = 0; col < 12; col++){
 
             switch (nivel1) {
                 case 0:
-                    this.escaque
                     this.escaque[0][0] = 1;
                     this.escaque[0][1] = 1;
                     this.escaque[0][2] = 1;
@@ -70,7 +72,8 @@ terrenoPrimerNivel(nivel1){
                     this.escaque[4][3] = 1;
                     this.escaque[4][4] = 1;
                     this.escaque[4][5] = 1;
-                    
+                    this.escaque[4][6] = 1;
+
                     this.escaque[2][2] = 2;
                     
 
@@ -270,20 +273,20 @@ mostrar(pantalla1) {
     
 
     // pintamos basados en los valores de la matriz
-   for (let fil = 0; fil < 5; fil++) {
-       for (let col = 0; col < 6; col++) {
+   for (let fil = 0; fil < 7; fil++) {
+       for (let col = 0; col < 12; col++) {
            if (this.escaque[fil][col] === 0) { //Zona para caminar
                fill(255);
                
            } else if(this.escaque[fil][col] === 1) { //Paredes
-               fill(0 , 0 , 255);
+               fill(this.squareColor);
                
            } else if(this.escaque[fil][col] === 2) { //Meta
                 fill(255, 255, 0);
                 
         }
            noStroke();
-           rect((windowWidth/2) - ( 85 * 2) + (col * 60), (windowHeight/2) - (60 * 2) + (fil * 60), 50, 50);
+           rect((windowWidth/4) - ( 80 * 2) + (col * 60), (windowHeight/3) - (55 * 2) + (fil * 60), 50, 50);
 
        }
    }

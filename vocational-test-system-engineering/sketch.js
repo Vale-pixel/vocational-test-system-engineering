@@ -207,12 +207,12 @@ function showGrid() {
 
 function draw() {
   background(0);
-  botonInicio.botonInicioJuego();
+  
 
   /*  fill(5, 255, 124);
   ellipse(windowWidth/2, windowHeight/2 + 200, 30, 30); */
 
-  terreno.mostrar();
+ 
 
   if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 1) {
     screen += 1;
@@ -247,7 +247,9 @@ function draw() {
     case 3:
       //nivel 1
       
-      //image(fondo,0,0,windowWidth,windowHeight)
+      image(fondo,0,0,windowWidth,windowHeight)
+      terreno.mostrar();
+      botonInicio.botonInicioJuego();
 
       botonesNivel1_2.forEach((boton, index) => {
         boton.mostrarBoton(index);
@@ -260,16 +262,17 @@ function draw() {
 
         posicionJugadorNivel1 = true;
       }
-
+      
+      
       jugador.show();
       terreno.reiniciar();
       nivel = 0;
       terreno.terrenoPrimerNivel(nivel);
-
+      
       botonesAccion.forEach((boton, index) => {
         boton.pintarBotonesAccion(index);
       });
-
+      
       //background(255, 20, 255);
       break;
 
@@ -426,6 +429,8 @@ function draw() {
         break;
 
         case 10:
+          
+          background(255, 20, 20);
           fill(255);
           text(`fin`, 100, 100);
         break
