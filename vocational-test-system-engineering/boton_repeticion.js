@@ -1,12 +1,12 @@
 class Boton_Loop extends Botones {
-    constructor(){
-        super()
+    constructor(img){
+        super(img)
         this.name = "repeticion"
-        this.imagen = new loadImage('src/P1.png')
+        this.imagen = img;
+        // this.imagen = new loadImage('src/P1.png')
     }
 
     mostrarBoton(index){
-        
             image(this.imagen,this.x * index + 100, this.y, 60, 60);
             this.index = index;
         

@@ -1,8 +1,8 @@
 class Boton_Llegada extends Botones {
-    constructor(){
-        super()
+    constructor(img) {
+        super(img);
+        this.iamgen = img;
         this.name = "llegada"
-        this.imagen = new loadImage('src/ACT.png')
     }
 
     mostrarBoton(index){

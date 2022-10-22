@@ -5,7 +5,7 @@ class Jugador {
         this.playerCol =  playerCol; 
         this.playerFil = playerFil;
         this.playerDir = playerDir;
-        this.image = new loadImage('src/ALIEN.png');
+        // this.image = new loadImage('src/ALIEN.png');
         }
 
     init(){

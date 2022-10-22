@@ -17,6 +17,7 @@ let xPos;
 let yPos;
 let pCol;
 let pFil;
+let nivel = 0;
 
 const maxHeight = 80;
 const gridSize = 10;
@@ -24,6 +25,15 @@ let gridX;
 let gridY;
 const sideLength = 50;
 const cubes = [];
+
+let btnImgIzq;
+let btnImgDer;
+let btnImgArr;
+let btnImgAb;
+let btnImgLl;
+let btnImgLoop;
+let btnImgPlay;
+
 
 /*
 let grid = [
@@ -35,43 +45,53 @@ let fileImages = [];
 let xStart = 0;
 let yStart = 0;
 */
+
+function preload() {
+  // img = loadImage('sample-image.png');
+  btnImgIzq = loadImage('src/LEFT.png')
+  fondo = loadImage("src/FONDO_N1.png");
+  btnImgDer = loadImage('src/RIGHT.png');
+  btnImgArr = loadImage('src/UP.png');
+  btnImgAb = loadImage('src/DOWN.png');
+  btnImgLl = loadImage('src/ACT.png');
+  btnImgLoop = loadImage('src/P1.png'); 
+  btnImgPlay = loadImage('src/PLAY.png'); 
+}
+
 function startGameAction() {
   screen += 1;
   startGameButton.hide();
   console.log("se cambio");
 }
-function preload() {}
 
 function setup() {
   posicionJugadorNivel1 = false;
   posicionJugadorNivel2 = false;
 
-  botonInicio = new Botones();
-
-  fondo = loadImage("src/FONDO_N1.png");
+  botonInicio = new Botones(btnImgPlay);
 
   //LlEGADA DE LOS BOTONES PARA EJECUTARSE
   botonesAccion = [];
 
   //Array llamada de los botones
   botonesNivel1_2 = [];
-
-  botonesNivel1_2.push(new Boton_Der());
-  botonesNivel1_2.push(new Boton_Izquierda());
-  botonesNivel1_2.push(new Boton_Arriba());
-  botonesNivel1_2.push(new Boton_Abajo());
-  botonesNivel1_2.push(new Boton_Llegada());
+  botonesNivel1_2.push(new Boton_Der(btnImgDer));
+  botonesNivel1_2.push(new Boton_Izquierda(btnImgIzq));
+  botonesNivel1_2.push(new Boton_Arriba(btnImgArr));
+  botonesNivel1_2.push(new Boton_Abajo(btnImgAb));
+  botonesNivel1_2.push(new Boton_Llegada(btnImgLl));
 
   botonesNivel3_4_5_6 = [];
 
-  botonesNivel3_4_5_6.push(new Boton_Der());
-  botonesNivel3_4_5_6.push(new Boton_Izquierda());
-  botonesNivel3_4_5_6.push(new Boton_Arriba());
-  botonesNivel3_4_5_6.push(new Boton_Abajo());
-  botonesNivel3_4_5_6.push(new Boton_Llegada());
-  botonesNivel3_4_5_6.push(new Boton_Loop());
+  botonesNivel3_4_5_6.push(new Boton_Der(btnImgDer));
+  botonesNivel3_4_5_6.push(new Boton_Izquierda(btnImgIzq));
 
-  //botones.push(new Boton_Arriba())
+  botonesNivel3_4_5_6.push(new Boton_Arriba(btnImgArr));
+  botonesNivel3_4_5_6.push(new Boton_Abajo(btnImgAb));
+  botonesNivel3_4_5_6.push(new Boton_Llegada(btnImgLl));
+  botonesNivel3_4_5_6.push(new Boton_Loop(btnImgLoop));
+
+  
 
   //llamada del jugador
   jugador = new Jugador(1, 1);
@@ -100,9 +120,9 @@ function setup() {
 }
 
 function mousePressed() {
-  if (dist(mouseX, mouseY, windowWidth / 2+20 , windowHeight / 2 + 220) < 30) {
+  if (dist(mouseX, mouseY, windowWidth / 2 + 20, windowHeight / 2 + 220) < 30) {
     recorridoArreglo();
-    console.log("aiuda")
+    console.log("aiuda");
   }
 
   if (screen === 3 || screen === 4) {
@@ -116,17 +136,17 @@ function agregarAcciones(array) {
   array.forEach((boton) => {
     if (dist(mouseX, mouseY, boton.getX() + 30, boton.getY() + 30) < 30) {
       if (boton.name === "derecha") {
-        botonesAccion.push(new Boton_Der());
+        botonesAccion.push(new Boton_Der(btnImgDer));
       } else if (boton.name === "arriba") {
-        botonesAccion.push(new Boton_Arriba());
+        botonesAccion.push(new Boton_Arriba(btnImgArr));
       } else if (boton.name === "abajo") {
-        botonesAccion.push(new Boton_Abajo());
+        botonesAccion.push(new Boton_Abajo(btnImgAb));
       } else if (boton.name === "izquierda") {
-        botonesAccion.push(new Boton_Izquierda());
+        botonesAccion.push(new Boton_Izquierda(btnImgIzq));
       } else if (boton.name === "llegada") {
-        botonesAccion.push(new Boton_Llegada());
+        botonesAccion.push(new Boton_Llegada(btnImgLl));
       } else {
-        botonesAccion.push(new Boton_Loop());
+        botonesAccion.push(new Boton_Loop(btnImgLoop));
       }
     }
   });
@@ -134,31 +154,23 @@ function agregarAcciones(array) {
 
 function recorridoArreglo() {
   botonesAccion.forEach((boton) => {
-    if (
-      boton.name === "derecha"
-    ) {
+    if (boton.name === "derecha") {
       //screen += 1;
       jugador.setCol(jugador.getCol() + 1);
       console.log(screen);
       //jugador.setCol(jugador.getCol() + 1);
-    } else if (
-      boton.name === "izquierda"
-    ) {
+    } else if (boton.name === "izquierda") {
       console.log(screen);
       jugador.setCol(jugador.getCol() - 1);
-    } else if (
-      boton.name === "arriba"
-    ) {
+    } else if (boton.name === "arriba") {
       console.log(screen);
       jugador.setFil(jugador.getFil() - 1);
-    } else if (
-      boton.name === "abajo"
-    ) {
+    } else if (boton.name === "abajo") {
       console.log(screen);
       jugador.setFil(jugador.getFil() + 1);
-    } 
+    }
   });
-  console.log(terreno.getLocacion(jugador.getFil(), jugador.getCol()) );
+  console.log(terreno.getLocacion(jugador.getFil(), jugador.getCol()));
 }
 
 function showGrid() {
@@ -172,6 +184,7 @@ function showGrid() {
 }
 
 function draw() {
+  background(0);
   botonInicio.botonInicioJuego();
 
   /*  fill(5, 255, 124);
@@ -179,17 +192,21 @@ function draw() {
 
   terreno.mostrar();
 
-if(terreno.getLocacion(jugador.getFil(),jugador.getCol())===1){
+  if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 1) {
     screen += 1;
     botonesAccion = [];
-  } else if (terreno.getLocacion(jugador.getFil(),jugador.getCol()) === 2){
-    screen += 2;
-    botonesAccion = [];
-  } else if (terreno.getLocacion(jugador.getFil(),jugador.getCol()) === 3){
-    screen += 1;
-    botonesAccion = [];
-  } 
 
+    fill(100);
+    console.log('PERDIO');
+  } else if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2) {
+    screen += 1;
+    botonesAccion = [];
+    fill(100);
+    console.log('GANO');
+  } else if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 3) {
+    screen += 1;
+    botonesAccion = [];
+  }
 
   switch (screen) {
     case 0:
@@ -205,10 +222,9 @@ if(terreno.getLocacion(jugador.getFil(),jugador.getCol())===1){
       //instrucciones
       background(0);
       break;
-
     case 3:
       //nivel 1
-
+      
       //image(fondo,0,0,windowWidth,windowHeight)
 
       botonesNivel1_2.forEach((boton, index) => {
@@ -225,7 +241,8 @@ if(terreno.getLocacion(jugador.getFil(),jugador.getCol())===1){
 
       jugador.show();
       terreno.reiniciar();
-      terreno.terrenoPrimerNivel(0);
+      nivel = 0;
+      terreno.terrenoPrimerNivel(nivel);
 
       botonesAccion.forEach((boton, index) => {
         boton.pintarBotonesAccion(index);
@@ -244,7 +261,8 @@ if(terreno.getLocacion(jugador.getFil(),jugador.getCol())===1){
 
       jugador.show();
       terreno.reiniciar();
-      terreno.terrenoPrimerNivel(1);
+      nivel = 1;
+      terreno.terrenoPrimerNivel(nivel);
 
       if (posicionJugadorNivel2 == false) {
         jugador.setCol(4);
@@ -259,10 +277,8 @@ if(terreno.getLocacion(jugador.getFil(),jugador.getCol())===1){
 
     case 5:
       //nivel 3
-
       botonesNivel3_4_5_6.forEach((boton, index) => {
         boton.mostrarBoton(index);
-        //boton.mostrarBotonDer(index)
       });
 
       /*
@@ -277,7 +293,8 @@ if(terreno.getLocacion(jugador.getFil(),jugador.getCol())===1){
 
       jugador.show();
       terreno.reiniciar();
-      terreno.terrenoPrimerNivel(2);
+      nivel = 2;
+      terreno.terrenoPrimerNivel(nivel);
 
       botonesAccion.forEach((boton, index) => {
         boton.pintarBotonesAccion(index);
@@ -301,7 +318,8 @@ if(terreno.getLocacion(jugador.getFil(),jugador.getCol())===1){
 
       jugador.show();
       terreno.reiniciar();
-      terreno.terrenoPrimerNivel(3);
+      nivel = 3;
+      terreno.terrenoPrimerNivel(nivel);
 
       botonesAccion.forEach((boton, index) => {
         boton.pintarBotonesAccion(index);
@@ -326,7 +344,8 @@ if(terreno.getLocacion(jugador.getFil(),jugador.getCol())===1){
 
       jugador.show();
       terreno.reiniciar();
-      terreno.terrenoPrimerNivel(4);
+      nivel = 4;
+      terreno.terrenoPrimerNivel(nivel);
 
       //Aqui es donde se debería colocar el reinicio de los arreglos
       botonesAccion.forEach((boton, index) => {
@@ -360,6 +379,8 @@ if(terreno.getLocacion(jugador.getFil(),jugador.getCol())===1){
 
       break;
   }
+  fill(255);
+  text(`nivel -> ${nivel}`, 100, 100);
 }
 
 /*
