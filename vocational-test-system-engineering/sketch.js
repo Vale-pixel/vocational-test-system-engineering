@@ -275,7 +275,7 @@ function showGrid() {
     }
   }
 }
-<<<<<<< HEAD
+
 
 function sumasPuntajes() {
   /* if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2) {
@@ -283,7 +283,7 @@ function sumasPuntajes() {
 } */
 }
 
-=======
+
 /*
 function popUp(posX, posY, widthBox, heightBox, text) {
   if (popUpOn) {
@@ -294,7 +294,7 @@ function popUp(posX, posY, widthBox, heightBox, text) {
     text(text, posX, posY, widthBox);
   }
 }*/
->>>>>>> 9b3a88e693a0b3efe2435343d3f04b7972621ab9
+
 function draw() {
   background(0);
 
@@ -537,16 +537,15 @@ function draw() {
       break;
 
     case 9:
-<<<<<<< HEAD
       image(fondoFin, 0, 0, windowWidth, windowHeight);
-=======
+
       //pantalla finals
       background(255, 20, 20);
       fill(255);
       text(`fin`, 100, 100);
       endGameButton.style("display", "block");
 
->>>>>>> 170977b40c45e4d8823314d1c4b505843a4514ae
+ 
       break;
   }
 
