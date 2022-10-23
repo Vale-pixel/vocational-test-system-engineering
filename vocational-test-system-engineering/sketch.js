@@ -300,6 +300,23 @@ function draw() {
 
   if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2 && screen == 4) {
     score += 100;
+
+    botonesAccion.forEach((boton) => {
+      if (boton.name === "derecha") {
+        score -= 2;
+       
+      } else if (boton.name === "izquierda") {
+        score -= 2;
+        
+      } else if (boton.name === "arriba") {
+        score -= 2;
+       
+      } else if (boton.name === "abajo") {
+        score -= 2;
+        
+      }
+    })
+
 } else if
   (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2 && screen == 6) {
   score += 100;
