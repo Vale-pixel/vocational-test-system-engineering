@@ -230,7 +230,7 @@ function draw() {
   ellipse(windowWidth/2, windowHeight/2 + 200, 30, 30); */
 
   //console.log(terreno.getLocacion(jugador.getFil(), jugador.getCol()));
-
+  //
   if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 1) {
     screen += 1;
     botonesAccion = [];
