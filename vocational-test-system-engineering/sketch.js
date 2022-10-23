@@ -146,10 +146,12 @@ function setup() {
   //instrucciones nivel 3
   popUps.push(new PopUp(popUpInstruction, 50, 50, 60, 60, "hola"));
 */
-  const callInstruction = new PopUp(popUpInstruction, x, y, w, h, text);
+  //const callInstruction = new PopUp(popUpInstruction, x, y, w, h, text);
+  /*
   popUps.forEach((instruction) => {
-    instruction == callInstruction.push(instructions);
-  });
+    new PopUp(popUpInstruction,)
+   // instruction == callInstruction.push(instructions);
+  });*/
   botonInicio = new Botones(btnImgPlay);
   botonBorrar = new Botones(btnImgTrash);
 
@@ -409,7 +411,7 @@ function draw() {
     case 2:
       //instrucciones
       image(fondoInicio, 0, 0, windowWidth, windowHeight);
-      popUp.show();
+     // popUp.show();
       break;
     case 3:
       //nivel 1
