@@ -9,6 +9,8 @@ class Botones {
         // this.imageBotonInicio = new X('src/PLAY.png')
         this.posX = windowWidth / 2-20;
         this.posY = windowHeight / 2 + 205;
+        this.posXTrash = windowWidth / 1.18;
+        this.posYTrash = windowHeight / 2 + 205;
     };
 
     mostrarBoton(){}
@@ -16,6 +18,10 @@ class Botones {
     //boton para iniciar el juego (recorrido del arreglo)
     botonInicioJuego() {
         image(this.imagen, this.posX, this.posY, 60, 60);
+    }
+
+    botonBorrarComandos() {
+        image(this.imagen, this.posXTrash, this.posYTrash, 60, 60);
     }
 
     //funcion que pinta los botones del segundo arreglo

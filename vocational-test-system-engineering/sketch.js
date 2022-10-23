@@ -3,6 +3,7 @@ let botonesNivel1_2;
 let botonesNivel3_4_5_6;
 let botonesAccion;
 let botonInicio;
+let botonBorrar;
 
 let fondoN1;
 let fondoN2;
@@ -42,6 +43,7 @@ let btnImgLl;
 let btnImgP1;
 let btnImgP2;
 let btnImgPlay;
+let btnImgTrash;
 
 /*
 let grid = [
@@ -68,6 +70,7 @@ function preload() {
   btnImgP1 = loadImage("src/P1.png");
   btnImgP2 = loadImage("src/P2.png");
   btnImgPlay = loadImage("src/PLAY.png");
+  btnImgTrash = loadImage("src/TRASH.png");
 }
 
 function startGameAction() {
@@ -86,6 +89,7 @@ function setup() {
   posicionJugadorNivel7 = false;
 
   botonInicio = new Botones(btnImgPlay);
+  botonBorrar = new Botones(btnImgTrash);
 
   //LlEGADA DE LOS BOTONES PARA EJECUTARSE
   botonesAccion = [];
@@ -97,6 +101,7 @@ function setup() {
   botonesNivel1_2.push(new Boton_Arriba(btnImgArr));
   botonesNivel1_2.push(new Boton_Abajo(btnImgAb));
   botonesNivel1_2.push(new Boton_Llegada(btnImgLl));
+  
 
   botonesNivel3_4 = [];
 
@@ -145,8 +150,13 @@ function setup() {
 }
 
 function mousePressed() {
-  if (dist(mouseX, mouseY, windowWidth / 2 + 20, windowHeight / 2 + 220) < 30) {
+  if (dist(mouseX, mouseY, windowWidth / 2 + 20, windowHeight / 2 + 220) < 40) {
     recorridoArreglo();
+  }
+
+  if (dist(mouseX, mouseY, windowWidth / 1.15, windowHeight / 2 + 220) < 40) {
+    botonesAccion = [];
+    console.log('BORRO COMANDOS');
   }
 
   if (screen === 3 || screen === 4) {
@@ -172,7 +182,7 @@ function agregarAcciones(array) {
       } else if (boton.name === "llegada") {
         botonesAccion.push(new Boton_Llegada(btnImgLl));
       } else {
-        botonesAccion.push(new Boton_Loop(btnImgLoop));
+        botonesAccion.push(new Boton_P1(btnImgP1));
       }
     }
   });
@@ -208,6 +218,8 @@ function recorridoArreglo() {
         
       }); */
     }
+     if (boton.name === "rep_p1") {
+      recorridoArreglo();}
   });
   console.log(terreno.getLocacion(jugador.getFil(), jugador.getCol()));
 }
@@ -274,6 +286,7 @@ function draw() {
       image(fondoN1, 0, 0, windowWidth, windowHeight);
       terreno.mostrar();
       botonInicio.botonInicioJuego();
+      botonBorrar.botonBorrarComandos();
 
       botonesNivel1_2.forEach((boton, index) => {
         boton.mostrarBoton(index);
@@ -306,6 +319,7 @@ function draw() {
       image(fondoN1, 0, 0, windowWidth, windowHeight);
       terreno.mostrar();
       botonInicio.botonInicioJuego();
+      botonBorrar.botonBorrarComandos();
 
       botonesNivel1_2.forEach((boton, index) => {
         boton.mostrarBoton(index);
@@ -336,6 +350,7 @@ function draw() {
       image(fondoN2, 0, 0, windowWidth, windowHeight);
       terreno.mostrar();
       botonInicio.botonInicioJuego();
+      botonBorrar.botonBorrarComandos();
 
       botonesNivel3_4.forEach((boton, index) => {
         boton.mostrarBoton(index);
@@ -363,6 +378,7 @@ function draw() {
       image(fondoN2, 0, 0, windowWidth, windowHeight);
       terreno.mostrar();
       botonInicio.botonInicioJuego();
+      botonBorrar.botonBorrarComandos();
 
       botonesNivel3_4.forEach((boton, index) => {
         boton.mostrarBoton(index);
@@ -391,6 +407,7 @@ function draw() {
       image(fondoN3, 0, 0, windowWidth, windowHeight);
       terreno.mostrar();
       botonInicio.botonInicioJuego();
+      botonBorrar.botonBorrarComandos();
 
       botonesNivel5_6.forEach((boton, index) => {
         boton.mostrarBoton(index);
@@ -421,6 +438,7 @@ function draw() {
       image(fondoN3, 0, 0, windowWidth, windowHeight);
       terreno.mostrar();
       botonInicio.botonInicioJuego();
+      botonBorrar.botonBorrarComandos();
 
       botonesNivel5_6.forEach((boton, index) => {
         boton.mostrarBoton(index);
