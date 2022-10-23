@@ -5,6 +5,10 @@ let botonesAccion;
 let botonInicio;
 let botonBorrar;
 
+let score = 0;
+
+let funcionMovimientoJugador = 0;
+
 let fondoN1;
 let fondoN2;
 let fondoN3;
@@ -46,6 +50,7 @@ let btnImgP1;
 let btnImgP2;
 let btnImgPlay;
 let btnImgTrash;
+let btnImgInstruction;
 
 /*
 let grid = [
@@ -74,12 +79,16 @@ function preload() {
   btnImgP2 = loadImage("src/P2.png");
   btnImgPlay = loadImage("src/PLAY.png");
   btnImgTrash = loadImage("src/TRASH.png");
+  btnImgInstruction = loadImage("src/INSTRUCTION.png");
 }
 
 function startGameAction() {
   screen += 1;
   startGameButton.hide();
   console.log("se cambio");
+}
+function endGameAction() {
+  console.log("END");
 }
 
 
@@ -131,6 +140,7 @@ function setup() {
   botonesNivel5_6.push(new Boton_P1(btnImgP1));
   botonesNivel5_6.push(new Boton_P2(btnImgP2));
 
+
   //llamada del jugador
   jugador = new Jugador(0, 0);
 
@@ -155,7 +165,6 @@ function setup() {
   startGameButton.child('<i class="material-icons">cloud</i>');
   startGameButton.addClass("btn");
   startGameButton.mousePressed(startGameAction);
-
   endGameButton = createButton('<i class="material-icons">play_arrow</i>');
   endGameButton.center();
   endGameButton.position(windowWidth / 2, windowHeight / 2);
@@ -163,9 +172,19 @@ function setup() {
   endGameButton.child('<i class="material-icons">cloud</i>');
   endGameButton.addClass("btn");
   endGameButton.mousePressed(endGameAction);
+  endGameButton.style("display", "none");
 }
 
 function mousePressed() {
+  /*
+  if (
+    mouseX > popUp.widthBox &&
+    mouseX < popUp.widthBox * 2 &&
+    mouseY > popUp.heightBox &&
+    mouse < popUp.heightBox * 2
+  ) {
+    popUpOn = !popUpOn;
+  }*/
   if (dist(mouseX, mouseY, windowWidth / 2 + 20, windowHeight / 2 + 220) < 40) {
     recorridoArreglo();
   }
@@ -203,6 +222,10 @@ function agregarAcciones(array) {
     }
   });
 }
+
+function recorridoJugador () {
+
+} 
 
 function recorridoArreglo() {
   botonesAccion.forEach((boton) => {
@@ -252,7 +275,16 @@ function showGrid() {
     }
   }
 }
-
+/*
+function popUp(posX, posY, widthBox, heightBox, text) {
+  if (popUpOn) {
+    noStroke();
+    fill("#D9D9D9");
+    rect(posX, posY, widthBox, heightBox);
+    fill("#3E2748");
+    text(text, posX, posY, widthBox);
+  }
+}*/
 function draw() {
   background(0);
 
@@ -261,6 +293,8 @@ function draw() {
 
   //console.log(terreno.getLocacion(jugador.getFil(), jugador.getCol()));
   //
+
+  //popUp instructions
 
   if (
     terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 1 &&
@@ -481,9 +515,22 @@ function draw() {
       break;
 
     case 9:
+<<<<<<< HEAD
       image(fondoFin, 0, 0, windowWidth, windowHeight);
+=======
+      //pantalla finals
+      background(255, 20, 20);
+      fill(255);
+      text(`fin`, 100, 100);
+      endGameButton.style("display", "block");
+
+>>>>>>> 170977b40c45e4d8823314d1c4b505843a4514ae
       break;
   }
+
+  fill(255);
+  textSize(20);
+  text(`Score: ${score}`, windowHeight/2 - 300, windowWidth/4- 200)
 
   fill(255);
   text(`nivel -> ${nivel + 1}`, 100, 100);
