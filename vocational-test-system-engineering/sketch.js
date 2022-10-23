@@ -13,6 +13,7 @@ let fondoN1;
 let fondoN2;
 let fondoN3;
 let fondoInicio;
+let fondoFin;
 
 let posicionJugadorNivel1;
 let posicionJugadorNivel2;
@@ -97,6 +98,7 @@ function preload() {
   fondoN2 = loadImage("src/fondoN2.png");
   fondoN3 = loadImage("src/fondoN3.png");
   fondoInicio = loadImage("src/INICIO.png");
+  fondoFin = loadImage("src/FIN.png");
   btnImgDer = loadImage("src/RIGHT.png");
   btnImgArr = loadImage("src/UP.png");
   btnImgAb = loadImage("src/DOWN.png");
@@ -115,6 +117,12 @@ function startGameAction() {
 }
 function endGameAction() {
   console.log("END");
+}
+
+
+function endGameAction(){
+  endGameButton.hide();
+  console.log("termino");
 }
 
 function setup() {
@@ -194,17 +202,12 @@ function setup() {
   background(0);
 
   startGameButton = createButton('<i class="material-icons">play_arrow</i>');
-  startGameButton.center();
-  startGameButton.position(windowWidth / 2, windowHeight / 2);
-  startGameButton.center();
+  startGameButton.position(windowWidth / 2-60, windowHeight / 2);
   startGameButton.child('<i class="material-icons">cloud</i>');
   startGameButton.addClass("btn");
   startGameButton.mousePressed(startGameAction);
-
   endGameButton = createButton('<i class="material-icons">play_arrow</i>');
-  endGameButton.center();
-  endGameButton.position(windowWidth / 2, windowHeight / 2);
-  endGameButton.center();
+  endGameButton.position(windowWidth / 2-60, windowHeight / 1.3);
   endGameButton.child('<i class="material-icons">cloud</i>');
   endGameButton.addClass("btn");
   endGameButton.mousePressed(endGameAction);
@@ -245,7 +248,7 @@ function mousePressed() {
 
 function agregarAcciones(array) {
   array.forEach((boton) => {
-    if (dist(mouseX, mouseY, boton.getX() + 30, boton.getY() + 30) < 30) {
+    if (dist(mouseX, mouseY, boton.getX() + 30, boton.getY() + 30) < 35) {
       if (boton.name === "derecha") {
         botonesAccion.push(new Boton_Der(btnImgDer));
       } else if (boton.name === "arriba") {
@@ -295,11 +298,7 @@ function recorridoArreglo() {
         
       }); */
     }
-    if (boton.name === "rep_p1") {
-      recorridoArreglo();
-    }
   });
-  console.log(terreno.getLocacion(jugador.getFil(), jugador.getCol()));
 }
 
 function showGrid() {
@@ -311,6 +310,15 @@ function showGrid() {
     }
   }
 }
+
+
+function sumasPuntajes() {
+  /* if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2) {
+    score += 100;
+} */
+}
+
+
 /*
 function popUp(posX, posY, widthBox, heightBox, text) {
   if (popUpOn) {
@@ -321,8 +329,37 @@ function popUp(posX, posY, widthBox, heightBox, text) {
     text(text, posX, posY, widthBox);
   }
 }*/
+
 function draw() {
   background(0);
+
+  if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2 && screen == 4) {
+    score += 100;
+
+    botonesAccion.forEach((boton) => {
+      if (boton.name === "derecha") {
+        score -= 2;
+       
+      } else if (boton.name === "izquierda") {
+        score -= 2;
+        
+      } else if (boton.name === "arriba") {
+        score -= 2;
+       
+      } else if (boton.name === "abajo") {
+        score -= 2;
+        
+      }
+    })
+
+} else if
+  (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2 && screen == 6) {
+  score += 100;
+
+}else if
+  (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2 && screen == 8) {
+  score += 100;
+}
 
   /*  fill(5, 255, 124);
   ellipse(windowWidth/2, windowHeight/2 + 200, 30, 30); */
@@ -349,6 +386,7 @@ function draw() {
       col: jugador.getCol(),
     });
   } else if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2) {
+    //score += 100;
     screen += 1;
     botonesAccion = [];
     fill(100);
@@ -554,12 +592,10 @@ function draw() {
       break;
 
     case 9:
-      //pantalla finals
-      background(255, 20, 20);
-      fill(255);
-      text(`fin`, 100, 100);
+      image(fondoFin, 0, 0, windowWidth, windowHeight);
       endGameButton.style("display", "block");
 
+ 
       break;
   }
 
