@@ -147,7 +147,6 @@ function setup() {
 function mousePressed() {
   if (dist(mouseX, mouseY, windowWidth / 2 + 20, windowHeight / 2 + 220) < 30) {
     recorridoArreglo();
-    console.log("aiuda");
   }
 
   if (screen === 3 || screen === 4) {
@@ -231,6 +230,7 @@ function draw() {
 
   //console.log(terreno.getLocacion(jugador.getFil(), jugador.getCol()));
   //
+
   if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 1) {
     screen += 1;
     botonesAccion = [];
@@ -383,8 +383,7 @@ function draw() {
       break;
 
     case 7:
-      //nivel 5
-
+      //nivel 5 ----------------------------------------------------------------------------------------------------------------------------
       image(fondoN3, 0, 0, windowWidth, windowHeight);
       terreno.mostrar();
       botonInicio.botonInicioJuego();
@@ -397,12 +396,11 @@ function draw() {
       jugador.show();
       terreno.reiniciar();
       nivel = 4;
-      terreno.terrenoPrimerNivel(nivel);
+      terreno.terrenoPrimerNivel(4);
 
       if (posicionJugadorNivel5 == false) {
         jugador.setCol(3);
         jugador.setFil(1);
-
         posicionJugadorNivel5 = true;
       }
 
@@ -412,7 +410,7 @@ function draw() {
       });
 
       break;
-
+      // ----------------------------------------------------------------------------------------------------------------------------
     case 8:
       //nivel 6
 
@@ -433,7 +431,6 @@ function draw() {
       if (posicionJugadorNivel6 == false) {
         jugador.setCol(9);
         jugador.setFil(1);
-
         posicionJugadorNivel6 = true;
       }
 
@@ -455,6 +452,10 @@ function draw() {
 
   fill(255);
   text(`nivel -> ${nivel}`, 100, 100);
+  text(`Location -> ${terreno.getLocacion(jugador.getFil(), jugador.getCol())}`, 100, 200);
+  text(`Fila columna -> ${jugador.getFil()} ${jugador.getCol()}`, 100, 300);
+  text(`Screen -> ${screen}`, 100, 400);
+
 }
 
 /* function timeOut(metodo) {

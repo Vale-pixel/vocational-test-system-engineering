@@ -399,8 +399,8 @@ class mapa_niveles {
 
             this.escaque[5][0] = 1;
             this.escaque[5][1] = 1;
+            this.escaque[5][10] = 2; //GANO
             this.escaque[5][11] = 1;
-
 
             this.escaque[6][0] = 1;
             this.escaque[6][1] = 1;
@@ -415,8 +415,8 @@ class mapa_niveles {
             this.escaque[6][10] = 1;
             this.escaque[6][11] = 1;
             this.escaque[6][12] = 1;
+            
 
-            this.escaque[5][10] = 2;
 
             break;
 
@@ -528,9 +528,10 @@ class mapa_niveles {
   }
 
   getLocacion(newFil, newCol) {
-    if (newFil < 0 || newFil > 5 || newCol < 0 || newCol > 5) {
+    if (newFil < 0 || newFil > 6 || newCol < 0 || newCol > 11) {
       newFil = 0;
       newCol = 0;
+      console.log('ESTO PASA');
     }
     return this.escaque[newFil][newCol];
   }
