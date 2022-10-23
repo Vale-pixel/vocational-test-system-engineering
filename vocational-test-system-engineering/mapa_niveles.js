@@ -259,10 +259,7 @@ class mapa_niveles {
             this.escaque[6][9] = 1;
             this.escaque[6][10] = 1;
             this.escaque[6][11] = 1;
-            
-
             break;
-
           //cuarto nivel
 
           case 3:

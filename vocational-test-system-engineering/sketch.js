@@ -25,7 +25,7 @@ let xPos;
 let yPos;
 let pCol;
 let pFil;
-let nivel = 0;
+let nivel = 1;
 
 const maxHeight = 80;
 const gridSize = 10;
@@ -130,7 +130,7 @@ function setup() {
   //cubes.push(new cubes(0, 0, 0));
 
   //definicion pantalla inicial juego
-  screen = 7;
+  screen = 2;
 
   createCanvas(windowWidth, windowHeight);
   background(0);
@@ -231,12 +231,17 @@ function draw() {
   //console.log(terreno.getLocacion(jugador.getFil(), jugador.getCol()));
   //
 
-  if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 1) {
+  if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 1 && screen != 9) {
     screen += 1;
     botonesAccion = [];
 
     fill(100);
-    console.log("PERDIO");
+    console.log("PERDIO --> ", {
+      nivel: nivel + 1, 
+      locarion: terreno.getLocacion(jugador.getFil(), jugador.getCol()),
+      fil: jugador.getFil(), 
+      col: jugador.getCol()
+    });
 
   } else if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2) {
     screen += 1;
@@ -284,7 +289,7 @@ function draw() {
 
       jugador.show();
       terreno.reiniciar();
-      terreno.terrenoPrimerNivel(nivel);
+      terreno.terrenoPrimerNivel(0);
       nivel = 0;
       
 
@@ -310,7 +315,7 @@ function draw() {
       jugador.show();
       terreno.reiniciar();
       nivel = 1;
-      terreno.terrenoPrimerNivel(nivel);
+      terreno.terrenoPrimerNivel(1); // nivel 2
       botonInicio.botonInicioJuego();
 
       if (posicionJugadorNivel2 == false) {
@@ -339,7 +344,7 @@ function draw() {
       jugador.show();
       terreno.reiniciar();
       nivel = 2;
-      terreno.terrenoPrimerNivel(nivel);
+      terreno.terrenoPrimerNivel(2); // nivel 3
 
       if (posicionJugadorNivel3 == false) {
         jugador.setCol(1);
@@ -367,12 +372,11 @@ function draw() {
       jugador.show();
       terreno.reiniciar();
       nivel = 3;
-      terreno.terrenoPrimerNivel(nivel);
+      terreno.terrenoPrimerNivel(3); // nivel 4
 
       if (posicionJugadorNivel4 == false) {
-        jugador.setCol(2);
-        jugador.setFil(4);
-
+        jugador.setCol(4);
+        jugador.setFil(2);
         posicionJugadorNivel4 = true;
       }
 
@@ -426,7 +430,7 @@ function draw() {
       jugador.show();
       terreno.reiniciar();
       nivel = 5;
-      terreno.terrenoPrimerNivel(nivel);
+      terreno.terrenoPrimerNivel(5);
 
       if (posicionJugadorNivel6 == false) {
         jugador.setCol(9);
@@ -437,12 +441,10 @@ function draw() {
       botonesAccion.forEach((boton, index) => {
         boton.pintarBotonesAccion(index);
       });
-
       break;
 
     case 9:
-      //pantalla final
-
+      //pantalla finals
       background(255, 20, 20);
       fill(255);
       text(`fin`, 100, 100);
@@ -451,7 +453,7 @@ function draw() {
   }
 
   fill(255);
-  text(`nivel -> ${nivel}`, 100, 100);
+  text(`nivel -> ${nivel + 1}`, 100, 100);
   text(`Location -> ${terreno.getLocacion(jugador.getFil(), jugador.getCol())}`, 100, 200);
   text(`Fila columna -> ${jugador.getFil()} ${jugador.getCol()}`, 100, 300);
   text(`Screen -> ${screen}`, 100, 400);
