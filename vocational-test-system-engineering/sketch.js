@@ -9,6 +9,7 @@ let fondoN1;
 let fondoN2;
 let fondoN3;
 let fondoInicio;
+let fondoFin;
 
 let posicionJugadorNivel1;
 let posicionJugadorNivel2;
@@ -21,6 +22,7 @@ let posicionJugadorNivel7;
 let terreno;
 let screen;
 let startGameButton;
+let endGameButton;
 
 let xPos;
 let yPos;
@@ -63,6 +65,7 @@ function preload() {
   fondoN2 = loadImage("src/fondoN2.png");
   fondoN3 = loadImage("src/fondoN3.png");
   fondoInicio = loadImage("src/INICIO.png");
+  fondoFin = loadImage("src/FIN.png");
   btnImgDer = loadImage("src/RIGHT.png");
   btnImgArr = loadImage("src/UP.png");
   btnImgAb = loadImage("src/DOWN.png");
@@ -77,6 +80,12 @@ function startGameAction() {
   screen += 1;
   startGameButton.hide();
   console.log("se cambio");
+}
+
+
+function endGameAction(){
+  endGameButton.hide();
+  console.log("termino");
 }
 
 function setup() {
@@ -101,7 +110,6 @@ function setup() {
   botonesNivel1_2.push(new Boton_Arriba(btnImgArr));
   botonesNivel1_2.push(new Boton_Abajo(btnImgAb));
   botonesNivel1_2.push(new Boton_Llegada(btnImgLl));
-  
 
   botonesNivel3_4 = [];
 
@@ -147,6 +155,14 @@ function setup() {
   startGameButton.child('<i class="material-icons">cloud</i>');
   startGameButton.addClass("btn");
   startGameButton.mousePressed(startGameAction);
+
+  endGameButton = createButton('<i class="material-icons">play_arrow</i>');
+  endGameButton.center();
+  endGameButton.position(windowWidth / 2, windowHeight / 2);
+  endGameButton.center();
+  endGameButton.child('<i class="material-icons">cloud</i>');
+  endGameButton.addClass("btn");
+  endGameButton.mousePressed(endGameAction);
 }
 
 function mousePressed() {
@@ -156,7 +172,7 @@ function mousePressed() {
 
   if (dist(mouseX, mouseY, windowWidth / 1.15, windowHeight / 2 + 220) < 40) {
     botonesAccion = [];
-    console.log('BORRO COMANDOS');
+    console.log("BORRO COMANDOS");
   }
 
   if (screen === 3 || screen === 4) {
@@ -170,7 +186,7 @@ function mousePressed() {
 
 function agregarAcciones(array) {
   array.forEach((boton) => {
-    if (dist(mouseX, mouseY, boton.getX() + 30, boton.getY() + 30) < 30) {
+    if (dist(mouseX, mouseY, boton.getX() + 30, boton.getY() + 30) < 35) {
       if (boton.name === "derecha") {
         botonesAccion.push(new Boton_Der(btnImgDer));
       } else if (boton.name === "arriba") {
@@ -218,10 +234,13 @@ function recorridoArreglo() {
         
       }); */
     }
-     if (boton.name === "rep_p1") {
-      recorridoArreglo();}
   });
-  console.log(terreno.getLocacion(jugador.getFil(), jugador.getCol()));
+}
+
+function arregloP1(){
+  botonesAccion.forEach((boton,index) =>{
+    
+  })
 }
 
 function showGrid() {
@@ -243,24 +262,25 @@ function draw() {
   //console.log(terreno.getLocacion(jugador.getFil(), jugador.getCol()));
   //
 
-  if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 1 && screen != 9) {
+  if (
+    terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 1 &&
+    screen != 9
+  ) {
     screen += 1;
     botonesAccion = [];
 
     fill(100);
     console.log("PERDIO --> ", {
-      nivel: nivel + 1, 
+      nivel: nivel + 1,
       locarion: terreno.getLocacion(jugador.getFil(), jugador.getCol()),
-      fil: jugador.getFil(), 
-      col: jugador.getCol()
+      fil: jugador.getFil(),
+      col: jugador.getCol(),
     });
-
   } else if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2) {
     screen += 1;
     botonesAccion = [];
     fill(100);
     console.log("GANO");
-
   } else if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 3) {
     screen += 1;
     botonesAccion = [];
@@ -304,7 +324,6 @@ function draw() {
       terreno.reiniciar();
       terreno.terrenoPrimerNivel(0);
       nivel = 0;
-      
 
       botonesAccion.forEach((boton, index) => {
         boton.pintarBotonesAccion(index);
@@ -431,7 +450,7 @@ function draw() {
       });
 
       break;
-      // ----------------------------------------------------------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------------------------------------------------------
     case 8:
       //nivel 6
 
@@ -462,20 +481,19 @@ function draw() {
       break;
 
     case 9:
-      //pantalla finals
-      background(255, 20, 20);
-      fill(255);
-      text(`fin`, 100, 100);
-
+      image(fondoFin, 0, 0, windowWidth, windowHeight);
       break;
   }
 
   fill(255);
   text(`nivel -> ${nivel + 1}`, 100, 100);
-  text(`Location -> ${terreno.getLocacion(jugador.getFil(), jugador.getCol())}`, 100, 200);
+  text(
+    `Location -> ${terreno.getLocacion(jugador.getFil(), jugador.getCol())}`,
+    100,
+    200
+  );
   text(`Fila columna -> ${jugador.getFil()} ${jugador.getCol()}`, 100, 300);
   text(`Screen -> ${screen}`, 100, 400);
-
 }
 
 /* function timeOut(metodo) {
