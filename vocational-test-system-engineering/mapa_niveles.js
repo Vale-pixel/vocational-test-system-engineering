@@ -528,7 +528,6 @@ class mapa_niveles {
     if (newFil < 0 || newFil > 6 || newCol < 0 || newCol > 11) {
       newFil = 0;
       newCol = 0;
-      console.log('ESTO PASA');
     }
     return this.escaque[newFil][newCol];
   }

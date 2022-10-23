@@ -46,8 +46,8 @@ let btnImgDer;
 let btnImgArr;
 let btnImgAb;
 let btnImgLl;
- btnImgP1 = true;
- btnImgP2 = true;
+btnImgP1 = true;
+btnImgP2 = true;
 let btnImgPlay;
 let btnImgTrash;
 let popUpInstruction;
@@ -303,13 +303,9 @@ function recorridoArreglo() {
     } else if (boton.name === "rep_p1") {
       jugador.setFil(jugador.getFil() + 1);
       jugador.setCol(jugador.getCol() + 1);
-    }
-
-    if (boton.name === "rep_p2" && screen === 7) {
+    }else if (boton.name === "rep_p2" && 5> screen < 7) {
       jugador.setCol(jugador.getCol() + 3);
-      
-    } else boton.name === "rep_p2" && screen != 7;
-    {
+    }else if (boton.name === "rep_p2" && screen >= 7) {
       jugador.setCol(jugador.getCol() - 3);
     }
   });
@@ -345,6 +341,7 @@ function popUp(posX, posY, widthBox, heightBox, text) {
 function draw() {
   background(0);
 
+  //sistema de puntos
   if (
     terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2 &&
     screen == 4
@@ -367,11 +364,35 @@ function draw() {
     screen == 6
   ) {
     score += 100;
+
+    botonesAccion.forEach((boton) => {
+      if (boton.name === "derecha") {
+        score -= 2;
+      } else if (boton.name === "izquierda") {
+        score -= 2;
+      } else if (boton.name === "arriba") {
+        score -= 2;
+      } else if (boton.name === "abajo") {
+        score -= 2;
+      }
+    });
   } else if (
     terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2 &&
     screen == 8
   ) {
     score += 100;
+
+    botonesAccion.forEach((boton) => {
+      if (boton.name === "derecha") {
+        score -= 2;
+      } else if (boton.name === "izquierda") {
+        score -= 2;
+      } else if (boton.name === "arriba") {
+        score -= 2;
+      } else if (boton.name === "abajo") {
+        score -= 2;
+      }
+    });
   }
 
   /*  fill(5, 255, 124);
@@ -384,6 +405,7 @@ function draw() {
   popUps.forEach(() => {
     popUp.show();
   });
+
   if (
     terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 1 &&
     screen != 9
