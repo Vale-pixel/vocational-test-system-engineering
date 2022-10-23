@@ -159,7 +159,7 @@ function setup() {
   background(0);
 
   startGameButton = createButton('<i class="material-icons">play_arrow</i>');
-  startGameButton.position(windowWidth / 2-60, windowHeight / 1.3);
+  startGameButton.position(windowWidth / 2-60, windowHeight / 2);
   startGameButton.child('<i class="material-icons">cloud</i>');
   startGameButton.addClass("btn");
   startGameButton.mousePressed(startGameAction);
