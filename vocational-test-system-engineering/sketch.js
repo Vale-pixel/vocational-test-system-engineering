@@ -5,7 +5,9 @@ let botonesAccion;
 let botonInicio;
 let botonBorrar;
 
-let funcionMovimientoJugador;
+let score = 0;
+
+let funcionMovimientoJugador = 0;
 
 let fondoN1;
 let fondoN2;
@@ -125,8 +127,6 @@ function setup() {
   botonesNivel5_6.push(new Boton_P1(btnImgP1));
   botonesNivel5_6.push(new Boton_P2(btnImgP2));
 
-  //funcion que indica el movimiento pauado del jugador
-  funcionMovimientoJugador = 1;
 
   //llamada del jugador
   jugador = new Jugador(0, 0);
