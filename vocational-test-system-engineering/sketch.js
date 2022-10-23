@@ -375,8 +375,8 @@ function draw() {
       terreno.terrenoPrimerNivel(3); // nivel 4
 
       if (posicionJugadorNivel4 == false) {
-        jugador.setCol(4);
-        jugador.setFil(2);
+        jugador.setCol(1);
+        jugador.setFil(4);
         posicionJugadorNivel4 = true;
       }
 
