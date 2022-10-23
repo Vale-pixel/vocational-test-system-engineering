@@ -5,6 +5,8 @@ let botonesAccion;
 let botonInicio;
 let botonBorrar;
 
+let funcionMovimientoJugador;
+
 let fondoN1;
 let fondoN2;
 let fondoN3;
@@ -123,6 +125,9 @@ function setup() {
   botonesNivel5_6.push(new Boton_P1(btnImgP1));
   botonesNivel5_6.push(new Boton_P2(btnImgP2));
 
+  //funcion que indica el movimiento pauado del jugador
+  funcionMovimientoJugador = 1;
+
   //llamada del jugador
   jugador = new Jugador(0, 0);
 
@@ -187,6 +192,10 @@ function agregarAcciones(array) {
     }
   });
 }
+
+function recorridoJugador () {
+
+} 
 
 function recorridoArreglo() {
   botonesAccion.forEach((boton) => {
