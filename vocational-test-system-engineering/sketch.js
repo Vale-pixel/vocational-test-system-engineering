@@ -159,16 +159,12 @@ function setup() {
   background(0);
 
   startGameButton = createButton('<i class="material-icons">play_arrow</i>');
-  startGameButton.center();
-  startGameButton.position(windowWidth / 2, windowHeight / 2);
-  startGameButton.center();
+  startGameButton.position(windowWidth / 2-60, windowHeight / 1.3);
   startGameButton.child('<i class="material-icons">cloud</i>');
   startGameButton.addClass("btn");
   startGameButton.mousePressed(startGameAction);
   endGameButton = createButton('<i class="material-icons">play_arrow</i>');
-  endGameButton.center();
-  endGameButton.position(windowWidth / 2, windowHeight / 2);
-  endGameButton.center();
+  endGameButton.position(windowWidth / 2-60, windowHeight / 1.3);
   endGameButton.child('<i class="material-icons">cloud</i>');
   endGameButton.addClass("btn");
   endGameButton.mousePressed(endGameAction);
@@ -258,12 +254,6 @@ function recorridoArreglo() {
       }); */
     }
   });
-}
-
-function arregloP1(){
-  botonesAccion.forEach((boton,index) =>{
-    
-  })
 }
 
 function showGrid() {
@@ -555,11 +545,6 @@ function draw() {
 
     case 9:
       image(fondoFin, 0, 0, windowWidth, windowHeight);
-
-      //pantalla finals
-      background(255, 20, 20);
-      fill(255);
-      text(`fin`, 100, 100);
       endGameButton.style("display", "block");
 
  
