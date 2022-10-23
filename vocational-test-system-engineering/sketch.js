@@ -5,6 +5,10 @@ let botonesAccion;
 let botonInicio;
 let botonBorrar;
 
+let score = 0;
+
+let funcionMovimientoJugador = 0;
+
 let fondoN1;
 let fondoN2;
 let fondoN3;
@@ -128,6 +132,7 @@ function setup() {
   botonesNivel5_6.push(new Boton_P1(btnImgP1));
   botonesNivel5_6.push(new Boton_P2(btnImgP2));
 
+
   //llamada del jugador
   jugador = new Jugador(0, 0);
 
@@ -210,6 +215,10 @@ function agregarAcciones(array) {
     }
   });
 }
+
+function recorridoJugador () {
+
+} 
 
 function recorridoArreglo() {
   botonesAccion.forEach((boton) => {
@@ -505,6 +514,10 @@ function draw() {
 
       break;
   }
+
+  fill(255);
+  textSize(20);
+  text(`Score: ${score}`, windowHeight/2 - 300, windowWidth/4- 200)
 
   fill(255);
   text(`nivel -> ${nivel + 1}`, 100, 100);
