@@ -49,8 +49,36 @@ let btnImgP1;
 let btnImgP2;
 let btnImgPlay;
 let btnImgTrash;
-let btnImgInstruction;
+let popUpInstruction;
 
+let popUp;
+let popUps = [];
+
+const instructions = [
+  //nivel 1
+  {
+    x: 50,
+    y: 50,
+    w: 90,
+    h: 90,
+    text: "Los comandos me dan instrucciones para avanzar",
+  },
+  {
+    x: 100,
+    y: 100,
+    w: 70,
+    h: 70,
+    text: "Este comando sirve para pasar al siguiente nivel",
+  },
+  {
+    x: 150,
+    y: 150,
+    w: 90,
+    h: 90,
+    text: "Necesito llegar hasta acá para completar la misión",
+  },
+];
+instructions[0].text;
 /*
 let grid = [
   [15, 15, 15],
@@ -77,7 +105,7 @@ function preload() {
   btnImgP2 = loadImage("src/P2.png");
   btnImgPlay = loadImage("src/PLAY.png");
   btnImgTrash = loadImage("src/TRASH.png");
-  btnImgInstruction = loadImage("src/INSTRUCTION.png");
+  popUpInstruction = loadImage("src/INSTRUCTION.png");
 }
 
 function startGameAction() {
@@ -97,7 +125,23 @@ function setup() {
   posicionJugadorNivel5 = false;
   posicionJugadorNivel6 = false;
   posicionJugadorNivel7 = false;
+  // popUp = new PopUp(popUpInstruction, 50, 50, 60, 60, "hola");
+  //instrucciones nivel 1
+  /*
+  popUps.push(new PopUp(popUpInstruction, 50, 50, 60, 60, "hola"));
+  popUps.push(new PopUp(popUpInstruction, 50, 50, 60, 60, "hola"));
+  popUps.push(new PopUp(popUpInstruction, 50, 50, 60, 60, "hola"));
 
+  //instrucciones nivel 2
+  popUps.push(new PopUp(popUpInstruction, 50, 50, 60, 60, "hola"));
+
+  //instrucciones nivel 3
+  popUps.push(new PopUp(popUpInstruction, 50, 50, 60, 60, "hola"));
+*/
+  const callInstruction = new PopUp(popUpInstruction, x, y, w, h, text);
+  popUps.forEach((instruction) => {
+    instruction == callInstruction.push(instructions);
+  });
   botonInicio = new Botones(btnImgPlay);
   botonBorrar = new Botones(btnImgTrash);
 
@@ -132,7 +176,6 @@ function setup() {
   botonesNivel5_6.push(new Boton_P1(btnImgP1));
   botonesNivel5_6.push(new Boton_P2(btnImgP2));
 
-
   //llamada del jugador
   jugador = new Jugador(0, 0);
 
@@ -157,7 +200,7 @@ function setup() {
   startGameButton.child('<i class="material-icons">cloud</i>');
   startGameButton.addClass("btn");
   startGameButton.mousePressed(startGameAction);
-  
+
   endGameButton = createButton('<i class="material-icons">play_arrow</i>');
   endGameButton.center();
   endGameButton.position(windowWidth / 2, windowHeight / 2);
@@ -178,6 +221,10 @@ function mousePressed() {
   ) {
     popUpOn = !popUpOn;
   }*/
+
+  popUps.forEach(() => {
+    popUp.action();
+  });
   if (dist(mouseX, mouseY, windowWidth / 2 + 20, windowHeight / 2 + 220) < 40) {
     recorridoArreglo();
   }
@@ -216,9 +263,7 @@ function agregarAcciones(array) {
   });
 }
 
-function recorridoJugador () {
-
-} 
+function recorridoJugador() {}
 
 function recorridoArreglo() {
   botonesAccion.forEach((boton) => {
@@ -286,7 +331,9 @@ function draw() {
   //
 
   //popUp instructions
-
+  popUps.forEach(() => {
+    popUp.show();
+  });
   if (
     terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 1 &&
     screen != 9
@@ -324,6 +371,7 @@ function draw() {
     case 2:
       //instrucciones
       image(fondoInicio, 0, 0, windowWidth, windowHeight);
+      popUp.show();
       break;
     case 3:
       //nivel 1
@@ -517,7 +565,7 @@ function draw() {
 
   fill(255);
   textSize(20);
-  text(`Score: ${score}`, windowHeight/2 - 300, windowWidth/4- 200)
+  text(`Score: ${score}`, windowHeight / 2 - 300, windowWidth / 4 - 200);
 
   fill(255);
   text(`nivel -> ${nivel + 1}`, 100, 100);
