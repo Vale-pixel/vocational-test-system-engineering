@@ -243,8 +243,25 @@ function showGrid() {
   }
 }
 
+function sumasPuntajes() {
+  /* if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2) {
+    score += 100;
+} */
+}
+
 function draw() {
   background(0);
+
+  if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2 && screen == 4) {
+    score += 100;
+} else if
+  (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2 && screen == 6) {
+  score += 100;
+
+}else if
+  (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2 && screen == 8) {
+  score += 100;
+}
 
   /*  fill(5, 255, 124);
   ellipse(windowWidth/2, windowHeight/2 + 200, 30, 30); */
@@ -265,6 +282,7 @@ function draw() {
     });
 
   } else if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2) {
+    //score += 100;
     screen += 1;
     botonesAccion = [];
     fill(100);
