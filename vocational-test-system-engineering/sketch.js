@@ -184,27 +184,30 @@ function recorridoArreglo() {
     if (boton.name === "derecha") {
       //screen += 1;
       jugador.setCol(jugador.getCol() + 1);
-      timeOut(() => {
+      /* timeOut(() => {
         jugador.setCol(jugador.getCol() + 1);
-      });
+      }); */
 
       console.log(screen);
       //jugador.setCol(jugador.getCol() + 1);
     } else if (boton.name === "izquierda") {
+      jugador.setCol(jugador.getCol() - 1);
       console.log(screen);
-      timeOut(() => {
-        jugador.setCol(jugador.getCol() - 1);
-      });
+      /* timeOut(() => {
+        
+      }); */
     } else if (boton.name === "arriba") {
+      jugador.setFil(jugador.getFil() - 1);
       console.log(screen);
-      timeOut(() => {
+      /* timeOut(() => {
         jugador.setFil(jugador.getFil() - 1);
-      });
+      }); */
     } else if (boton.name === "abajo") {
+      jugador.setFil(jugador.getFil() + 1);
       console.log(screen);
-      timeOut(() => {
-        jugador.setFil(jugador.getFil() + 1);
-      });
+      /* timeOut(() => {
+        
+      }); */
     }
   });
   console.log(terreno.getLocacion(jugador.getFil(), jugador.getCol()));
@@ -271,16 +274,17 @@ function draw() {
       });
 
       if (posicionJugadorNivel1 == false) {
-        jugador.setCol(1);
-        jugador.setFil(1);
+        jugador.setCol(2);
+        jugador.setFil(2);
 
         posicionJugadorNivel1 = true;
       }
 
       jugador.show();
       terreno.reiniciar();
-      nivel = 0;
       terreno.terrenoPrimerNivel(nivel);
+      nivel = 0;
+      
 
       botonesAccion.forEach((boton, index) => {
         boton.pintarBotonesAccion(index);
@@ -451,9 +455,9 @@ function draw() {
   text(`nivel -> ${nivel}`, 100, 100);
 }
 
-function timeOut(metodo) {
+/* function timeOut(metodo) {
   setTimeout(metodo, 1000);
-}
+} */
 
 /*
 function die(){
