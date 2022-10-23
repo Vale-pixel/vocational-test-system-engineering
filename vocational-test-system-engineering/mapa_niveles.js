@@ -4,7 +4,7 @@ class mapa_niveles {
     this.posX = 20;
     this.posY = 20;
     this.squareColor = color(0, 0, 255);
-    this.squareColor.setAlpha(10);
+    this.squareColor.setAlpha(20);
   }
 
   arregloEscaque() {
@@ -114,6 +114,7 @@ class mapa_niveles {
 
           //segudno nivel
           case 1:
+
             this.escaque[0][0] = 1;
             this.escaque[0][1] = 1;
             this.escaque[0][2] = 1;
@@ -121,24 +122,65 @@ class mapa_niveles {
             this.escaque[0][4] = 1;
             this.escaque[0][5] = 1;
             this.escaque[0][6] = 1;
+            this.escaque[0][7] = 1;
+            this.escaque[0][8] = 1;
+            this.escaque[0][9] = 1;
+            this.escaque[0][10] = 1;
+            this.escaque[0][11] = 1;
+          
             this.escaque[1][0] = 1;
+            this.escaque[1][9] = 1;
+            this.escaque[1][10] = 1;
+            this.escaque[1][11] = 1;
+            
             this.escaque[2][0] = 1;
-            this.escaque[3][0] = 1;
-            this.escaque[4][0] = 1;
-            this.escaque[4][1] = 1;
-            this.escaque[4][2] = 1;
-            this.escaque[4][3] = 1;
-            this.escaque[4][4] = 1;
-            this.escaque[4][5] = 1;
-            this.escaque[1][5] = 1;
-            this.escaque[2][5] = 1;
-            this.escaque[3][5] = 1;
-
-            this.escaque[2][2] = 1;
+            this.escaque[2][1] = 1;
             this.escaque[2][3] = 1;
             this.escaque[2][4] = 1;
+            this.escaque[2][6] = 1;
+            this.escaque[2][7] = 1;
+            this.escaque[2][9] = 1;
+            this.escaque[2][10] = 1;
+            this.escaque[2][11] = 1;
 
-            this.escaque[3][4] = 2;
+            this.escaque[3][0] = 1;
+            this.escaque[3][1] = 1;
+            this.escaque[3][3] = 1;
+            this.escaque[3][4] = 1;
+            this.escaque[3][6] = 1;
+            this.escaque[3][7] = 1;
+            this.escaque[3][9] = 1;
+            this.escaque[3][10] = 1;
+            this.escaque[3][11] = 1;
+
+            this.escaque[4][0] = 1;
+            this.escaque[4][1] = 1;
+            this.escaque[4][3] = 1;    
+            this.escaque[4][7] = 1;  
+            this.escaque[4][9] = 1;              
+            this.escaque[4][10] = 1;    
+            this.escaque[4][11] = 1;    
+
+            this.escaque[5][0] = 1;
+            this.escaque[5][1] = 1;
+            this.escaque[5][5] = 1; 
+            this.escaque[5][9] = 2; 
+            this.escaque[5][10] = 1; 
+            this.escaque[5][11] = 1; 
+
+            this.escaque[6][0] = 1;
+            this.escaque[6][1] = 1;
+            this.escaque[6][2] = 1;
+            this.escaque[6][3] = 1;
+            this.escaque[6][4] = 1;
+            this.escaque[6][5] = 1;
+            this.escaque[6][6] = 1;
+            this.escaque[6][7] = 1;
+            this.escaque[6][8] = 1;
+            this.escaque[6][9] = 1;
+            this.escaque[6][10] = 1;
+            this.escaque[6][11] = 1;
+           
 
             break;
 
@@ -152,28 +194,72 @@ class mapa_niveles {
             this.escaque[0][4] = 1;
             this.escaque[0][5] = 1;
             this.escaque[0][6] = 1;
+            this.escaque[0][7] = 1;
+            this.escaque[0][8] = 1;
+            this.escaque[0][9] = 1;
+            this.escaque[0][10] = 1;
+            this.escaque[0][11] = 1;
 
             this.escaque[1][0] = 1;
-            this.escaque[1][2] = 1;
-            this.escaque[1][3] = 1;
-            this.escaque[1][4] = 1;
-            this.escaque[1][5] = 1;
-
+            this.escaque[1][9] = 1;
+            this.escaque[1][10] = 1;
+            this.escaque[1][11] = 1;
+           
             this.escaque[2][0] = 1;
+            this.escaque[2][1] = 1;
+            this.escaque[2][2] = 1;
+            this.escaque[2][3] = 1;
             this.escaque[2][5] = 1;
-
+            this.escaque[2][6] = 1;
+            this.escaque[2][7] = 1;
+            this.escaque[2][9] = 1;
+            this.escaque[2][10] = 1;
+            this.escaque[2][11] = 1;
+      
             this.escaque[3][0] = 1;
+            this.escaque[3][1] = 1;
             this.escaque[3][2] = 1;
             this.escaque[3][3] = 1;
-            this.escaque[3][4] = 1;
-            this.escaque[3][4] = 0;
-            this.escaque[3][5] = 1;
+            this.escaque[3][6] = 1;
+            this.escaque[3][7] = 1;
+            this.escaque[3][9] = 1;
+            this.escaque[3][10] = 1;
+            this.escaque[3][11] = 1;
 
             this.escaque[4][0] = 1;
+            this.escaque[4][1] = 1;
             this.escaque[4][2] = 1;
             this.escaque[4][3] = 1;
             this.escaque[4][4] = 1;
-            this.escaque[4][5] = 1;
+            this.escaque[4][7] = 1;
+            this.escaque[4][9] = 1;
+            this.escaque[4][10] = 1;
+            this.escaque[4][11] = 1;
+
+            this.escaque[5][0] = 1;
+            this.escaque[5][1] = 1;
+            this.escaque[5][2] = 1;
+            this.escaque[5][3] = 1;
+            this.escaque[5][4] = 1;
+            this.escaque[5][5] = 1;
+            this.escaque[5][8] = 2;
+            this.escaque[5][9] = 1;
+            this.escaque[5][10] = 1;
+            this.escaque[5][11] = 1;
+
+            this.escaque[6][0] = 1;
+            this.escaque[6][1] = 1;
+            this.escaque[6][2] = 1;
+            this.escaque[6][3] = 1;
+            this.escaque[6][4] = 1;
+            this.escaque[6][5] = 1;
+            this.escaque[6][6] = 1;
+            this.escaque[6][7] = 1;
+            this.escaque[6][8] = 1;
+            this.escaque[6][9] = 1;
+            this.escaque[6][10] = 1;
+            this.escaque[6][11] = 1;
+            
 
             break;
 

@@ -237,11 +237,13 @@ function draw() {
 
     fill(100);
     console.log("PERDIO");
+
   } else if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2) {
     screen += 1;
     botonesAccion = [];
     fill(100);
     console.log("GANO");
+
   } else if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 3) {
     screen += 1;
     botonesAccion = [];
@@ -312,7 +314,7 @@ function draw() {
       botonInicio.botonInicioJuego();
 
       if (posicionJugadorNivel2 == false) {
-        jugador.setCol(4);
+        jugador.setCol(1);
         jugador.setFil(1);
 
         posicionJugadorNivel2 = true;
@@ -340,8 +342,8 @@ function draw() {
       terreno.terrenoPrimerNivel(nivel);
 
       if (posicionJugadorNivel3 == false) {
-        jugador.setCol(4);
-        jugador.setFil(3);
+        jugador.setCol(1);
+        jugador.setFil(1);
         posicionJugadorNivel3 = true;
       }
 
@@ -429,7 +431,7 @@ function draw() {
       terreno.terrenoPrimerNivel(nivel);
 
       if (posicionJugadorNivel6 == false) {
-        jugador.setCol(1);
+        jugador.setCol(9);
         jugador.setFil(1);
 
         posicionJugadorNivel6 = true;
