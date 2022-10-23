@@ -480,6 +480,10 @@ function draw() {
   }
 
   fill(255);
+  textSize(20);
+  text(`Score: ${score}`, windowHeight/2 - 300, windowWidth/4- 200)
+
+  fill(255);
   text(`nivel -> ${nivel + 1}`, 100, 100);
   text(`Location -> ${terreno.getLocacion(jugador.getFil(), jugador.getCol())}`, 100, 200);
   text(`Fila columna -> ${jugador.getFil()} ${jugador.getCol()}`, 100, 300);
