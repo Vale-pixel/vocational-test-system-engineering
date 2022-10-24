@@ -588,7 +588,6 @@ function draw() {
 
       if(frameCount%60 == 0){
         tiempoNivelDos ++;
-        console.log(tiempoNivelDos);
       }
 
       image(fondoN1, 0, 0, windowWidth, windowHeight);
