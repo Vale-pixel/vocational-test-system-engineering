@@ -182,7 +182,7 @@ function setup() {
   );
   instructionsLvl2(
     570,
-    650,
+    740,
     600,
     100,
     "El p1 te permite bajar un cuadro e ir a la derecha un cuadro en un solo comando, usalo para las esquinas, pero recuerda solo sirve dos veces"
@@ -459,7 +459,7 @@ function draw() {
     screen += 1;
     botonesAccion = [];
     botonesNivel3_4.forEach((boton) => {
-      if (boton.name === "rep_p1" && contarP1 >=1) {
+      if (boton.name === "rep_p1" && contarP1 ==1 ) {
         boton.y -= 99289;
       }
     });
