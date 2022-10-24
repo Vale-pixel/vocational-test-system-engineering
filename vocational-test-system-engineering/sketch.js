@@ -605,6 +605,10 @@ function draw() {
       image(fondoN1, 0, 0, windowWidth, windowHeight);
 
       fill(255);
+      textSize(20);
+      text(`Tiempo: ${tiempoNivelDos}`, windowWidth / 1.5 + 360, windowHeight / 2-370 );
+
+      fill(255);
       textSize(25);
       text(`Nivel: ${nivel}`, windowWidth / 2-700, windowHeight / 2-365 );
 
@@ -699,6 +703,10 @@ function draw() {
       }
 
       image(fondoN2, 0, 0, windowWidth, windowHeight);
+
+      fill(255);
+      textSize(20);
+      text(`Tiempo: ${tiempoNivelcuatro}`, windowWidth / 1.5 + 360, windowHeight / 2-370 );
 
       fill(255);
       textSize(25);
@@ -811,6 +819,10 @@ function draw() {
       }
 
       image(fondoN3, 0, 0, windowWidth, windowHeight);
+
+      fill(255);
+      textSize(20);
+      text(`Tiempo: ${tiempoNivelseis}`, windowWidth / 1.5 + 360, windowHeight / 2-370 );
 
       fill(255);
       textSize(25);
