@@ -243,7 +243,7 @@ function setup() {
   //cubes.push(new cubes(0, 0, 0));
 
   //definicion pantalla inicial juego
-  screen = 3;
+  screen = 2;
 
   createCanvas(windowWidth, windowHeight);
   background(0);
@@ -331,32 +331,22 @@ function recorridoJugador() {}
 function recorridoArreglo() {
   botonesAccion.forEach((boton) => {
     if (boton.name === "derecha") {
-      //screen += 1;
       jugador.setCol(jugador.getCol() + 1);
-      /* timeOut(() => {
-        jugador.setCol(jugador.getCol() + 1);
-      }); */
-
-      console.log(screen);
-      //jugador.setCol(jugador.getCol() + 1);
+      
     } else if (boton.name === "izquierda") {
       jugador.setCol(jugador.getCol() - 1);
       console.log(screen);
-      /* timeOut(() => {
-        
-      }); */
+      
     } else if (boton.name === "arriba") {
       jugador.setFil(jugador.getFil() - 1);
       console.log(screen);
-      /* timeOut(() => {
-        jugador.setFil(jugador.getFil() - 1);
-      }); */
+      
+
     } else if (boton.name === "abajo") {
       jugador.setFil(jugador.getFil() + 1);
       console.log(screen);
-      /* timeOut(() => {
-        
-      }); */
+      
+
     } else if (boton.name === "rep_p1") {
       jugador.setFil(jugador.getFil() + 1);
       jugador.setCol(jugador.getCol() + 1);
@@ -431,7 +421,9 @@ function draw() {
         score -= 2;
       } else if (boton.name === "abajo") {
         score -= 2;
-      }
+      } else if (boton.name === "rep_p1") {
+        score += 2;
+      } 
     });
   } else if (
     terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2 &&
@@ -448,7 +440,9 @@ function draw() {
         score -= 2;
       } else if (boton.name === "abajo") {
         score -= 2;
-      }
+      } else if (boton.name === "rep_p2") {
+        score += 2;
+      } 
     });
   }
 
