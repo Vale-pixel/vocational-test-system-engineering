@@ -19,6 +19,7 @@ class PopUp {
       rect(this.posX + 60, this.posY - 60, this.width, this.height, 12);
       noStroke();
       fill("#23A6F0");
+      textSize(18);
       text(this.text, this.posX + 60 + 13, this.posY - 60 + 10, this.width);
     }
     // console.log("popUp esta mostrando");

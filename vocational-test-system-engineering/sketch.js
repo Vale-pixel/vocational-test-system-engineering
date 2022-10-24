@@ -173,14 +173,14 @@ function setup() {
   instructionsLvl1(
     860,
     537,
-    215,
+    230,
     99,
     "Necesito llegar hasta aquí para recoger el objeto perdido"
   );
   instructionsLvl1(
     490,
     740,
-    200,
+    220,
     100,
     "Con este comando puedo recoger el objeto perdido"
   );
