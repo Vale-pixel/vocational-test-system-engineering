@@ -4,6 +4,10 @@ let botonesAccion;
 let botonInicio;
 let botonBorrar;
 
+let tiempoNivelDos = 0;
+let tiempoNivelcuatro = 0;
+let tiempoNivelseis = 0;
+
 let score = 0;
 
 let funcionMovimientoJugador = 0;
@@ -582,6 +586,11 @@ function draw() {
     case 4:
       //nivel 2
 
+      if(frameCount%60 == 0){
+        tiempoNivelDos ++;
+        console.log(tiempoNivelDos);
+      }
+
       image(fondoN1, 0, 0, windowWidth, windowHeight);
       terreno.mostrar();
       botonInicio.botonInicioJuego();
@@ -652,6 +661,10 @@ function draw() {
       break;
     case 6:
       //nivel 4
+
+      if(frameCount%60 == 0){
+        tiempoNivelcuatro ++;
+      }
 
       image(fondoN2, 0, 0, windowWidth, windowHeight);
       terreno.mostrar();
@@ -738,6 +751,10 @@ function draw() {
     // ----------------------------------------------------------------------------------------------------------------------------
     case 8:
       //nivel 6
+
+      if(frameCount%60 == 0){
+        tiempoNivelseis ++;
+      }
 
       image(fondoN3, 0, 0, windowWidth, windowHeight);
       terreno.mostrar();
