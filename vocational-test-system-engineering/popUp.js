@@ -14,11 +14,11 @@ class PopUp {
 
     if (this.on) {
       stroke(217, 217, 217);
-      strokeWeight(2);
-      fill("#0872AD");
+      strokeWeight(1);
+      fill(255);
       rect(this.posX + 60, this.posY - 60, this.width, this.height, 12);
       noStroke();
-      fill("#D9D9D9");
+      fill("#23A6F0");
       text(this.text, this.posX + 60 + 13, this.posY - 60 + 10, this.width);
     }
     // console.log("popUp esta mostrando");

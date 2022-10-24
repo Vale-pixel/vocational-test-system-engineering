@@ -171,40 +171,48 @@ function setup() {
   //LlEGADA DE LOS BOTONES PARA EJECUTARSE
   botonesAccion = [];
   instructionsLvl1(
-    940,
-    527,
-    200,
-    90,
+    860,
+    537,
+    215,
+    99,
     "Necesito llegar hasta aquí para recoger el objeto perdido"
   );
   instructionsLvl1(
-    900,
-    609,
-    150,
-    150,
-    "Dale play para correr los comandos y pasar de nivel"
-  );
-  instructionsLvl1(
-    508,
-    700,
+    490,
+    740,
     200,
     100,
     "Con este comando puedo recoger el objeto perdido"
   );
   instructionsLvl2(
+    740,
+  490,
+    220,
+    99,
+    "Recuerda llegar hasta el objeto perdido para recuperarlo"
+  );
+  instructionsLvl2(
     570,
-    690,
-    400,
+    740,
+    600,
     100,
-    "El p1 me permite repetir las ordenes que me diste anteriormente, es decir, permite repetir los comandos"
+    "El p1 me permite bajar un cuadro e ir a la derecha un cuadro en un solo comando, usalo para las esquinas, pero recuerda solo sirve dos veces"
   );
   instructionsLvl3(
-    750,
-    609,
-    150,
-    150,
-    "p2 me sirve para repetir los comandos en p1"
+    855,
+  490,
+    220,
+    99,
+    "Recuerda llegar hasta el objeto perdido para recuperarlo"
   );
+  instructionsLvl3(
+    670,
+    740,
+    600,
+    100,
+    "El p1 me permite bajar un cuadro e ir a la derecha un cuadro en un solo comando, usalo para las esquinas, pero recuerda solo sirve dos veces"
+  );
+
   /*
   instructionsLvl1 = [];
 
@@ -251,7 +259,7 @@ function setup() {
   //cubes.push(new cubes(0, 0, 0));
 
   //definicion pantalla inicial juego
-  screen = 8;
+  screen = 7;
 
   createCanvas(windowWidth, windowHeight);
   background(0);
@@ -819,22 +827,13 @@ function draw() {
       image(fondoFin, 0, 0, windowWidth, windowHeight);
       endGameButton.style("display", "block");
 
-      break;
-  }
-
-  fill(255);
+      fill(255);
   textSize(20);
   text(`Score: ${score}`, windowHeight / 2 - 300, windowWidth / 4 - 200);
 
-  fill(255);
-  text(`nivel -> ${nivel + 1}`, 100, 100);
-  text(
-    `Location -> ${terreno.getLocacion(jugador.getFil(), jugador.getCol())}`,
-    100,
-    200
-  );
-  text(`Fila columna -> ${jugador.getFil()} ${jugador.getCol()}`, 100, 300);
-  text(`Screen -> ${screen}`, 100, 400);
+      break;
+  }
+
 }
 
 /* function timeOut(metodo) {
