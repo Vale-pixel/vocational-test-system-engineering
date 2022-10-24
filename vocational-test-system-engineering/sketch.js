@@ -248,7 +248,7 @@ function setup() {
   //cubes.push(new cubes(0, 0, 0));
 
   //definicion pantalla inicial juego
-  screen = 4;
+  screen = 9;
 
   createCanvas(windowWidth, windowHeight);
   background(0);
@@ -550,11 +550,6 @@ function draw() {
       textSize(25);
       text(`Nivel: ${nivel}`, windowWidth / 2-700, windowHeight / 2-365 );
 
-
-      fill(255);
-      textSize(20);
-      text(`Score: ${score}`, windowWidth / 2-700, windowHeight / 2-300 );
-
       terreno.mostrar();
       botonInicio.botonInicioJuego();
       botonBorrar.botonBorrarComandos();
@@ -615,7 +610,7 @@ function draw() {
 
       fill(255);
       textSize(20);
-      text(`Score: ${score}`, windowWidth / 2-700, windowHeight / 2-300 );
+      text(`Puntaje: ${score}`, windowWidth / 2-700, windowHeight / 2-300 );
 
       terreno.mostrar();
       botonInicio.botonInicioJuego();
@@ -654,10 +649,6 @@ function draw() {
       fill(255);
       textSize(25);
       text(`Nivel: ${nivel}`, windowWidth / 2-700, windowHeight / 2-365 );
-
-      fill(255);
-      textSize(20);
-      text(`Score: ${score}`, windowWidth / 2-700, windowHeight / 2-300 );
 
       terreno.mostrar();
       botonInicio.botonInicioJuego();
@@ -714,7 +705,7 @@ function draw() {
 
       fill(255);
       textSize(20);
-      text(`Score: ${score}`, windowWidth / 2-700, windowHeight / 2-300 );
+      text(`Puntaje: ${score}`, windowWidth / 2-700, windowHeight / 2-300 );
 
       terreno.mostrar();
       botonInicio.botonInicioJuego();
@@ -759,10 +750,6 @@ function draw() {
       fill(255);
       textSize(25);
       text(`Nivel: ${nivel}`, windowWidth / 2-700, windowHeight / 2-365 );
-
-      fill(255);
-      textSize(20);
-      text(`Score: ${score}`, windowWidth / 2-700, windowHeight / 2-300 );
 
       terreno.mostrar();
       botonInicio.botonInicioJuego();
@@ -830,7 +817,7 @@ function draw() {
 
       fill(255);
       textSize(20);
-      text(`Score: ${score}`, windowWidth / 2-700, windowHeight / 2-300 );
+      text(`Puntaje: ${score}`, windowWidth / 2-700, windowHeight / 2-300 );
 
       terreno.mostrar();
       botonInicio.botonInicioJuego();
@@ -882,7 +869,7 @@ function draw() {
 
       fill(255);
       textSize(35);
-      text(`Score: ${score}`, windowWidth / 2-50, windowHeight / 2-160 );
+      text(`Puntaje Final: ${score}`, windowWidth / 2-120, windowHeight / 2-160 );
 
       break;
   }
