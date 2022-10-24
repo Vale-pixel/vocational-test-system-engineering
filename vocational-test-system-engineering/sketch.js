@@ -195,7 +195,7 @@ function setup() {
     609,
     150,
     150,
-    "Dale play para correr los comandos y pasar de nivel"
+    "p2 me sirve para repetir los comandos en p1"
   );
   /*
   instructionsLvl1 = [];
@@ -243,7 +243,7 @@ function setup() {
   //cubes.push(new cubes(0, 0, 0));
 
   //definicion pantalla inicial juego
-  screen = 2;
+  screen = 3;
 
   createCanvas(windowWidth, windowHeight);
   background(0);
