@@ -1,11 +1,11 @@
 class Jugador {
-    constructor(playerFil, playerCol, playerDir){
+    constructor(playerFil, playerCol,img){
         this.playerPosX = (playerCol * 40) + 20;
         this.playerPosY = (playerFil * 40) + 20;
         this.playerCol =  playerCol; 
         this.playerFil = playerFil;
-        this.playerDir = playerDir;
-        // this.image = new loadImage('src/ALIEN.png');
+        this.image = img;
+
         }
 
     init(){
@@ -18,10 +18,7 @@ class Jugador {
 
     show(){
 
-       // image(this.image,(windowWidth/2) - ( 73 * 2) + (this.playerCol * 60), (windowHeight/2) - (47 * 2) + (this.playerFil * 60), 30, 60);
-
-       fill(255, 255, 0);
-    ellipse((windowWidth/4) - ( 68 * 2) + (this.playerCol * 60), (windowHeight/3) - (42 * 2) + (this.playerFil * 60), 30, 30);
+       image(this.image,(windowWidth/4) - ( 75 * 2) + (this.playerCol * 60), (windowHeight/3) - (63 * 2) + (this.playerFil * 60), 30, 65);
     }
 
     updateLocation(){

@@ -54,6 +54,7 @@ let btnImgP2;
 let btnImgPlay;
 let btnImgTrash;
 let popUpInstruction;
+let alienImg;
 
 let borrarP1 = false;
 let borrarP2 = false;
@@ -108,6 +109,7 @@ function instructionsLvl3(x, y, w, h, text) {
 }
 function preload() {
   // img = loadImage('sample-image.png');
+  alienImg = loadImage("src/ALIEN.png");
   btnImgIzq = loadImage("src/LEFT.png");
   fondoN1 = loadImage("src/FONDO_N1.png");
   fondoN2 = loadImage("src/fondoN2.png");
@@ -232,7 +234,7 @@ function setup() {
   botonesNivel5_6.push(new Boton_P2(btnImgP2));
 
   //llamada del jugador
-  jugador = new Jugador(0, 0);
+  jugador = new Jugador(0, 0,alienImg);
 
   //llamada de la clase mapa niveles para la definicion de los espacios de los niveles
   terreno = new mapa_niveles();

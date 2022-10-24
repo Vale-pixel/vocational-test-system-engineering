@@ -3,8 +3,10 @@ class mapa_niveles {
     this.escaque = [];
     this.posX = 20;
     this.posY = 20;
-    this.squareColor = color(0, 0, 255);
+    this.squareColor = color(255);
     this.squareColor.setAlpha(20);
+    this.squareColor2 = color(255);
+    this.squareColor2.setAlpha(200);
   }
 
   arregloEscaque() {
@@ -499,13 +501,13 @@ class mapa_niveles {
       for (let col = 0; col < 12; col++) {
         if (this.escaque[fil][col] === 0) {
           //Zona para caminar
-          fill(255);
+          fill(this.squareColor2);
         } else if (this.escaque[fil][col] === 1) {
           //Paredes
           fill(this.squareColor);
         } else if (this.escaque[fil][col] === 2) {
           //Meta
-          fill(255, 255, 0);
+          fill(44, 133, 153);
         }
         noStroke();
         rect(
