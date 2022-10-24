@@ -61,6 +61,7 @@ let tool3Img;
 let instrucN1;
 let empecemos;
 let enserio;
+let contexto;
 
 let borrarP1 = false;
 let borrarP2 = false;
@@ -97,6 +98,7 @@ function preload() {
   instrucN1 = loadImage("src/IntrucN1.png");
   empecemos = loadImage("src/Empecemos.png");
   enserio = loadImage("src/Enserio.png");
+  contexto = loadImage("src/contexto.png");
   fondoInicio = loadImage("src/INICIO.png");
   fondoFin = loadImage("src/FIN.png");
   btnImgDer = loadImage("src/RIGHT.png");
@@ -252,7 +254,7 @@ function setup() {
   background(0);
 
   startGameButton = createButton('<i class="material-icons">play_arrow</i>');
-  startGameButton.position(windowWidth / 2 - 60, windowHeight / 2);
+  startGameButton.position(windowWidth / 2 - 60, windowHeight / 2-50);
   startGameButton.child('<i class="material-icons">cloud</i>');
   startGameButton.addClass("btn");
   startGameButton.mousePressed(startGameAction);
@@ -533,7 +535,7 @@ function draw() {
       break;
     case 2:
       //instrucciones
-      image(fondoInicio, 0, 0, windowWidth, windowHeight);
+      image(contexto, 0, 0, windowWidth, windowHeight);
       startGameButton.style("display", "block");
       break;
     case 3:
