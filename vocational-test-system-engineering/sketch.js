@@ -248,7 +248,7 @@ function setup() {
   //cubes.push(new cubes(0, 0, 0));
 
   //definicion pantalla inicial juego
-  screen = 1;
+  screen = 4;
 
   createCanvas(windowWidth, windowHeight);
   background(0);
@@ -459,7 +459,7 @@ function draw() {
     screen += 1;
     botonesAccion = [];
     botonesNivel3_4.forEach((boton) => {
-      if (boton.name === "rep_p1" && contarP1 ==1 ) {
+      if (boton.name === "rep_p1" && contarP1 >=1 ) {
         boton.y -= 99289;
       }
     });
@@ -486,7 +486,9 @@ function draw() {
     screen += 1;
     botonesAccion = [];
     botonesNivel3_4.forEach((boton) => {
-      if (boton.name === "rep_p1" && contarP1 >= 1) {
+      if (boton.name === "rep_p1" && contarP1 ==1) {
+        boton.y -= 99289;
+      }else if( boton.name === "rep_p1" && contarP1 ==2) {
         boton.y -= 99289;
       }
     });
@@ -506,7 +508,7 @@ function draw() {
     screen += 1;
     botonesAccion = [];
     botonesNivel3_4.forEach((boton) => {
-      if (boton.name === "rep_p1" && contarP1 == 2) {
+      if (boton.name === "rep_p1" && contarP1 >= 1) {
         boton.y -= 99289;
       }
     });
@@ -522,6 +524,7 @@ function draw() {
     contarP2 = 0;
   }
 
+  
   switch (screen) {
     case 0:
       //animación (de momento es el botón de inicio)
@@ -542,6 +545,12 @@ function draw() {
       //nivel 1
 
       image(fondoN1, 0, 0, windowWidth, windowHeight);
+
+
+
+      fill(255);
+      textSize(20);
+      text(`Score: ${score}`, windowWidth / 2-700, windowHeight / 2-300 );
 
       terreno.mostrar();
       botonInicio.botonInicioJuego();
@@ -591,6 +600,11 @@ function draw() {
       }
 
       image(fondoN1, 0, 0, windowWidth, windowHeight);
+
+      fill(255);
+      textSize(20);
+      text(`Score: ${score}`, windowWidth / 2-700, windowHeight / 2-300 );
+
       terreno.mostrar();
       botonInicio.botonInicioJuego();
       botonBorrar.botonBorrarComandos();
@@ -624,6 +638,12 @@ function draw() {
       //nivel 3
 
       image(fondoN2, 0, 0, windowWidth, windowHeight);
+
+
+      fill(255);
+      textSize(20);
+      text(`Score: ${score}`, windowWidth / 2-700, windowHeight / 2-300 );
+
       terreno.mostrar();
       botonInicio.botonInicioJuego();
       botonBorrar.botonBorrarComandos();
@@ -668,6 +688,11 @@ function draw() {
       }
 
       image(fondoN2, 0, 0, windowWidth, windowHeight);
+
+      fill(255);
+      textSize(20);
+      text(`Score: ${score}`, windowWidth / 2-700, windowHeight / 2-300 );
+
       terreno.mostrar();
       botonInicio.botonInicioJuego();
       botonBorrar.botonBorrarComandos();
@@ -707,6 +732,11 @@ function draw() {
     case 7:
       //nivel 5 ----------------------------------------------------------------------------------------------------------------------------
       image(fondoN3, 0, 0, windowWidth, windowHeight);
+
+      fill(255);
+      textSize(20);
+      text(`Score: ${score}`, windowWidth / 2-700, windowHeight / 2-300 );
+
       terreno.mostrar();
       botonInicio.botonInicioJuego();
       botonBorrar.botonBorrarComandos();
@@ -762,6 +792,11 @@ function draw() {
       }
 
       image(fondoN3, 0, 0, windowWidth, windowHeight);
+
+      fill(255);
+      textSize(20);
+      text(`Score: ${score}`, windowWidth / 2-700, windowHeight / 2-300 );
+
       terreno.mostrar();
       botonInicio.botonInicioJuego();
       botonBorrar.botonBorrarComandos();
