@@ -546,6 +546,9 @@ function draw() {
 
       image(fondoN1, 0, 0, windowWidth, windowHeight);
 
+      fill(255);
+      textSize(25);
+      text(`Nivel: ${nivel}`, windowWidth / 2-700, windowHeight / 2-365 );
 
 
       fill(255);
@@ -575,7 +578,7 @@ function draw() {
       jugador.show();
       terreno.reiniciar();
       terreno.terrenoPrimerNivel(0);
-      nivel = 0;
+      nivel = 'Prueba nivel 1';
 
       image(toolImg, 807, 530, 35, 35);
 
@@ -600,6 +603,11 @@ function draw() {
       }
 
       image(fondoN1, 0, 0, windowWidth, windowHeight);
+
+      fill(255);
+      textSize(25);
+      text(`Nivel: ${nivel}`, windowWidth / 2-700, windowHeight / 2-365 );
+
 
       fill(255);
       textSize(20);
@@ -639,6 +647,9 @@ function draw() {
 
       image(fondoN2, 0, 0, windowWidth, windowHeight);
 
+      fill(255);
+      textSize(25);
+      text(`Nivel: ${nivel}`, windowWidth / 2-700, windowHeight / 2-365 );
 
       fill(255);
       textSize(20);
@@ -656,7 +667,7 @@ function draw() {
       });
       jugador.show();
       terreno.reiniciar();
-      nivel = 2;
+      nivel = 'Prueba nivel 2';
       terreno.terrenoPrimerNivel(2); // nivel 3
 
       if (posicionJugadorNivel3 == false) {
@@ -690,6 +701,10 @@ function draw() {
       image(fondoN2, 0, 0, windowWidth, windowHeight);
 
       fill(255);
+      textSize(25);
+      text(`Nivel: ${nivel}`, windowWidth / 2-700, windowHeight / 2-365 );
+
+      fill(255);
       textSize(20);
       text(`Score: ${score}`, windowWidth / 2-700, windowHeight / 2-300 );
 
@@ -704,7 +719,7 @@ function draw() {
 
       jugador.show();
       terreno.reiniciar();
-      nivel = 3;
+      nivel = 2;
       terreno.terrenoPrimerNivel(3); // nivel 4
 
       if (posicionJugadorNivel4 == false) {
@@ -734,6 +749,10 @@ function draw() {
       image(fondoN3, 0, 0, windowWidth, windowHeight);
 
       fill(255);
+      textSize(25);
+      text(`Nivel: ${nivel}`, windowWidth / 2-700, windowHeight / 2-365 );
+
+      fill(255);
       textSize(20);
       text(`Score: ${score}`, windowWidth / 2-700, windowHeight / 2-300 );
 
@@ -750,7 +769,7 @@ function draw() {
       });
       jugador.show();
       terreno.reiniciar();
-      nivel = 4;
+      nivel = 'Prueba nivel 3';
       terreno.terrenoPrimerNivel(4);
 
       if (posicionJugadorNivel5 == false) {
@@ -794,6 +813,10 @@ function draw() {
       image(fondoN3, 0, 0, windowWidth, windowHeight);
 
       fill(255);
+      textSize(25);
+      text(`Nivel: ${nivel}`, windowWidth / 2-700, windowHeight / 2-365 );
+
+      fill(255);
       textSize(20);
       text(`Score: ${score}`, windowWidth / 2-700, windowHeight / 2-300 );
 
@@ -808,7 +831,7 @@ function draw() {
 
       jugador.show();
       terreno.reiniciar();
-      nivel = 5;
+      nivel = 3;
       terreno.terrenoPrimerNivel(5);
 
       if (posicionJugadorNivel6 == false) {
