@@ -52,9 +52,10 @@ let btnImgPlay;
 let btnImgTrash;
 let popUpInstruction;
 
-let popUp;
-let popUps = [];
-
+let popUpsLvl1 = [];
+let popUpsLvl2 = [];
+let popUpsLvl3 = [];
+/*
 const instructions = [
   //nivel 1
   {
@@ -78,19 +79,24 @@ const instructions = [
     h: 90,
     text: "Necesito llegar hasta acá para completar la misión",
   },
-];
-instructions[0].text;
-/*
-let grid = [
-  [15, 15, 15],
-  [15, 15, 15],
-  [15, 15, 15],
-];
-let fileImages = [];
-let xStart = 0;
-let yStart = 0;
-*/
+];*/
+//instructions[0].text;
 
+function instructionsLvl1(x, y, w, h, text) {
+  let p = new PopUp(popUpInstruction, x, y, w, h, text);
+  popUpsLvl1.push(p);
+  return p;
+}
+function instructionsLvl2(x, y, w, h, text) {
+  let p = new PopUp(popUpInstruction, x, y, w, h, text);
+  popUpsLvl2.push(p);
+  return p;
+}
+function instructionsLvl3(x, y, w, h, text) {
+  let p = new PopUp(popUpInstruction, x, y, w, h, text);
+  popUpsLvl3.push(p);
+  return p;
+}
 function preload() {
   // img = loadImage('sample-image.png');
   btnImgIzq = loadImage("src/LEFT.png");
@@ -119,13 +125,15 @@ function endGameAction() {
   console.log("END");
 }
 
-
-function endGameAction(){
+function endGameAction() {
   endGameButton.hide();
   console.log("termino");
 }
 
 function setup() {
+  //instruction.newPopUp(popUpInstruction, 50, 50, 90, 90, "text");
+  //instruction.newPopUp(popUpInstruction, 100, 100, 90, 90, "hola");
+  // newPopUp(100, 100, 60, 70, "hola");
   posicionJugadorNivel1 = false;
   posicionJugadorNivel2 = false;
   posicionJugadorNivel3 = false;
@@ -133,19 +141,7 @@ function setup() {
   posicionJugadorNivel5 = false;
   posicionJugadorNivel6 = false;
   posicionJugadorNivel7 = false;
-  // popUp = new PopUp(popUpInstruction, 50, 50, 60, 60, "hola");
-  //instrucciones nivel 1
-  /*
-  popUps.push(new PopUp(popUpInstruction, 50, 50, 60, 60, "hola"));
-  popUps.push(new PopUp(popUpInstruction, 50, 50, 60, 60, "hola"));
-  popUps.push(new PopUp(popUpInstruction, 50, 50, 60, 60, "hola"));
 
-  //instrucciones nivel 2
-  popUps.push(new PopUp(popUpInstruction, 50, 50, 60, 60, "hola"));
-
-  //instrucciones nivel 3
-  popUps.push(new PopUp(popUpInstruction, 50, 50, 60, 60, "hola"));
-*/
   //const callInstruction = new PopUp(popUpInstruction, x, y, w, h, text);
   /*
   popUps.forEach((instruction) => {
@@ -157,8 +153,48 @@ function setup() {
 
   //LlEGADA DE LOS BOTONES PARA EJECUTARSE
   botonesAccion = [];
+  instructionsLvl1(
+    844,
+    527,
+    200,
+    90,
+    "Necesito llegar hasta aquí para recoger el objeto perdido"
+  );
+  instructionsLvl1(
+    750,
+    609,
+    150,
+    150,
+    "Dale play para correr los comandos y pasar de nivel"
+  );
+  instructionsLvl1(
+    508,
+    700,
+    200,
+    100,
+    "Con este comando puedo recoger el objeto perdido"
+  );
+  instructionsLvl2(
+    570,
+    690,
+    400,
+    100,
+    "El p1 me permite repetir las ordenes que me diste anteriormente, es decir, permite repetir los comandos"
+  );
+  instructionsLvl3(
+    750,
+    609,
+    150,
+    150,
+    "Dale play para correr los comandos y pasar de nivel"
+  );
+  /*
+  instructionsLvl1 = [];
 
-  //Array llamada de los botones
+  instructionsLvl1.push(new PopUp(popUpInstruction, 844, 527, 200, 90, "Necesito llegar hasta aquí para recoger el objeto perdido"));
+  instructionsLvl1.push(new PopUp(popUpInstruction, 750, 609, 150, 150, "Dale play para correr los comandos y pasar de nivel"));
+  instructionsLvl1.push(new PopUp(popUpInstruction, 508, 104, 100, 100, "Con este comando puedo recoger el objeto perdido"));
+  //Array llamada de los botones*/
   botonesNivel1_2 = [];
   botonesNivel1_2.push(new Boton_Der(btnImgDer));
   botonesNivel1_2.push(new Boton_Izquierda(btnImgIzq));
@@ -198,18 +234,18 @@ function setup() {
   //cubes.push(new cubes(0, 0, 0));
 
   //definicion pantalla inicial juego
-  screen = 2;
+  screen = 5;
 
   createCanvas(windowWidth, windowHeight);
   background(0);
 
   startGameButton = createButton('<i class="material-icons">play_arrow</i>');
-  startGameButton.position(windowWidth / 2-60, windowHeight / 2);
+  startGameButton.position(windowWidth / 2 - 60, windowHeight / 2);
   startGameButton.child('<i class="material-icons">cloud</i>');
   startGameButton.addClass("btn");
   startGameButton.mousePressed(startGameAction);
   endGameButton = createButton('<i class="material-icons">play_arrow</i>');
-  endGameButton.position(windowWidth / 2-60, windowHeight / 1.3);
+  endGameButton.position(windowWidth / 2 - 60, windowHeight / 1.3);
   endGameButton.child('<i class="material-icons">cloud</i>');
   endGameButton.addClass("btn");
   endGameButton.mousePressed(endGameAction);
@@ -227,8 +263,17 @@ function mousePressed() {
     popUpOn = !popUpOn;
   }*/
 
-  popUps.forEach(() => {
-    popUp.action();
+  popUpsLvl1.forEach((p) => {
+    p.action();
+    //boton.mostrarBotonDer(index)
+  });
+  popUpsLvl2.forEach((p) => {
+    p.action();
+    //boton.mostrarBotonDer(index)
+  });
+  popUpsLvl3.forEach((p) => {
+    p.action();
+    //boton.mostrarBotonDer(index)
   });
   if (dist(mouseX, mouseY, windowWidth / 2 + 20, windowHeight / 2 + 220) < 40) {
     recorridoArreglo();
@@ -313,13 +358,11 @@ function showGrid() {
   }
 }
 
-
 function sumasPuntajes() {
   /* if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2) {
     score += 100;
 } */
 }
-
 
 /*
 function popUp(posX, posY, widthBox, heightBox, text) {
@@ -335,33 +378,34 @@ function popUp(posX, posY, widthBox, heightBox, text) {
 function draw() {
   background(0);
 
-  if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2 && screen == 4) {
+  if (
+    terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2 &&
+    screen == 4
+  ) {
     score += 100;
 
     botonesAccion.forEach((boton) => {
       if (boton.name === "derecha") {
         score -= 2;
-       
       } else if (boton.name === "izquierda") {
         score -= 2;
-        
       } else if (boton.name === "arriba") {
         score -= 2;
-       
       } else if (boton.name === "abajo") {
         score -= 2;
-        
       }
-    })
-
-} else if
-  (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2 && screen == 6) {
-  score += 100;
-
-}else if
-  (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2 && screen == 8) {
-  score += 100;
-}
+    });
+  } else if (
+    terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2 &&
+    screen == 6
+  ) {
+    score += 100;
+  } else if (
+    terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2 &&
+    screen == 8
+  ) {
+    score += 100;
+  }
 
   /*  fill(5, 255, 124);
   ellipse(windowWidth/2, windowHeight/2 + 200, 30, 30); */
@@ -370,9 +414,6 @@ function draw() {
   //
 
   //popUp instructions
-  popUps.forEach(() => {
-    popUp.show();
-  });
   if (
     terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 1 &&
     screen != 9
@@ -411,7 +452,6 @@ function draw() {
     case 2:
       //instrucciones
       image(fondoInicio, 0, 0, windowWidth, windowHeight);
-     // popUp.show();
       break;
     case 3:
       //nivel 1
@@ -426,6 +466,11 @@ function draw() {
         //boton.mostrarBotonDer(index)
       });
 
+      popUpsLvl1.forEach((popUp) => {
+        popUp.show();
+      });
+    
+  
       if (posicionJugadorNivel1 == false) {
         jugador.setCol(2);
         jugador.setFil(2);
@@ -487,7 +532,9 @@ function draw() {
       botonesNivel3_4.forEach((boton, index) => {
         boton.mostrarBoton(index);
       });
-
+      popUpsLvl2.forEach((popUp) => {
+        popUp.show();
+      });
       jugador.show();
       terreno.reiniciar();
       nivel = 2;
@@ -545,7 +592,9 @@ function draw() {
         boton.mostrarBoton(index);
         //boton.mostrarBotonDer(index)
       });
-
+      popUpsLvl3.forEach((popUp) => {
+        popUp.show();
+      });
       jugador.show();
       terreno.reiniciar();
       nivel = 4;
@@ -597,7 +646,6 @@ function draw() {
       image(fondoFin, 0, 0, windowWidth, windowHeight);
       endGameButton.style("display", "block");
 
- 
       break;
   }
 

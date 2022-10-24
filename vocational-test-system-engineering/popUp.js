@@ -19,7 +19,7 @@ class PopUp {
       fill("#3E2748");
       text(this.text, this.posX + 63, this.posY - 57, this.width);
     }
-    console.log("popUp esta mostrando");
+   // console.log("popUp esta mostrando");
   }
   action() {
     if (
@@ -29,7 +29,10 @@ class PopUp {
       mouseY < this.posY + this.img.height
     ) {
       this.on = !this.on;
-      console.log("clickeó popUp");
+    //  console.log("clickeó popUp");
     }
   }
+ 
+
+
 }
