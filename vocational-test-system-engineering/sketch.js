@@ -1,6 +1,5 @@
 let jugador;
 let botonesNivel1_2;
-let botonesNivel3_4_5_6;
 let botonesAccion;
 let botonInicio;
 let botonBorrar;
@@ -51,6 +50,12 @@ let btnImgP2;
 let btnImgPlay;
 let btnImgTrash;
 let popUpInstruction;
+
+let borrarP1 = false;
+let borrarP2 = false;
+
+let contarP1 = 0;
+let contarP2 = 0;
 
 let popUpsLvl1 = [];
 let popUpsLvl2 = [];
@@ -154,14 +159,14 @@ function setup() {
   //LlEGADA DE LOS BOTONES PARA EJECUTARSE
   botonesAccion = [];
   instructionsLvl1(
-    844,
+    940,
     527,
     200,
     90,
     "Necesito llegar hasta aquí para recoger el objeto perdido"
   );
   instructionsLvl1(
-    750,
+    900,
     609,
     150,
     150,
@@ -234,7 +239,7 @@ function setup() {
   //cubes.push(new cubes(0, 0, 0));
 
   //definicion pantalla inicial juego
-  screen = 5;
+  screen = 2;
 
   createCanvas(windowWidth, windowHeight);
   background(0);
@@ -306,8 +311,12 @@ function agregarAcciones(array) {
         botonesAccion.push(new Boton_Izquierda(btnImgIzq));
       } else if (boton.name === "llegada") {
         botonesAccion.push(new Boton_Llegada(btnImgLl));
-      } else {
+      } else if (boton.name === "rep_p1") {
         botonesAccion.push(new Boton_P1(btnImgP1));
+        contarP1 += 1;
+      } else if (boton.name === "rep_p2") {
+        botonesAccion.push(new Boton_P2(btnImgP2));
+        contarP2 += 1;
       }
     }
   });
@@ -344,6 +353,13 @@ function recorridoArreglo() {
       /* timeOut(() => {
         
       }); */
+    } else if (boton.name === "rep_p1") {
+      jugador.setFil(jugador.getFil() + 1);
+      jugador.setCol(jugador.getCol() + 1);
+    } else if (boton.name === "rep_p2" && 5 > screen < 7) {
+      jugador.setCol(jugador.getCol() + 3);
+    } else if (boton.name === "rep_p2" && screen >= 7) {
+      jugador.setCol(jugador.getCol() - 3);
     }
   });
 }
@@ -378,6 +394,7 @@ function popUp(posX, posY, widthBox, heightBox, text) {
 function draw() {
   background(0);
 
+  //sistema de puntos
   if (
     terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2 &&
     screen == 4
@@ -400,11 +417,35 @@ function draw() {
     screen == 6
   ) {
     score += 100;
+
+    botonesAccion.forEach((boton) => {
+      if (boton.name === "derecha") {
+        score -= 2;
+      } else if (boton.name === "izquierda") {
+        score -= 2;
+      } else if (boton.name === "arriba") {
+        score -= 2;
+      } else if (boton.name === "abajo") {
+        score -= 2;
+      }
+    });
   } else if (
     terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2 &&
     screen == 8
   ) {
     score += 100;
+
+    botonesAccion.forEach((boton) => {
+      if (boton.name === "derecha") {
+        score -= 2;
+      } else if (boton.name === "izquierda") {
+        score -= 2;
+      } else if (boton.name === "arriba") {
+        score -= 2;
+      } else if (boton.name === "abajo") {
+        score -= 2;
+      }
+    });
   }
 
   /*  fill(5, 255, 124);
@@ -420,6 +461,23 @@ function draw() {
   ) {
     screen += 1;
     botonesAccion = [];
+    botonesNivel3_4.forEach((boton) => {
+      if (boton.name === "rep_p1" && contarP1==2) {
+        boton.y -= 99289;
+      }
+    });
+    botonesNivel5_6.forEach((boton) => {
+      if (boton.name === "rep_p1" && contarP1==1) {
+        boton.y -= 99289;
+      }
+      if (boton.name === "rep_p2" && contarP2==1) {
+        boton.y -= 99289;
+      }
+    });
+    contarP1 = 0;
+    contarP2 = 0;
+   
+   
 
     fill(100);
     console.log("PERDIO --> ", {
@@ -432,11 +490,42 @@ function draw() {
     //score += 100;
     screen += 1;
     botonesAccion = [];
+    botonesNivel3_4.forEach((boton) => {
+      if (boton.name === "rep_p1" && contarP1==2) {
+        boton.y -= 99289;
+      }
+    });
+    botonesNivel5_6.forEach((boton) => {
+      if (boton.name === "rep_p1" && contarP1==1) {
+        boton.y -= 99289;
+      }
+      if (boton.name === "rep_p2" && contarP2==1) {
+        boton.y -= 99289;
+      }
+    });
+    contarP1 = 0;
+    contarP2 = 0;
     fill(100);
     console.log("GANO");
+
   } else if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 3) {
     screen += 1;
     botonesAccion = [];
+    botonesNivel3_4.forEach((boton) => {
+      if (boton.name === "rep_p1" && contarP1==2) {
+        boton.y -= 99289;
+      }
+    });
+    botonesNivel5_6.forEach((boton) => {
+      if (boton.name === "rep_p1" && contarP1==1) {
+        boton.y -= 99289;
+      }
+      if (boton.name === "rep_p2" && contarP2==1) {
+        boton.y -= 99289;
+      }
+    });
+    contarP1 = 0;
+    contarP2 = 0;
   }
 
   switch (screen) {
@@ -550,6 +639,16 @@ function draw() {
         boton.pintarBotonesAccion(index);
       });
 
+      if (contarP1 == 2) {
+        botonesNivel3_4.forEach((boton) => {
+          if (boton.name === "rep_p1") {
+            boton.y = 100000;
+          }
+        });
+      }
+
+
+
       break;
     case 6:
       //nivel 4
@@ -578,6 +677,14 @@ function draw() {
       botonesAccion.forEach((boton, index) => {
         boton.pintarBotonesAccion(index);
       });
+
+      if (contarP1 == 2) {
+        botonesNivel3_4.forEach((boton) => {
+          if (boton.name === "rep_p1") {
+            boton.y = 100000;
+          }
+        });
+      }
 
       break;
 
@@ -611,6 +718,22 @@ function draw() {
         boton.pintarBotonesAccion(index);
       });
 
+      if (contarP1 == 1) {
+        botonesNivel5_6.forEach((boton) => {
+          if (boton.name === "rep_p1") {
+            boton.y = 100000;
+          }
+        });
+      }
+
+      if (contarP2 == 1) {
+        botonesNivel5_6.forEach((boton) => {
+          if (boton.name === "rep_p2") {
+            boton.y = 100000;
+          }
+        });
+      }
+
       break;
     // ----------------------------------------------------------------------------------------------------------------------------
     case 8:
@@ -640,6 +763,23 @@ function draw() {
       botonesAccion.forEach((boton, index) => {
         boton.pintarBotonesAccion(index);
       });
+
+      if (contarP1 == 1) {
+        botonesNivel5_6.forEach((boton) => {
+          if (boton.name === "rep_p1") {
+            boton.y = 100000;
+          }
+        });
+      }
+
+      if (contarP2 == 1) {
+        botonesNivel5_6.forEach((boton) => {
+          if (boton.name === "rep_p2") {
+            boton.y = 100000;
+          }
+        });
+      }
+
       break;
 
     case 9:
