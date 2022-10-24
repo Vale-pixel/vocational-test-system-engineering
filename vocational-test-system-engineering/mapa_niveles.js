@@ -507,7 +507,7 @@ class mapa_niveles {
           fill(this.squareColor);
         } else if (this.escaque[fil][col] === 2) {
           //Meta
-          fill(44, 133, 153);
+          fill(255);
         }
         noStroke();
         rect(

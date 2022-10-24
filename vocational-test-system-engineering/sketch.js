@@ -55,6 +55,9 @@ let btnImgPlay;
 let btnImgTrash;
 let popUpInstruction;
 let alienImg;
+let toolImg; 
+let tool2Img;
+let tool3Img;
 
 let borrarP1 = false;
 let borrarP2 = false;
@@ -124,6 +127,9 @@ function preload() {
   btnImgP2 = loadImage("src/P2.png");
   btnImgPlay = loadImage("src/PLAY.png");
   btnImgTrash = loadImage("src/TRASH.png");
+  toolImg = loadImage("src/TOOL1.png");
+  tool2Img = loadImage("src/TOOL2.png");
+  tool3Img = loadImage("src/TOOL3.png");
   popUpInstruction = loadImage("src/INSTRUCTION.png");
 }
 
@@ -245,7 +251,7 @@ function setup() {
   //cubes.push(new cubes(0, 0, 0));
 
   //definicion pantalla inicial juego
-  screen = 2;
+  screen = 8;
 
   createCanvas(windowWidth, windowHeight);
   background(0);
@@ -546,6 +552,7 @@ function draw() {
       //nivel 1
 
       image(fondoN1, 0, 0, windowWidth, windowHeight);
+      
       terreno.mostrar();
       botonInicio.botonInicioJuego();
       botonBorrar.botonBorrarComandos();
@@ -572,9 +579,13 @@ function draw() {
       terreno.terrenoPrimerNivel(0);
       nivel = 0;
 
+      image(toolImg, 807, 530, 35, 35);
+
       botonesAccion.forEach((boton, index) => {
         boton.pintarBotonesAccion(index);
       });
+
+
 
       //background(255, 20, 255);
       break;
@@ -609,6 +620,8 @@ function draw() {
         posicionJugadorNivel2 = true;
       }
 
+      image(toolImg, 747, 470, 35, 35);
+
       botonesAccion.forEach((boton, index) => {
         boton.pintarBotonesAccion(index);
       });
@@ -638,6 +651,8 @@ function draw() {
         jugador.setFil(1);
         posicionJugadorNivel3 = true;
       }
+
+      image(tool2Img, 687, 470, 35, 35);
 
       botonesAccion.forEach((boton, index) => {
         boton.pintarBotonesAccion(index);
@@ -682,6 +697,8 @@ function draw() {
         posicionJugadorNivel4 = true;
       }
 
+      image(tool2Img, 747, 290, 35, 35);
+
       botonesAccion.forEach((boton, index) => {
         boton.pintarBotonesAccion(index);
       });
@@ -720,6 +737,8 @@ function draw() {
         jugador.setFil(1);
         posicionJugadorNivel5 = true;
       }
+
+      image(tool3Img, 807, 470, 35, 35);
 
       //Aqui es donde se debería colocar el reinicio de los arreglos
       botonesAccion.forEach((boton, index) => {
@@ -771,6 +790,8 @@ function draw() {
         jugador.setFil(1);
         posicionJugadorNivel6 = true;
       }
+
+      image(tool3Img, 327, 230, 35, 35);
 
       botonesAccion.forEach((boton, index) => {
         boton.pintarBotonesAccion(index);
