@@ -248,7 +248,7 @@ function setup() {
   //cubes.push(new cubes(0, 0, 0));
 
   //definicion pantalla inicial juego
-  screen = 9;
+  screen = 1;
 
   createCanvas(windowWidth, windowHeight);
   background(0);
