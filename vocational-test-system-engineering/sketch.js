@@ -459,7 +459,7 @@ function draw() {
     screen += 1;
     botonesAccion = [];
     botonesNivel3_4.forEach((boton) => {
-      if (boton.name === "rep_p1" && contarP1 == 2) {
+      if (boton.name === "rep_p1" && contarP1 >=1) {
         boton.y -= 99289;
       }
     });
@@ -486,7 +486,7 @@ function draw() {
     screen += 1;
     botonesAccion = [];
     botonesNivel3_4.forEach((boton) => {
-      if (boton.name === "rep_p1" && contarP1 == 2) {
+      if (boton.name === "rep_p1" && contarP1 >= 1) {
         boton.y -= 99289;
       }
     });
