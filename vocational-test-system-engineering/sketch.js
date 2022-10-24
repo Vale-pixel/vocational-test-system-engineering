@@ -199,7 +199,7 @@ function setup() {
     740,
     600,
     100,
-    "El p1 te permite bajar un cuadro e ir a la derecha un cuadro en un solo comando, usalo para las esquinas, pero recuerda solo sirve dos veces"
+    "El p2 te permite avanzar 3 cuadros en un solo comando"
   );
 
   /*
