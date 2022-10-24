@@ -171,7 +171,7 @@ function setup() {
     640,
     230,
     105,
-    "Este es el botón ‘play’ da click para correr el arreglo final, sólo puedes usarlo una vez por nivel"
+    "Este es el botón ‘play’ da click para correr el arreglo final, recuerda entre mas comandos menos puntos"
   );
   instructionsLvl2(
     740,
@@ -183,8 +183,8 @@ function setup() {
   instructionsLvl2(
     570,
     740,
-    600,
-    100,
+    306,
+    105,
     "El p1 te permite bajar un cuadro e ir a la derecha un cuadro en un solo comando, usalo para las esquinas, pero recuerda solo sirve dos veces"
   );
   instructionsLvl3(
@@ -197,9 +197,9 @@ function setup() {
   instructionsLvl3(
     670,
     740,
-    600,
+    200,
     100,
-    "El p2 te permite avanzar 3 cuadros en un solo comando"
+    "El p2 te permite avanzar 3 cuadros a la izquierda en un solo comando"
   );
 
   /*
@@ -350,7 +350,7 @@ function recorridoArreglo() {
       jugador.setFil(jugador.getFil() + 1);
       jugador.setCol(jugador.getCol() + 1);
     } else if (boton.name === "rep_p2" && 5 > screen < 7) {
-      jugador.setCol(jugador.getCol() + 3);
+      jugador.setCol(jugador.getCol() - 3);
     } else if (boton.name === "rep_p2" && screen >= 7) {
       jugador.setCol(jugador.getCol() - 3);
     }
