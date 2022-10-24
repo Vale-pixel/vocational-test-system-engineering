@@ -55,9 +55,12 @@ let btnImgPlay;
 let btnImgTrash;
 let popUpInstruction;
 let alienImg;
-let toolImg; 
+let toolImg;
 let tool2Img;
 let tool3Img;
+let instrucN1;
+let empecemos;
+let enserio;
 
 let borrarP1 = false;
 let borrarP2 = false;
@@ -68,32 +71,6 @@ let contarP2 = 0;
 let popUpsLvl1 = [];
 let popUpsLvl2 = [];
 let popUpsLvl3 = [];
-/*
-const instructions = [
-  //nivel 1
-  {
-    x: 50,
-    y: 50,
-    w: 90,
-    h: 90,
-    text: "Los comandos me dan instrucciones para avanzar",
-  },
-  {
-    x: 100,
-    y: 100,
-    w: 70,
-    h: 70,
-    text: "Este comando sirve para pasar al siguiente nivel",
-  },
-  {
-    x: 150,
-    y: 150,
-    w: 90,
-    h: 90,
-    text: "Necesito llegar hasta acá para completar la misión",
-  },
-];*/
-//instructions[0].text;
 
 function instructionsLvl1(x, y, w, h, text) {
   let p = new PopUp(popUpInstruction, x, y, w, h, text);
@@ -117,6 +94,9 @@ function preload() {
   fondoN1 = loadImage("src/FONDO_N1.png");
   fondoN2 = loadImage("src/fondoN2.png");
   fondoN3 = loadImage("src/fondoN3.png");
+  instrucN1 = loadImage("src/IntrucN1.png");
+  empecemos = loadImage("src/Empecemos.png");
+  enserio = loadImage("src/Enserio.png");
   fondoInicio = loadImage("src/INICIO.png");
   fondoFin = loadImage("src/FIN.png");
   btnImgDer = loadImage("src/RIGHT.png");
@@ -136,15 +116,15 @@ function preload() {
 function startGameAction() {
   screen += 1;
   startGameButton.hide();
-  console.log("se cambio");
+
 }
 function endGameAction() {
-  console.log("END");
+
 }
 
 function endGameAction() {
   endGameButton.hide();
-  console.log("termino");
+
 }
 
 function setup() {
@@ -174,35 +154,42 @@ function setup() {
     860,
     537,
     230,
-    99,
-    "Necesito llegar hasta aquí para recoger el objeto perdido"
+    90,
+    "Necesitas llegar hasta aquí para recoger el objeto perdido"
   );
   instructionsLvl1(
     490,
     740,
-    220,
-    100,
-    "Con este comando puedo recoger el objeto perdido"
+    175,
+    90,
+    "Con este comando puedes recoger el objeto perdido"
+  );
+  instructionsLvl1(
+    765,
+    640,
+    230,
+    105,
+    "Este es el botón ‘play’ da click para correr el arreglo final, sólo puedes usarlo una vez por nivel"
   );
   instructionsLvl2(
     740,
-  490,
+    490,
     220,
     99,
     "Recuerda llegar hasta el objeto perdido para recuperarlo"
   );
   instructionsLvl2(
     570,
-    740,
+    650,
     600,
     100,
-    "El p1 me permite bajar un cuadro e ir a la derecha un cuadro en un solo comando, usalo para las esquinas, pero recuerda solo sirve dos veces"
+    "El p1 te permite bajar un cuadro e ir a la derecha un cuadro en un solo comando, usalo para las esquinas, pero recuerda solo sirve dos veces"
   );
   instructionsLvl3(
     855,
-  490,
+    490,
     220,
-    99,
+    90,
     "Recuerda llegar hasta el objeto perdido para recuperarlo"
   );
   instructionsLvl3(
@@ -210,7 +197,7 @@ function setup() {
     740,
     600,
     100,
-    "El p1 me permite bajar un cuadro e ir a la derecha un cuadro en un solo comando, usalo para las esquinas, pero recuerda solo sirve dos veces"
+    "El p1 te permite bajar un cuadro e ir a la derecha un cuadro en un solo comando, usalo para las esquinas, pero recuerda solo sirve dos veces"
   );
 
   /*
@@ -248,7 +235,7 @@ function setup() {
   botonesNivel5_6.push(new Boton_P2(btnImgP2));
 
   //llamada del jugador
-  jugador = new Jugador(0, 0,alienImg);
+  jugador = new Jugador(0, 0, alienImg);
 
   //llamada de la clase mapa niveles para la definicion de los espacios de los niveles
   terreno = new mapa_niveles();
@@ -259,7 +246,7 @@ function setup() {
   //cubes.push(new cubes(0, 0, 0));
 
   //definicion pantalla inicial juego
-  screen = 7;
+  screen = 1;
 
   createCanvas(windowWidth, windowHeight);
   background(0);
@@ -270,7 +257,7 @@ function setup() {
   startGameButton.addClass("btn");
   startGameButton.mousePressed(startGameAction);
   endGameButton = createButton('<i class="material-icons">play_arrow</i>');
-  endGameButton.position(windowWidth / 2 - 60, windowHeight / 1.3);
+  endGameButton.position(windowWidth / 2 - 60, windowHeight / 2);
   endGameButton.child('<i class="material-icons">cloud</i>');
   endGameButton.addClass("btn");
   endGameButton.mousePressed(endGameAction);
@@ -306,7 +293,7 @@ function mousePressed() {
 
   if (dist(mouseX, mouseY, windowWidth / 1.15, windowHeight / 2 + 220) < 40) {
     botonesAccion = [];
-    console.log("BORRO COMANDOS");
+
   }
 
   if (screen === 3 || screen === 4) {
@@ -348,21 +335,15 @@ function recorridoArreglo() {
   botonesAccion.forEach((boton) => {
     if (boton.name === "derecha") {
       jugador.setCol(jugador.getCol() + 1);
-      
     } else if (boton.name === "izquierda") {
       jugador.setCol(jugador.getCol() - 1);
-      console.log(screen);
-      
+   
     } else if (boton.name === "arriba") {
       jugador.setFil(jugador.getFil() - 1);
-      console.log(screen);
       
-
     } else if (boton.name === "abajo") {
       jugador.setFil(jugador.getFil() + 1);
-      console.log(screen);
-      
-
+   
     } else if (boton.name === "rep_p1") {
       jugador.setFil(jugador.getFil() + 1);
       jugador.setCol(jugador.getCol() + 1);
@@ -439,7 +420,7 @@ function draw() {
         score -= 2;
       } else if (boton.name === "rep_p1") {
         score += 2;
-      } 
+      }
     });
   } else if (
     terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 2 &&
@@ -458,7 +439,7 @@ function draw() {
         score -= 2;
       } else if (boton.name === "rep_p2") {
         score += 2;
-      } 
+      }
     });
   }
 
@@ -476,22 +457,20 @@ function draw() {
     screen += 1;
     botonesAccion = [];
     botonesNivel3_4.forEach((boton) => {
-      if (boton.name === "rep_p1" && contarP1==2) {
+      if (boton.name === "rep_p1" && contarP1 == 2) {
         boton.y -= 99289;
       }
     });
     botonesNivel5_6.forEach((boton) => {
-      if (boton.name === "rep_p1" && contarP1==1) {
+      if (boton.name === "rep_p1" && contarP1 == 1) {
         boton.y -= 99289;
       }
-      if (boton.name === "rep_p2" && contarP2==1) {
+      if (boton.name === "rep_p2" && contarP2 == 1) {
         boton.y -= 99289;
       }
     });
     contarP1 = 0;
     contarP2 = 0;
-   
-   
 
     fill(100);
     console.log("PERDIO --> ", {
@@ -505,15 +484,15 @@ function draw() {
     screen += 1;
     botonesAccion = [];
     botonesNivel3_4.forEach((boton) => {
-      if (boton.name === "rep_p1" && contarP1==2) {
+      if (boton.name === "rep_p1" && contarP1 == 2) {
         boton.y -= 99289;
       }
     });
     botonesNivel5_6.forEach((boton) => {
-      if (boton.name === "rep_p1" && contarP1==1) {
+      if (boton.name === "rep_p1" && contarP1 == 1) {
         boton.y -= 99289;
       }
-      if (boton.name === "rep_p2" && contarP2==1) {
+      if (boton.name === "rep_p2" && contarP2 == 1) {
         boton.y -= 99289;
       }
     });
@@ -521,20 +500,19 @@ function draw() {
     contarP2 = 0;
     fill(100);
     console.log("GANO");
-
   } else if (terreno.getLocacion(jugador.getFil(), jugador.getCol()) === 3) {
     screen += 1;
     botonesAccion = [];
     botonesNivel3_4.forEach((boton) => {
-      if (boton.name === "rep_p1" && contarP1==2) {
+      if (boton.name === "rep_p1" && contarP1 == 2) {
         boton.y -= 99289;
       }
     });
     botonesNivel5_6.forEach((boton) => {
-      if (boton.name === "rep_p1" && contarP1==1) {
+      if (boton.name === "rep_p1" && contarP1 == 1) {
         boton.y -= 99289;
       }
-      if (boton.name === "rep_p2" && contarP2==1) {
+      if (boton.name === "rep_p2" && contarP2 == 1) {
         boton.y -= 99289;
       }
     });
@@ -550,17 +528,19 @@ function draw() {
 
     case 1:
       //incio
-      background(255, 20, 255);
+      image(fondoInicio, 0, 0, windowWidth, windowHeight);
+      
       break;
     case 2:
       //instrucciones
       image(fondoInicio, 0, 0, windowWidth, windowHeight);
+      startGameButton.style("display", "block");
       break;
     case 3:
       //nivel 1
 
       image(fondoN1, 0, 0, windowWidth, windowHeight);
-      
+
       terreno.mostrar();
       botonInicio.botonInicioJuego();
       botonBorrar.botonBorrarComandos();
@@ -573,8 +553,7 @@ function draw() {
       popUpsLvl1.forEach((popUp) => {
         popUp.show();
       });
-    
-  
+
       if (posicionJugadorNivel1 == false) {
         jugador.setCol(2);
         jugador.setFil(2);
@@ -593,7 +572,11 @@ function draw() {
         boton.pintarBotonesAccion(index);
       });
 
-
+      if (frameCount < 1000) {
+        image(instrucN1, 0, 0, windowWidth, windowHeight);
+      } else if (frameCount < 1500) {
+        image(empecemos, 0, 0, windowWidth, windowHeight);
+      }
 
       //background(255, 20, 255);
       break;
@@ -601,8 +584,8 @@ function draw() {
     case 4:
       //nivel 2
 
-      if(frameCount%60 == 0){
-        tiempoNivelDos ++;
+      if (frameCount % 60 == 0) {
+        tiempoNivelDos++;
       }
 
       image(fondoN1, 0, 0, windowWidth, windowHeight);
@@ -674,14 +657,12 @@ function draw() {
         });
       }
 
-
-
       break;
     case 6:
       //nivel 4
 
-      if(frameCount%60 == 0){
-        tiempoNivelcuatro ++;
+      if (frameCount % 60 == 0) {
+        tiempoNivelcuatro++;
       }
 
       image(fondoN2, 0, 0, windowWidth, windowHeight);
@@ -774,8 +755,8 @@ function draw() {
     case 8:
       //nivel 6
 
-      if(frameCount%60 == 0){
-        tiempoNivelseis ++;
+      if (frameCount % 60 == 0) {
+        tiempoNivelseis++;
       }
 
       image(fondoN3, 0, 0, windowWidth, windowHeight);
@@ -828,12 +809,11 @@ function draw() {
       endGameButton.style("display", "block");
 
       fill(255);
-  textSize(20);
-  text(`Score: ${score}`, windowHeight / 2 - 300, windowWidth / 4 - 200);
+      textSize(35);
+      text(`Score: ${score}`, windowWidth / 2-50, windowHeight / 2-160 );
 
       break;
   }
-
 }
 
 /* function timeOut(metodo) {
